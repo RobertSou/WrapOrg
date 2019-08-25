@@ -1,0 +1,46 @@
+body
+    margin: 20px
+    background-color: $silver
+    overflow-x: hidden
+
+main#mHomePage
+    position: relative
+    width: 100%
+    display: grid
+    grid-template-rows: repeat(2, 100vh)
+    grid-template-columns: 1fr
+    grid-gap: 20px
+    justify-content: center
+    align-items: center
+    
+    #mboxDoar
+        min-width: 100%
+        min-height: 100%
+        background-color: $navy
+        display: flex
+        align-items: center
+        justify-content: center
+
+    #mboxOng
+        min-width: 100%
+        min-height: 100%
+        background-color: $navy
+        display: flex
+        align-items: center
+        justify-content: center
+
+    #mLogo
+        display: block
+        width: 150px
+        height: 150px
+        background-color: $aqua
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+@media screen and (min-width: 768px)
+    main#mHomePage
+        grid-template-rows: calc(100vh - 40px)
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 20px

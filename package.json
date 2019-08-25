@@ -1,0 +1,19 @@
+{
+  "name": "wraporg",
+  "version": "1.0.0",
+  "description": "TCC",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon start",
+    "production": "npm start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "firebase": "^6.4.0",
+    "pug": "^2.0.4"
+  }
+}

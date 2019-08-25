@@ -1,0 +1,36 @@
+body
+    background-color: $silver
+    overflow-x: hidden
+
+
+main#mSignPage
+    width: 100%
+    height: calc(100vh - 40px)
+    display: grid
+    #leftContainer
+        display: grid
+        grid-template-rows: 50px 1fr
+        #boxGoToLoginOng
+            display: block
+            width: 50px
+            height: 50px
+            background-color: red
+        #boxLogin
+            display: block
+            align-self: center
+            justify-self: center
+            form
+                min-width: 250px
+                display: flex
+                flex-direction: column
+        #boxRegister
+            display: none
+            align-self: center
+            justify-self: center
+            form
+                min-width: 250px
+                display: flex
+                flex-direction: column
+
+    #rightContainer
+        display: none
