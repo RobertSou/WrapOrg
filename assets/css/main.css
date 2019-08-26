@@ -436,7 +436,7 @@ main#mSignPage {
       height: 50px;
       background-color: red; }
     main#mSignPage #leftContainer #boxLogin {
-      display: block;
+      display: none;
       align-self: center;
       justify-self: center; }
       main#mSignPage #leftContainer #boxLogin form {
@@ -444,7 +444,7 @@ main#mSignPage {
         display: flex;
         flex-direction: column; }
     main#mSignPage #leftContainer #boxRegister {
-      display: none;
+      display: block;
       align-self: center;
       justify-self: center; }
       main#mSignPage #leftContainer #boxRegister form {
