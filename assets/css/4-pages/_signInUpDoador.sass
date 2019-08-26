@@ -1,36 +1,116 @@
 body
-    background-color: $silver
+    background-color: #eeeeee
     overflow-x: hidden
-
 
 main#mSignPage
     width: 100%
     height: calc(100vh - 40px)
     display: grid
+    grid-template-columns: 1fr
     #leftContainer
         display: grid
         grid-template-rows: 50px 1fr
         #boxGoToLoginOng
             display: block
-            width: 50px
-            height: 50px
-            background-color: red
+            width: 25px
+            height: 25px
+            background-color: lighten($blue, 47%)
+            padding: 5px
+            border-radius: 4px
+            img
+                max-width: 100%
         #boxLogin
+            align-self: center
+            justify-self: center
+            height: 100%
             display: none
-            align-self: center
-            justify-self: center
-            form
-                min-width: 250px
-                display: flex
-                flex-direction: column
+            flex-direction: column
+            justify-content: space-around
+            // > para alinhar apenas o p que é filho direto do boxRegister
+            > p
+                text-align: center
         #boxRegister
-            display: block
             align-self: center
             justify-self: center
-            form
-                min-width: 250px
-                display: flex
-                flex-direction: column
-
+            height: 100%
+            display: none
+            flex-direction: column
+            justify-content: space-around
+            // > para alinhar apenas o p que é filho direto do boxRegister
+            > p
+                text-align: center
     #rightContainer
         display: none
+
+header.HeaderDoador
+    h1
+        margin: 0
+        font-size: 3.6em
+    p
+        font-size: 1.3em
+
+form.formDoador
+    min-width: 250px
+    display: flex
+    flex-direction: column
+    input
+        margin-bottom: 15px
+    input[type^="text"],
+    input[type^="email"],
+    input[type^="password"],
+    input[type^="number"]
+        border-radius: 2px
+        padding: 13px 15px
+        border: 1px solid $blue
+        &::placeholder
+            color: $blue
+
+    input[type^="submit"]
+        border: none
+        background-color: $blue
+        &:hover
+            color: $aqua
+
+@media screen and (min-width: 768px)
+    main#mSignPage
+        grid-template-columns: 1fr 1fr
+        #leftContainer
+            form.formDoador
+                width: 70%
+                margin: 0 auto
+        #rightContainer
+            display: block
+            background-color: $blue
+
+
+@media screen and (min-width: 1365px)
+    main#mSignPage
+        #leftContainer
+            form.formDoador
+                width: 60%
+
+@media screen and (min-width: 1465px)
+    main#mSignPage
+        #leftContainer
+            form.formDoador
+                width: 55%
+
+@media screen and (min-width: 1665px)
+    main#mSignPage
+        #leftContainer
+            form.formDoador
+                width: 50%
+
+
+.showForm
+    display: flex !important
+    -moz-animation: opacityForm 1s ease-in-out
+    -webkit-animation: opacityForm 1s ease-in-out
+    animation: opacityForm 1s ease-in-out
+
+
+@keyframes opacityForm
+    0% 
+        opacity: 0
+    100% 
+        opacity: 1

@@ -207,10 +207,10 @@ body {
   -webkit-text-size-adjust: 100%; }
 
 ::selection {
-  background: #FFF498; }
+  background: #0074D9; }
 
 ::-moz-selection {
-  background: #FFF498; }
+  background: #0074D9; }
 
 img::selection {
   background: transparent; }
@@ -219,7 +219,7 @@ img::-moz-selection {
   background: transparent; }
 
 body {
-  -webkit-tap-highlight-color: #FFF498; }
+  -webkit-tap-highlight-color: #0074D9; }
 
 a {
   color: #0074D9;
@@ -420,38 +420,105 @@ main#mHomePage {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px; } }
 body {
-  background-color: #ddd;
+  background-color: #eeeeee;
   overflow-x: hidden; }
 
 main#mSignPage {
   width: 100%;
   height: calc(100vh - 40px);
-  display: grid; }
+  display: grid;
+  grid-template-columns: 1fr; }
   main#mSignPage #leftContainer {
     display: grid;
     grid-template-rows: 50px 1fr; }
     main#mSignPage #leftContainer #boxGoToLoginOng {
       display: block;
-      width: 50px;
-      height: 50px;
-      background-color: red; }
+      width: 25px;
+      height: 25px;
+      background-color: #cae6ff;
+      padding: 5px;
+      border-radius: 4px; }
+      main#mSignPage #leftContainer #boxGoToLoginOng img {
+        max-width: 100%; }
     main#mSignPage #leftContainer #boxLogin {
+      align-self: center;
+      justify-self: center;
+      height: 100%;
       display: none;
-      align-self: center;
-      justify-self: center; }
-      main#mSignPage #leftContainer #boxLogin form {
-        min-width: 250px;
-        display: flex;
-        flex-direction: column; }
+      flex-direction: column;
+      justify-content: space-around; }
+      main#mSignPage #leftContainer #boxLogin > p {
+        text-align: center; }
     main#mSignPage #leftContainer #boxRegister {
-      display: block;
       align-self: center;
-      justify-self: center; }
-      main#mSignPage #leftContainer #boxRegister form {
-        min-width: 250px;
-        display: flex;
-        flex-direction: column; }
+      justify-self: center;
+      height: 100%;
+      display: none;
+      flex-direction: column;
+      justify-content: space-around; }
+      main#mSignPage #leftContainer #boxRegister > p {
+        text-align: center; }
   main#mSignPage #rightContainer {
     display: none; }
+
+header.HeaderDoador h1 {
+  margin: 0;
+  font-size: 3.6em; }
+header.HeaderDoador p {
+  font-size: 1.3em; }
+
+form.formDoador {
+  min-width: 250px;
+  display: flex;
+  flex-direction: column; }
+  form.formDoador input {
+    margin-bottom: 15px; }
+  form.formDoador input[type^="text"],
+  form.formDoador input[type^="email"],
+  form.formDoador input[type^="password"],
+  form.formDoador input[type^="number"] {
+    border-radius: 2px;
+    padding: 13px 15px;
+    border: 1px solid #0074D9; }
+    form.formDoador input[type^="text"]::placeholder,
+    form.formDoador input[type^="email"]::placeholder,
+    form.formDoador input[type^="password"]::placeholder,
+    form.formDoador input[type^="number"]::placeholder {
+      color: #0074D9; }
+  form.formDoador input[type^="submit"] {
+    border: none;
+    background-color: #0074D9; }
+    form.formDoador input[type^="submit"]:hover {
+      color: #7FDBFF; }
+
+@media screen and (min-width: 768px) {
+  main#mSignPage {
+    grid-template-columns: 1fr 1fr; }
+    main#mSignPage #leftContainer form.formDoador {
+      width: 70%;
+      margin: 0 auto; }
+    main#mSignPage #rightContainer {
+      display: block;
+      background-color: #0074D9; } }
+@media screen and (min-width: 1365px) {
+  main#mSignPage #leftContainer form.formDoador {
+    width: 60%; } }
+@media screen and (min-width: 1465px) {
+  main#mSignPage #leftContainer form.formDoador {
+    width: 55%; } }
+@media screen and (min-width: 1665px) {
+  main#mSignPage #leftContainer form.formDoador {
+    width: 50%; } }
+.showForm {
+  display: flex !important;
+  -moz-animation: opacityForm 1s ease-in-out;
+  -webkit-animation: opacityForm 1s ease-in-out;
+  animation: opacityForm 1s ease-in-out; }
+
+@keyframes opacityForm {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 /*# sourceMappingURL=main.css.map */

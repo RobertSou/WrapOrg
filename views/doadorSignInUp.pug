@@ -5,22 +5,32 @@ html
         main#mSignPage
             #leftContainer
                 #boxGoToLoginOng
-                header#Header
-                    h1 Quero doar
-                    p Se você quer doar e não sabe como, aqui é a maneira mais fácil de fazer isso.
-                #boxLogin
-                    form(action="/login", method="post")
+                    a(href="#")
+                        img(src="/images/arrow.svg", alt="Logar como ONG")
+                div(id="boxLogin" class="showForm")
+                    header.HeaderDoador
+                        h1 Login - Quero doar
+                        p Se você quer doar e não sabe como, aqui é a maneira mais fácil de fazer isso.
+                    form.formDoador(action="/login", method="post")
                         input#EmailLogin(type="email", name="email" placeholder="Digite um email")
                         input#PasswordLogin(type="password", name="password" placeholder="Digite uma senha")
                         input(type="submit", value="Entrar")
                     p Não tem uma conta? 
-                        a(href="#") Criar Conta.
-                #boxRegister
-                    form(action="/register", method="post")
+                        a(href="#" onClick="ClickdoadorSignInUp()") Criar Conta.
+                iv(id="boxRegister")
+                    header.HeaderDoador
+                        h1 Registro - Quero doar
+                        p Se você quer doar e não sabe como, aqui é a maneira mais fácil de fazer isso.
+                    form.formDoador(action="/register", method="post")
+                        input#nome(type="text", name="text" placeholder="Digite seu nome completo")
                         input#EmailRegister(type="email", name="email" placeholder="Digite um email")
                         input#PasswordRegister(type="password", name="password" placeholder="Digite uma senha")
                         input#RPasswordRegister(type="password", name="rpassword" placeholder="Digite sua senha novamente")
                         input(type="submit", value="Entrar")
-                    p Já tem uma conta? 
-                        a(href="#") Fazer login.
+                    p Já tem uma conta?
+                        a(href="#" onClick="ClickdoadorSignInUp()") Fazer login.
             #rightContainer
+                img(src="#", alt="Background ong login/registro")
+    
+
+    script(src="/js/main.js")
