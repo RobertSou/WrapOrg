@@ -11,7 +11,7 @@ html
                     header.HeaderDoador
                         h1 Login - Quero doar
                         p Se você quer doar e não sabe como, aqui é a maneira mais fácil de fazer isso.
-                    form.formDoador(action="/login", method="post")
+                    form.formDoador(action="/doador/login", method="post")
                         input#EmailLogin(type="email", name="email" placeholder="Digite um email")
                         input#PasswordLogin(type="password", name="password" placeholder="Digite uma senha")
                         input(type="submit", value="Entrar")
@@ -21,7 +21,7 @@ html
                     header.HeaderDoador
                         h1 Registro - Quero doar
                         p Se você quer doar e não sabe como, aqui é a maneira mais fácil de fazer isso.
-                    form.formDoador(action="/register", method="post")
+                    form.formDoador(action="/doador/register", method="post")
                         input#nome(type="text", name="text" placeholder="Digite seu nome completo")
                         input#EmailRegister(type="email", name="email" placeholder="Digite um email")
                         input#PasswordRegister(type="password", name="password" placeholder="Digite uma senha")
@@ -30,7 +30,6 @@ html
                     p Já tem uma conta?
                         a(href="#" onClick="ClickdoadorSignInUp()") Fazer login.
             #rightContainer
-                img(src="#", alt="Background ong login/registro")
     
 
     script(src="/js/main.js")

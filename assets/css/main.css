@@ -378,7 +378,7 @@ input[type="button"] {
 
 body {
   margin: 20px;
-  background-color: #ddd;
+  background-color: #fff;
   overflow-x: hidden; }
 
 main#mHomePage {
@@ -393,17 +393,25 @@ main#mHomePage {
   main#mHomePage #mboxDoar {
     min-width: 100%;
     min-height: 100%;
-    background-color: #001F3F;
+    background-color: #cecece;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    background-image: url("../images/doacao.svg");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center; }
   main#mHomePage #mboxOng {
     min-width: 100%;
     min-height: 100%;
-    background-color: #001F3F;
+    background-color: #cecece;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    background-image: url("../images/ong.svg");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center; }
   main#mHomePage #mLogo {
     display: block;
     width: 150px;
@@ -459,7 +467,11 @@ main#mSignPage {
       main#mSignPage #leftContainer #boxRegister > p {
         text-align: center; }
   main#mSignPage #rightContainer {
-    display: none; }
+    display: none;
+    background-image: url("../images/doador.svg");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center; }
 
 header.HeaderDoador h1 {
   margin: 0;
