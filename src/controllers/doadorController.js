@@ -1,24 +1,28 @@
 const auth = require('../../firebase');
 
 module.exports = {
-  renderDoador(req, res) {
-    res.render("doadorSignInUp");
+  renderDoadorLogin(req, res) {
+    res.render("doadorLogin");
+  },
+  renderDoadorRegistro(req, res){
+    res.render("doadorRegistro");
   },
   async loginDoador(req, res) {
     let { email, password } = req.body;
     try{
-      let user = await auth.doadorLogin(email, password);
+      let response = await auth.doadorLogin(email, password);
       //TODO: handler erros and redict the user
-      console.log(user);
-      res.redirect('/dashboard');
+      if(response.err) return res.status(500).send(response.err);
+      res.redirect('/dashboard', {userName: userName.displayName});
     }catch(e){
       console.log(e);
     }
   },
   async registerDoador(req, res) {
     let {name, email, password, rpassword} = req.body;
-    let user = await auth.doadorRegister(name, email, password, rpassword);
+    let response = await auth.doadorRegister(name, email, password, rpassword);
     //TODO: handler erros and redict the user
-    res.redirect('/dashboard', user);
+    console.log(response);
+    res.redirect('/dashboard', {userData: response.user});
   },
 };

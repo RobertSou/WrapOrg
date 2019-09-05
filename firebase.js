@@ -1,6 +1,5 @@
 const firebase = require("firebase");
 
-
 let firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
@@ -14,13 +13,13 @@ let firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 let auth = firebase.auth();
-let firestore = firebase.firestore();
+let db = firebase.firestore();
 
 module.exports.doadorRegister = async (name, email, password, rpassword) => {
-  if(password != rpassword) return {err: "A senha não bate" };
-  await auth.createUserWithEmailAndPassword(email, password).then((user) => {
-    let userUid = auth.currentUser.uid;
-    let db = firestore;
+  try{
+    if(password != rpassword) return { err : "As senhas não batem"};
+    let response = await auth.createUserWithEmailAndPassword(email, password);
+    let userUid = response.user.uid;
     db.collection('doadores').doc(userUid).set({
         email,
         emailVertified: false,
@@ -30,7 +29,7 @@ module.exports.doadorRegister = async (name, email, password, rpassword) => {
         password,
     });
     return JSON.stringify(user);
-  }).catch((e) => {
+  }catch(e) {
     let errorCode = e.code;
     let errorMsg = e.message;
     if (errorCode == "auth/weak-password") {
@@ -40,25 +39,23 @@ module.exports.doadorRegister = async (name, email, password, rpassword) => {
     } else {
       return { err: errorMsg };
     }
-  });
+  };
 };
 
 module.exports.doadorLogin = async (email, password) => {
-  await auth.signInWithEmailAndPassword(email, password).then((user) => {
-    // Get the user data from the database.
-    let db = firestore.collection('doadores').doc(user.uid);
-    return user;
-  }).catch((e) => {
+  try{
+    let response = await auth.signInWithEmailAndPassword(email, password);
+    let dbUser = db.collection('doadores').doc(response.user.uid);
+    return response.user;
+  }catch(e){
     let errorCode = e.code;
     let errorMsg = e.message;
     if (errorCode == "auth/wrong-password") {
       return { err: "A senha está errada" };
-    } else if(errorCode == "auth/email-already-in-use"){
-      return { err: "O email já está em uso" };
     } else {
       return { err: errorMsg };
     }
-  });
+  };
 };
 
 return module.exports;

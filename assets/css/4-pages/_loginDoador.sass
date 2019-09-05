@@ -1,0 +1,77 @@
+body
+    margin: 0
+    overflow-x: hidden
+    #backBtn
+        position: absolute
+        top: 30px
+        right: 30px
+    #mLoginWrapper
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 100vh
+        background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%)
+        #boxLogin
+            width: calc(100% - 30px)
+            height: calc(100vh - 30px)
+            display: grid
+            grid-template-rows: 0.5fr 1fr
+            background-color: $defaultLightGrey
+            padding: 15px
+            .HeaderDoador
+                h1, h4
+                    margin: 0
+                h1
+                    font-family: 'UbuntuBold', sans-serif
+                h4
+                    font-family: 'UbuntuLight', sans-serif
+            #form
+                display: flex
+                flex-direction: column
+                h2
+                    font-family: 'UbuntuBold', sans-serif
+                    color: $defaultDarkOrange
+                    margin-bottom: 50px
+                form.formDoador
+                    input
+                        width: 100%
+                    input[type^="email"],
+                    input[type^="password"]
+                        height: 50px
+                        background: none
+                        border: 2px solid $defaultDarkOrange
+                        border-radius: 4px
+                        padding-left: 10px
+                        margin-bottom: 30px
+                        &::placeholder
+                            font-family: 'UbuntuLight', sans-serif
+                            font-size: 18px
+                            color: $defaultDarkGrey
+                    input[type^="submit"]
+                        background: $defaultDarkOrange
+                        margin-bottom: 50px
+                        &:hover
+                            color: $defaultLightGrey
+                p
+                    font-family: 'UbuntuBold', sans-serif
+                    font-size: 16px
+                    color: $defaultRed
+                    a
+                        color: $defaultDarkGrey
+
+@media screen and (min-width: 768px)
+    #boxLogin
+        width: 100%
+        grid-template-rows: 0.7fr 1fr
+        background-image: url(../images/doacao.svg)
+        background-repeat: no-repeat
+        background-size: 600px
+        background-position: 95% 95%
+        .HeaderDoador
+            align-self: center
+            h1, h4
+                text-align: center
+        div#form
+            margin-left: 250px
+            width: 370px

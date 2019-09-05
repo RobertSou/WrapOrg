@@ -1,54 +1,50 @@
+*
+    box-sizing: border-box
 body
-    margin: 20px
+    margin: 15px
     background-color: $white
     overflow-x: hidden
-
-main#mHomePage
-    position: relative
-    width: 100%
-    display: grid
-    grid-template-rows: repeat(2, 100vh)
-    grid-template-columns: 1fr
-    grid-gap: 20px
-    justify-content: center
-    align-items: center
-    
-    #mboxDoar
-        min-width: 100%
-        min-height: 100%
-        background-color: #cecece
-        display: flex
-        align-items: center
-        justify-content: center
-        background-image: url('../images/doacao.svg')
-        background-repeat: no-repeat
-        background-size: 70%
-        background-position: center
-
-    #mboxOng
-        min-width: 100%
-        min-height: 100%
-        background-color: #cecece
-        display: flex
-        align-items: center
-        justify-content: center
-        background-image: url('../images/ong.svg')
-        background-repeat: no-repeat
-        background-size: 70%
-        background-position: center
-
-    #mLogo
-        display: block
-        width: 150px
-        height: 150px
-        background-color: $aqua
-        position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
+    font-family: 'Ubuntu light'
+    #wrapper
+        width: calc(100% - 30px)
+        height: calc(100vh - 30px)
+        margin-left: 15px
+        margin-top: 15px
+        padding: 15px
+        background: linear-gradient(236.44deg, rgba(227, 91, 93, 0.8) 14.73%, rgba(241, 128, 82, 0.8) 97.66%)
+        img#HeaderLogo
+            position: absolute
+            top: 50px
+            left: 50px
+        main#mHomePage
+            height: 100%
+            display: grid
+            grid-template-rows: repeat(2, 1fr)
+            #mBoxArticle
+                display: flex
+                flex-direction: column
+                align-self: flex-end
+                img
+                    max-width: 85%
+                    margin: 0 auto
+                p
+                    text-align: center
+                    color: $white
+                    font-size: 20px
+                    font-family: 'UbuntuRegular', sans-serif
+            #mBoxBtns
+                display: flex
+                flex-direction: column
+                justify-self: center
+                align-self: center
+                a
+                    font-family: 'UbuntuMedium', sans-serif
+                >a:first-of-type
+                    margin-bottom: 50px
 
 @media screen and (min-width: 768px)
-    main#mHomePage
-        grid-template-rows: calc(100vh - 40px)
-        grid-template-columns: repeat(2, 1fr)
-        grid-gap: 20px
+    #mBoxBtns
+        flex-direction: row !important
+        >a:first-of-type
+            margin-bottom: 0 !important
+            margin-right: 50px

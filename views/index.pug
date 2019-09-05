@@ -2,10 +2,12 @@ doctype html
 html
     include partials/header.pug
     body
-        main#mHomePage
-            #mboxDoar
-                a.btndefault(href="/doador") QUERO DOAR
-            #mLogo
-                img(src="../images/logo.svg", alt="WrapOrg logo")
-            #mboxOng
-                a.btndefault(href="#") REPRESENTO UMA ONG
+        div#wrapper
+            img#HeaderLogo(src="../images/Logo.svg", alt="WrapOrg logo")
+            main#mHomePage
+                #mBoxArticle
+                    img(src="../images/Logotipo.svg", alt="WrapOrg logo Tipo")
+                    p Nós ajudamos e facilitamos a conexão entre doadores e ongs.
+                #mBoxBtns
+                    a.btndefault(href="/doador/login") QUERO DOAR
+                    a.btndefault(href="#") REPRESENTO UMA ONG
