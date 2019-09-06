@@ -19,10 +19,10 @@ module.exports = {
     }
   },
   async registerDoador(req, res) {
-    let {name, email, password, rpassword} = req.body;
-    let response = await auth.doadorRegister(name, email, password, rpassword);
+    let {name, email, password, rpassword} = req.body
+    let response = await auth.doadorRegister(name, email, password, rpassword)
     //TODO: handler erros and redict the user
-    console.log(response);
-    res.redirect('/dashboard', {userData: response.user});
+    console.log(response)
+    res.redirect('/dashboard')
   },
 };

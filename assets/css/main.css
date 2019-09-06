@@ -460,17 +460,14 @@ body {
           color: #f18052;
           margin-bottom: 50px; }
         body #mLoginWrapper #boxLogin #form form.formDoador input {
-          width: 100%; }
-        body #mLoginWrapper #boxLogin #form form.formDoador input[type^="email"],
-        body #mLoginWrapper #boxLogin #form form.formDoador input[type^="password"] {
+          width: 100%;
           height: 50px;
           background: none;
           border: 2px solid #f18052;
           border-radius: 4px;
           padding-left: 10px;
           margin-bottom: 30px; }
-          body #mLoginWrapper #boxLogin #form form.formDoador input[type^="email"]::placeholder,
-          body #mLoginWrapper #boxLogin #form form.formDoador input[type^="password"]::placeholder {
+          body #mLoginWrapper #boxLogin #form form.formDoador input::placeholder {
             font-family: "UbuntuLight", sans-serif;
             font-size: 18px;
             color: #212121; }
@@ -536,19 +533,14 @@ body {
           color: #f18052;
           margin-bottom: 50px; }
         body #mRegistroWrapper #boxRegistro #form form.formDoador input {
-          width: 100%; }
-        body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="text"],
-        body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="email"],
-        body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="password"] {
+          width: 100%;
           height: 50px;
           background: none;
           border: 2px solid #f18052;
           border-radius: 4px;
           padding-left: 10px;
           margin-bottom: 30px; }
-          body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="text"]::placeholder,
-          body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="email"]::placeholder,
-          body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="password"]::placeholder {
+          body #mRegistroWrapper #boxRegistro #form form.formDoador input::placeholder {
             font-family: "UbuntuLight", sans-serif;
             font-size: 18px;
             color: #212121; }
@@ -577,6 +569,155 @@ body {
         text-align: center; }
     #boxRegistro div#form {
       margin-left: 250px;
+      width: 370px; } }
+body {
+  margin: 0;
+  overflow-x: hidden; }
+  body #backBtn {
+    position: absolute;
+    top: 30px;
+    right: 30px; }
+  body #mOngLoginWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%); }
+    body #mOngLoginWrapper #boxOngLogin {
+      width: calc(100% - 30px);
+      height: calc(100vh - 30px);
+      display: grid;
+      grid-template-rows: 0.5fr 1fr;
+      background-color: #FBFBFB;
+      padding: 15px; }
+      body #mOngLoginWrapper #boxOngLogin .HeaderDoador h1, body #mOngLoginWrapper #boxOngLogin .HeaderDoador h4 {
+        margin: 0; }
+      body #mOngLoginWrapper #boxOngLogin .HeaderDoador h1 {
+        font-family: "UbuntuBold", sans-serif; }
+      body #mOngLoginWrapper #boxOngLogin .HeaderDoador h4 {
+        font-family: "UbuntuLight", sans-serif; }
+      body #mOngLoginWrapper #boxOngLogin #form {
+        display: flex;
+        flex-direction: column; }
+        body #mOngLoginWrapper #boxOngLogin #form h2 {
+          font-family: "UbuntuBold", sans-serif;
+          color: #f18052;
+          margin-bottom: 50px; }
+        body #mOngLoginWrapper #boxOngLogin #form form.formDoador input {
+          width: 100%;
+          height: 50px;
+          background: none;
+          border: 2px solid #f18052;
+          border-radius: 4px;
+          padding-left: 10px;
+          margin-bottom: 30px; }
+          body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::placeholder {
+            font-family: "UbuntuLight", sans-serif;
+            font-size: 18px;
+            color: #212121; }
+        body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^="submit"] {
+          background: #f18052;
+          margin-bottom: 50px; }
+          body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^="submit"]:hover {
+            color: #FBFBFB; }
+        body #mOngLoginWrapper #boxOngLogin #form p {
+          font-family: "UbuntuBold", sans-serif;
+          font-size: 16px;
+          color: #e35b5d; }
+          body #mOngLoginWrapper #boxOngLogin #form p a {
+            color: #212121; }
+
+@media screen and (min-width: 768px) {
+  #boxOngLogin {
+    width: 100%;
+    grid-template-rows: 0.7fr 1fr;
+    background-image: url(../images/comunidade.svg);
+    background-repeat: no-repeat;
+    background-size: 600px;
+    background-position: 5% 95%; }
+    #boxOngLogin .HeaderDoador {
+      align-self: center; }
+      #boxOngLogin .HeaderDoador h1, #boxOngLogin .HeaderDoador h4 {
+        text-align: center; }
+    #boxOngLogin div#form {
+      align-self: center;
+      justify-self: flex-end;
+      margin-right: 250px;
+      width: 370px; } }
+body {
+  margin: 0;
+  overflow-x: hidden; }
+  body #backBtn {
+    position: absolute;
+    top: 30px;
+    right: 30px; }
+  body #mOngRegistroWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%); }
+    body #mOngRegistroWrapper #boxOngRegistro {
+      width: calc(100% - 30px);
+      height: calc(100vh - 30px);
+      display: grid;
+      grid-template-rows: auto;
+      background-color: #FBFBFB;
+      padding: 15px; }
+      body #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h1, body #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h4 {
+        margin: 0; }
+      body #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h1 {
+        font-family: "UbuntuBold", sans-serif; }
+      body #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h4 {
+        font-family: "UbuntuLight", sans-serif; }
+      body #mOngRegistroWrapper #boxOngRegistro #form {
+        display: flex;
+        flex-direction: column; }
+        body #mOngRegistroWrapper #boxOngRegistro #form h2 {
+          font-family: "UbuntuBold", sans-serif;
+          color: #f18052;
+          margin-bottom: 50px; }
+        body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input {
+          width: 100%;
+          height: 50px;
+          background: none;
+          border: 2px solid #f18052;
+          border-radius: 4px;
+          padding-left: 10px;
+          margin-bottom: 30px; }
+          body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input::placeholder {
+            font-family: "UbuntuLight", sans-serif;
+            font-size: 18px;
+            color: #212121; }
+        body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input[type^="submit"] {
+          background: #f18052;
+          margin-bottom: 50px; }
+          body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input[type^="submit"]:hover {
+            color: #FBFBFB; }
+        body #mOngRegistroWrapper #boxOngRegistro #form p {
+          font-family: "UbuntuBold", sans-serif;
+          font-size: 16px;
+          color: #e35b5d; }
+          body #mOngRegistroWrapper #boxOngRegistro #form p a {
+            color: #212121; }
+
+@media screen and (min-width: 768px) {
+  #boxOngRegistro {
+    grid-template-rows: repeat(2, 1fr) !important;
+    background-image: url(../images/comunidade.svg);
+    background-repeat: no-repeat;
+    background-size: 600px;
+    background-position: 5% 95%; }
+    #boxOngRegistro .HeaderDoador {
+      align-self: center; }
+      #boxOngRegistro .HeaderDoador h1, #boxOngRegistro .HeaderDoador h4 {
+        text-align: center; }
+    #boxOngRegistro div#form {
+      align-self: center;
+      justify-self: flex-end;
+      margin-right: 250px;
       width: 370px; } }
 
 /*# sourceMappingURL=main.css.map */

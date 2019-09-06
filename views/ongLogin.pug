@@ -1,0 +1,21 @@
+doctype html
+html
+    include partials/header.pug
+    body
+        #backBtn
+            a(href="/")
+                img(src="/images/back.svg", alt="Back button")
+        main#mOngLoginWrapper
+            div(id="boxOngLogin")
+                header.HeaderDoador
+                    h1 Bem vindo ONG
+                    h4 Sua ONG precisa de uma ajuda para arrecadar doações e achar doadores? nós podemos ajudar.
+                div#form
+                    h2 Login
+                    form.formDoador(action="/ong/login", method="post")
+                        input#EmailLogin(type="email", name="email" placeholder="Digite seu email")
+                        input#PasswordLogin(type="password", name="password" placeholder="Digite sua senha")
+                        input(type="submit", value="Entrar")
+                    p Não tem uma conta?
+                        a(href="/ong/registro") Criar Conta.
+    script(src="/js/main.js")

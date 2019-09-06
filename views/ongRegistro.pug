@@ -5,19 +5,20 @@ html
         #backBtn
             a(href="/")
                 img(src="/images/back.svg", alt="Back button")
-        main#mRegistroWrapper
-            div(id="boxRegistro")
+        main#mOngRegistroWrapper
+            div(id="boxOngRegistro")
                 header.HeaderDoador
-                    h1 Bem vindo Doador(a)
-                    h4 Se você quer doar e não sabe como, aqui é a maneira mais fácil de fazer isso.
+                    h1 Bem vindo ONG
+                    h4 Sua ONG precisa de uma ajuda para arrecadar doações e achar doadores? nós podemos ajudar.
                 div#form
                     h2 Registro
-                    form.formDoador(action="/doador/registro", method="post")
+                    form.formDoador(action="/ong/registro", method="post")
                         input#nome(type="text", name="text" placeholder="Digite seu nome completo")
+                        input#cnpj(type="number", name="text" placeholder="Digite seu CNPJ")
                         input#EmailRegister(type="email", name="email" placeholder="Digite um email")
                         input#PasswordRegister(type="password", name="password" placeholder="Digite uma senha")
                         input#RPasswordRegister(type="password", name="rpassword" placeholder="Digite sua senha novamente")
                         input(type="submit", value="REGISTRAR")
                     p Já tem uma conta?
-                        a(href="/doador/login") Fazer login.
+                        a(href="/ong/login") Fazer login.
     script(src="/js/main.js")

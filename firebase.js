@@ -1,4 +1,4 @@
-const firebase = require("firebase");
+const firebase = require("firebase")
 
 let firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -8,54 +8,52 @@ let firebaseConfig = {
   storageBucket: process.env.STORAGE_BUCKET,
   messagingSenderId: process.env.MESSAGING_SENDER_ID,
   appId: process.env.APP_ID
-};
+}
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig)
 
-let auth = firebase.auth();
-let db = firebase.firestore();
-
-module.exports.doadorRegister = async (name, email, password, rpassword) => {
-  try{
-    if(password != rpassword) return { err : "As senhas não batem"};
-    let response = await auth.createUserWithEmailAndPassword(email, password);
-    let userUid = response.user.uid;
-    db.collection('doadores').doc(userUid).set({
-        email,
-        emailVertified: false,
-        name,
-        online: false,
-        onlock: false,
-        password,
-    });
-    return JSON.stringify(user);
-  }catch(e) {
-    let errorCode = e.code;
-    let errorMsg = e.message;
-    if (errorCode == "auth/weak-password") {
-      return { err: "A senha é muito fraca" };
-    } else if(errorCode == "auth/email-already-in-use"){
-      return { err: "O email já está em uso" };
-    } else {
-      return { err: errorMsg };
-    }
-  };
-};
+let auth = firebase.auth()
+let db = firebase.firestore()
 
 module.exports.doadorLogin = async (email, password) => {
+  let ErrArray = []
   try{
-    let response = await auth.signInWithEmailAndPassword(email, password);
-    let dbUser = db.collection('doadores').doc(response.user.uid);
-    return response.user;
+    let response = await auth.signInWithEmailAndPassword(email, password)
+    //let dbUser = db.collection('doadores').doc(response.user.uid)
+    return response.user
   }catch(e){
-    let errorCode = e.code;
-    let errorMsg = e.message;
-    if (errorCode == "auth/wrong-password") {
-      return { err: "A senha está errada" };
-    } else {
-      return { err: errorMsg };
-    }
-  };
-};
+    let errorCode = e.code
+    let errorMsg = e.message
+    if (errorCode == "auth/wrong-password")
+      ErrArray.push({ passwordWrongError: "A senha está errada" })
+    else ErrArray.push({ othersErrors: errorMsg })
+  }
+}
 
-return module.exports;
+module.exports.doadorRegister = async (name, email, password, rpassword) => {
+
+  let ErrArray = []
+  if(password != rpassword) return ErrArray.push({ passwordMatchError: "As senhas não batem"})
+  await auth.createUserWithEmailAndPassword(email, password).then(res => {
+    db.collection('doadores').doc(res.user.uid).set({
+      email: email,
+      emailVertified: false,
+      name: name,
+      online: false,
+      onlock: false,
+    })
+    return res.user;
+  }).catch(e => {
+    let eCode = e.code
+    let eMsg = e.message
+    if (eCode == "auth/weak-password") 
+      ErrArray.push({ passwordWeakError: "A senha é muito fraca" })
+    else if (eCode == "auth/email-already-in-use")
+      ErrArray.push({ emailInUseError: "O email já está em uso" })
+    else
+      ErrArray.push({ othersErrors: eMsg })
+    return ErrArray
+  })
+}
+
+return module.exports

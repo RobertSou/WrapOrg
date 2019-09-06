@@ -5,18 +5,18 @@ body
         position: absolute
         top: 30px
         right: 30px
-    #mRegistroWrapper
+    #mOngLoginWrapper
         display: flex
         justify-content: center
         align-items: center
         width: 100%
-        min-height: 100vh
+        height: 100vh
         background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%)
-        #boxRegistro
+        #boxOngLogin
             width: calc(100% - 30px)
             height: calc(100vh - 30px)
             display: grid
-            grid-template-rows: auto
+            grid-template-rows: 0.5fr 1fr
             background-color: $defaultLightGrey
             padding: 15px
             .HeaderDoador
@@ -59,17 +59,19 @@ body
                         color: $defaultDarkGrey
 
 @media screen and (min-width: 768px)
-    #boxRegistro
-        grid-template-rows: repeat(2, 1fr) !important
-        background-image: url(../images/doacao.svg)
+    #boxOngLogin
+        width: 100%
+        grid-template-rows: 0.7fr 1fr
+        background-image: url(../images/comunidade.svg)
         background-repeat: no-repeat
         background-size: 600px
-        background-position: 95% 95%
+        background-position: 5% 95%
         .HeaderDoador
             align-self: center
             h1, h4
                 text-align: center
         div#form
-            //align-self: flex-end
-            margin-left: 250px
+            align-self: center
+            justify-self: flex-end
+            margin-right: 250px
             width: 370px
