@@ -13,12 +13,37 @@ html
                 div#form
                     h2 Registro
                     form.formDoador(action="/ong/registro", method="post")
-                        input#nome(type="text", name="text" placeholder="Digite seu nome completo")
-                        input#cnpj(type="number", name="text" placeholder="Digite seu CNPJ")
-                        input#EmailRegister(type="email", name="email" placeholder="Digite um email")
-                        input#PasswordRegister(type="password", name="password" placeholder="Digite uma senha")
-                        input#RPasswordRegister(type="password", name="rpassword" placeholder="Digite sua senha novamente")
-                        input(type="submit", value="REGISTRAR")
+                        input#nome(
+                            type="text"
+                            required="required"
+                            name="nome"
+                            placeholder="Digite seu nome completo"
+                        )
+                        input#cnpj(
+                            type="text"
+                            required="required"
+                            name="cnpj"
+                            placeholder="Digite seu CNPJ"
+                        )
+                        input#EmailRegister(
+                            type="email"
+                            required="required"
+                            name="email"
+                            placeholder="Digite um email"
+                        )
+                        input#PasswordRegister(
+                            type="password"
+                            required="required"
+                            name="password"
+                            placeholder="Digite uma senha"
+                        )
+                        input#RPasswordRegister(
+                            type="password"
+                            required="required"
+                            name="rpassword"
+                            placeholder="Digite sua senha novamente"
+                        )
+                        input(type="submit" value="REGISTRAR")
                     p Já tem uma conta?
                         a(href="/ong/login") Fazer login.
     script(src="/js/main.js")

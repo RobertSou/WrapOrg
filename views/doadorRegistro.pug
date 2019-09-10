@@ -13,11 +13,32 @@ html
                 div#form
                     h2 Registro
                     form.formDoador(action="/doador/registro", method="post")
-                        input#nome(type="text", name="text" placeholder="Digite seu nome completo")
-                        input#EmailRegister(type="email", name="email" placeholder="Digite um email")
-                        input#PasswordRegister(type="password", name="password" placeholder="Digite uma senha")
-                        input#RPasswordRegister(type="password", name="rpassword" placeholder="Digite sua senha novamente")
-                        input(type="submit", value="REGISTRAR")
+                        include partials/messages.pug
+                        input#nome(
+                            type="text"
+                            name="name"
+                            placeholder="Digite seu nome completo"
+                            value=typeof name != 'undefined' ? name : ''
+                        )
+                        input#EmailRegister(
+                            type="email"
+                            name="email"
+                            placeholder="Digite um email"
+                            value=typeof email != 'undefined' ? email : ''
+                        )
+                        input#PasswordRegister(
+                            type="password"
+                            name="password"
+                            placeholder="Digite uma senha"
+                            value=typeof password != 'undefined' ? password : ''
+                        )
+                        input#RPasswordRegister(
+                            type="password"
+                            name="rpassword"
+                            placeholder="Digite sua senha novamente"
+                            value=typeof rpassword != 'undefined' ? rpassword : ''
+                        )
+                        input(type="submit" value="REGISTRAR")
                     p Já tem uma conta?
                         a(href="/doador/login") Fazer login.
     script(src="/js/main.js")

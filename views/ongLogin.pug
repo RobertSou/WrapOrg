@@ -13,9 +13,19 @@ html
                 div#form
                     h2 Login
                     form.formDoador(action="/ong/login", method="post")
-                        input#EmailLogin(type="email", name="email" placeholder="Digite seu email")
-                        input#PasswordLogin(type="password", name="password" placeholder="Digite sua senha")
-                        input(type="submit", value="Entrar")
+                        input#EmailLogin(
+                            type="email"
+                            required="required"
+                            name="email"
+                            placeholder="Digite seu email"
+                        )
+                        input#PasswordLogin(
+                            type="password"
+                            required="required"
+                            name="password"
+                            placeholder="Digite sua senha"
+                        )
+                        input(type="submit" value="Entrar")
                     p Não tem uma conta?
                         a(href="/ong/registro") Criar Conta.
     script(src="/js/main.js")

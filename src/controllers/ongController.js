@@ -1,5 +1,3 @@
-const auth = require('../../firebase');
-
 module.exports = {
   renderOngLogin(req, res) {
     res.render("ongLogin")
