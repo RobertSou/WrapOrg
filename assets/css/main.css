@@ -260,6 +260,12 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin: 0 0 20px 0; }
 
+.errorMsg {
+  color: #e35b5d; }
+
+.sucessMsg {
+  color: #2ECC40; }
+
 em {
   font-style: italic; }
 
@@ -466,7 +472,8 @@ body {
           border: 2px solid #f18052;
           border-radius: 4px;
           padding-left: 10px;
-          margin-bottom: 30px; }
+          margin-bottom: 30px;
+          outline: none; }
           body #mLoginWrapper #boxLogin #form form.formDoador input::placeholder {
             font-family: "UbuntuLight", sans-serif;
             font-size: 18px;
@@ -476,11 +483,11 @@ body {
           margin-bottom: 50px; }
           body #mLoginWrapper #boxLogin #form form.formDoador input[type^="submit"]:hover {
             color: #FBFBFB; }
-        body #mLoginWrapper #boxLogin #form p {
+        body #mLoginWrapper #boxLogin #form p.linkToOtherPage {
           font-family: "UbuntuBold", sans-serif;
           font-size: 16px;
           color: #e35b5d; }
-          body #mLoginWrapper #boxLogin #form p a {
+          body #mLoginWrapper #boxLogin #form p.linkToOtherPage a {
             color: #212121; }
 
 @media screen and (min-width: 768px) {
@@ -510,11 +517,11 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    padding: 15px 0;
     background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%); }
     body #mRegistroWrapper #boxRegistro {
       width: calc(100% - 30px);
-      height: calc(100vh - 30px);
+      height: calc(100% - 30px);
       display: grid;
       grid-template-rows: auto;
       background-color: #FBFBFB;
@@ -539,7 +546,8 @@ body {
           border: 2px solid #f18052;
           border-radius: 4px;
           padding-left: 10px;
-          margin-bottom: 30px; }
+          margin-bottom: 30px;
+          outline: none; }
           body #mRegistroWrapper #boxRegistro #form form.formDoador input::placeholder {
             font-family: "UbuntuLight", sans-serif;
             font-size: 18px;
@@ -549,27 +557,31 @@ body {
           margin-bottom: 50px; }
           body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="submit"]:hover {
             color: #FBFBFB; }
-        body #mRegistroWrapper #boxRegistro #form p {
+        body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage {
           font-family: "UbuntuBold", sans-serif;
           font-size: 16px;
           color: #e35b5d; }
-          body #mRegistroWrapper #boxRegistro #form p a {
+          body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage a {
             color: #212121; }
 
 @media screen and (min-width: 768px) {
-  #boxRegistro {
-    grid-template-rows: repeat(2, 1fr) !important;
-    background-image: url(../images/doacao.svg);
-    background-repeat: no-repeat;
-    background-size: 600px;
-    background-position: 95% 95%; }
-    #boxRegistro .HeaderDoador {
-      align-self: center; }
-      #boxRegistro .HeaderDoador h1, #boxRegistro .HeaderDoador h4 {
-        text-align: center; }
-    #boxRegistro div#form {
-      margin-left: 250px;
-      width: 370px; } }
+  #mRegistroWrapper {
+    padding: 0;
+    height: 100vh; }
+    #mRegistroWrapper #boxRegistro {
+      height: calc(100vh - 30px) !important;
+      grid-template-rows: repeat(2, 1fr) !important;
+      background-image: url(../images/doacao.svg);
+      background-repeat: no-repeat;
+      background-size: 600px;
+      background-position: 95% 95%; }
+      #mRegistroWrapper #boxRegistro .HeaderDoador {
+        align-self: center; }
+        #mRegistroWrapper #boxRegistro .HeaderDoador h1, #mRegistroWrapper #boxRegistro .HeaderDoador h4 {
+          text-align: center; }
+      #mRegistroWrapper #boxRegistro div#form {
+        margin-left: 250px;
+        width: 370px; } }
 body {
   margin: 0;
   overflow-x: hidden; }
@@ -611,7 +623,8 @@ body {
           border: 2px solid #f18052;
           border-radius: 4px;
           padding-left: 10px;
-          margin-bottom: 30px; }
+          margin-bottom: 30px;
+          outline: none; }
           body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::placeholder {
             font-family: "UbuntuLight", sans-serif;
             font-size: 18px;
@@ -621,11 +634,11 @@ body {
           margin-bottom: 50px; }
           body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^="submit"]:hover {
             color: #FBFBFB; }
-        body #mOngLoginWrapper #boxOngLogin #form p {
+        body #mOngLoginWrapper #boxOngLogin #form p.linkToOtherPage {
           font-family: "UbuntuBold", sans-serif;
           font-size: 16px;
           color: #e35b5d; }
-          body #mOngLoginWrapper #boxOngLogin #form p a {
+          body #mOngLoginWrapper #boxOngLogin #form p.linkToOtherPage a {
             color: #212121; }
 
 @media screen and (min-width: 768px) {
@@ -657,11 +670,11 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    padding: 15px 0;
     background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%); }
     body #mOngRegistroWrapper #boxOngRegistro {
       width: calc(100% - 30px);
-      height: calc(100vh - 30px);
+      height: calc(100% - 30px);
       display: grid;
       grid-template-rows: auto;
       background-color: #FBFBFB;
@@ -686,7 +699,8 @@ body {
           border: 2px solid #f18052;
           border-radius: 4px;
           padding-left: 10px;
-          margin-bottom: 30px; }
+          margin-bottom: 30px;
+          outline: none; }
           body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input::placeholder {
             font-family: "UbuntuLight", sans-serif;
             font-size: 18px;
@@ -696,28 +710,32 @@ body {
           margin-bottom: 50px; }
           body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input[type^="submit"]:hover {
             color: #FBFBFB; }
-        body #mOngRegistroWrapper #boxOngRegistro #form p {
+        body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage {
           font-family: "UbuntuBold", sans-serif;
           font-size: 16px;
           color: #e35b5d; }
-          body #mOngRegistroWrapper #boxOngRegistro #form p a {
+          body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage a {
             color: #212121; }
 
 @media screen and (min-width: 768px) {
-  #boxOngRegistro {
-    grid-template-rows: repeat(2, 1fr) !important;
-    background-image: url(../images/comunidade.svg);
-    background-repeat: no-repeat;
-    background-size: 600px;
-    background-position: 5% 95%; }
-    #boxOngRegistro .HeaderDoador {
-      align-self: center; }
-      #boxOngRegistro .HeaderDoador h1, #boxOngRegistro .HeaderDoador h4 {
-        text-align: center; }
-    #boxOngRegistro div#form {
-      align-self: center;
-      justify-self: flex-end;
-      margin-right: 250px;
-      width: 370px; } }
+  #mOngRegistroWrapper {
+    padding: 0;
+    height: 100vh; }
+    #mOngRegistroWrapper #boxOngRegistro {
+      height: calc(100vh - 30px) !important;
+      grid-template-rows: repeat(2, 1fr) !important;
+      background-image: url(../images/comunidade.svg);
+      background-repeat: no-repeat;
+      background-size: 600px;
+      background-position: 5% 95%; }
+      #mOngRegistroWrapper #boxOngRegistro .HeaderDoador {
+        align-self: center; }
+        #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h1, #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h4 {
+          text-align: center; }
+      #mOngRegistroWrapper #boxOngRegistro div#form {
+        align-self: center;
+        justify-self: flex-end;
+        margin-right: 250px;
+        width: 370px; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -3,10 +3,10 @@ if typeof erros != 'undefined'
         p=e.msg
 
 if sucess_msg != ''
-    p=sucess_msg
+    p(class="sucessMsg")=sucess_msg
 
 if error_msg != ''
-    p=error_msg
+    p(class="errorMsg")=error_msg
 
 if error != ''
-    p=error
+    p(class="errorMsg")=error

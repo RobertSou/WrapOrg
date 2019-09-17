@@ -13,19 +13,20 @@ html
                 div#form
                     h2 Login
                     form.formDoador(action="/ong/login", method="post")
+                        include partials/messages.pug
                         input#EmailLogin(
                             type="email"
-                            required="required"
                             name="email"
                             placeholder="Digite seu email"
+                            value=typeof email != 'undefined' ? email : ''
                         )
                         input#PasswordLogin(
                             type="password"
-                            required="required"
                             name="password"
                             placeholder="Digite sua senha"
+                            value=typeof password != 'undefined' ? password : ''
                         )
                         input(type="submit" value="Entrar")
-                    p Não tem uma conta?
+                    p(class="linkToOtherPage") Não tem uma conta?
                         a(href="/ong/registro") Criar Conta.
     script(src="/js/main.js")

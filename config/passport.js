@@ -1,39 +1,87 @@
 const LocalStrategy = require('passport-local').Strategy;
-const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 // Load Doador Model
 const Doador = require('../src/models/doadorModel');
+const Ong = require('../src/models/ongModel');
 
 module.exports = (passport) => {
-    passport.use(new LocalStrategy(
+    passport.use('doador', new LocalStrategy(
     { usernameField: 'email' },
     (email, password, done) => {
-        //Match User
+        //Match doador
         Doador.findOne({ email })
-            .then(user => {
-                if(!user){
+            .then(doador => {
+                if(!doador){
                     return done(null, false, { message: 'Esse email não está registrado' });
                 }
                 //Match password
-                bcrypt.compare(password, user.password, (e, isMatch) => {
+                bcrypt.compare(password, doador.password, (e, isMatch) => {
                     if(e) throw e;
                     if(isMatch){
-                        return done(null, user);
-                    }else{
-                        return done(null, false, {message: 'Senha incorreta, digite novamente.'});
+                        return done(null, doador);
+                    } else {
+                        return done(null, false, { message: 'Senha incorreta, digite novamente.' });
                     }
                 });
-            })
-            .catch(e => console.log(e));
+            }).catch(e => console.log(e));
     }));
+
+    passport.use('ong', new LocalStrategy(
+        { usernameField: 'email' },
+        (email, password, done) => {
+            //Match Ong
+            Ong.findOne({ email })
+            .then(ong => {
+                if(!ong){
+                    return done(null, false, { message: 'Esse email não está registrado' });
+                }
+
+                //Match password
+                bcrypt.compare(password, ong.password, (e, isMatch) => {
+                    if(e) throw e;
+                    if(isMatch){
+                        return done(null, ong);
+                    } else {
+                        return done(null, false, { message: 'Senha incorreta, digite novamente.' });
+                    }
+                });
+        }).catch(e => console.log(e));
+    }));
+
+    function PrincipleInfo(principleId, principleType, details){
+        this.principleId = principleId;
+        this.principleType = principleType;
+        this.details = details;
+    }
+
     passport.serializeUser((user, done) => {
-        done(null, user.id);
+        let principleType = 'doador';
+        let userPrototype =  Object.getPrototypeOf(user);
+
+        if (userPrototype === Doador.prototype) {
+            principleType = 'doador';
+        } else if (userPrototype === Ong.prototype) {
+            principleType = 'ong';
+        }
+
+        let principleInfo = new PrincipleInfo(user.id, principleType, '');
+        done(null, principleInfo);
     });
     
-    passport.deserializeUser((id, done) => {
-        Doador.findById(id, (err, user) => {
-            done(err, user);
-        });
+    passport.deserializeUser((principleInfo, done) => {
+        if(principleInfo.principleType === 'doador'){
+            Doador.findOne({
+                _id: principleInfo.principleId
+            }, (err, user) => {
+                done(err, user);
+            });
+        } else if (principleInfo.principleType == 'ong') {
+            Ong.findOne({
+                _id: principleInfo.principleId
+            }, (err, user) => {
+                done(err, user);
+            });
+        }
     });
 }

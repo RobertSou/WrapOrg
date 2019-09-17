@@ -13,37 +13,38 @@ html
                 div#form
                     h2 Registro
                     form.formDoador(action="/ong/registro", method="post")
+                        include partials/messages.pug
                         input#nome(
                             type="text"
-                            required="required"
-                            name="nome"
-                            placeholder="Digite seu nome completo"
+                            name="name"
+                            placeholder="Digite o nome da ONG"
+                            value=typeof name != 'undefined' ? name : ''
                         )
                         input#cnpj(
                             type="text"
-                            required="required"
                             name="cnpj"
-                            placeholder="Digite seu CNPJ"
+                            placeholder="Digite o CNPJ da ONG"
+                            value=typeof cnpj != 'undefined' ? cnpj : ''
                         )
                         input#EmailRegister(
                             type="email"
-                            required="required"
                             name="email"
-                            placeholder="Digite um email"
+                            placeholder="Digite o email da ONG"
+                            value=typeof email != 'undefined' ? email : ''
                         )
                         input#PasswordRegister(
                             type="password"
-                            required="required"
                             name="password"
                             placeholder="Digite uma senha"
+                            value=typeof password != 'undefined' ? password : ''
                         )
                         input#RPasswordRegister(
                             type="password"
-                            required="required"
                             name="rpassword"
-                            placeholder="Digite sua senha novamente"
+                            placeholder="Digite a senha novamente"
+                            value=typeof rpassword != 'undefined' ? rpassword : ''
                         )
                         input(type="submit" value="REGISTRAR")
-                    p Já tem uma conta?
+                    p(class="linkToOtherPage") Já tem uma conta?
                         a(href="/ong/login") Fazer login.
     script(src="/js/main.js")

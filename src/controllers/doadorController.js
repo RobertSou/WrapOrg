@@ -10,7 +10,7 @@ module.exports = {
     res.render("doadorRegistro");
   },
   loginDoador(req, res, next) {
-    passport.authenticate('local', {
+    passport.authenticate('doador', {
       successRedirect: '/dashboard',
       failureRedirect: '/doador/login',
       failureFlash: true,
@@ -51,8 +51,6 @@ module.exports = {
         rpassword,
       });
     } else {
-      console.log('passed')
-
       Doador.findOne({ email })
         .then(user => {
           if(user){
@@ -87,7 +85,6 @@ module.exports = {
                   .catch(e => console.log(e));
               });
             });
-            console.log(newUser);
           }
         });
     }

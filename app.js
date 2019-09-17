@@ -10,7 +10,6 @@ const passport = require('passport');
 const app = express();
 
 // Passport config
-
 require('./config/passport')(passport);
 
 //Routes
@@ -21,7 +20,6 @@ const db = require('./config/keys').MongoURI;
 
 //Connect Mongo
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then( () => console.log('Mongo db connect'))
     .catch(e => console.log(e));
 
 app.set("view engine", "pug");
@@ -59,5 +57,5 @@ app.use("/fonts", express.static(__dirname + "/assets/fonts/"));
 app.use(routes);
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log(`App Started on PORT ${process.env.PORT || 3000}`)
+    console.log(`App Started on PORT ${process.env.PORT || 3000}`);
 });

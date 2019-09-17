@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 
-const doadorSchema = new mongoose.Schema({
+const ongSchema = new mongoose.Schema({
     name: {
         type: String,
+        required: true,
+    },
+    cnpj: {
+        type: Number,
         required: true,
     },
     email: {
@@ -19,6 +23,6 @@ const doadorSchema = new mongoose.Schema({
     },
 });
 
-const doador = mongoose.model('doador', doadorSchema);
+const ong = mongoose.model('ong', ongSchema);
 
-module.exports = doador;
+module.exports = ong;
