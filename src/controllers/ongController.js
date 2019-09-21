@@ -3,15 +3,19 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 module.exports = {
+  renderDashboard(req, res){
+    let { name } = req.user;
+    res.render("dashboardOng", { name });
+  },
   renderOngLogin(req, res) {
-    res.render("ongLogin")
+    res.render("ongLogin");
   },
   renderOngRegistro(req, res){
-    res.render("ongRegistro")
+    res.render("ongRegistro");
   },
   async loginOng(req, res, next) {
     passport.authenticate('ong', {
-      successRedirect: '/dashboard',
+      successRedirect: '/ong/dashboard',
       failureRedirect: '/ong/login',
       failureFlash: true,
     })(req, res, next);

@@ -1,0 +1,31 @@
+doctype html
+html
+    include partials/header.pug
+    body
+        // Header
+        header(id="headerDash")
+            div(id="leftContainer")
+                a(class="menu-active" href="/dashboardOng")
+                    i(class="fas fa-hands")
+                a(href="/doacoesPendentes")
+                    i(class="fas fa-bookmark")
+            div(class="dashboardName")
+                p=name
+            div(id="rightContainer")
+                a(href="/config")
+                    i(class="fas fa-cog")
+                a(href="/logout")
+                    i(class="fas fa-sign-out-alt")
+        // Body content
+        div(class="card cardError")
+            i(class="fas fa-exclamation-circle")
+            p O tempo maximo para contatar o doador é de 5 horas
+            i(class="closeCard fas fa-times")
+        div(class="card cardSucess")
+            i(class="fas fa-check-circle")
+            p Configurações alteradas com sucesso
+            i(class="closeCard fas fa-times")
+        main(id="mainDashboard")
+            header.HeaderDashboard
+                h1 Bem vindo(a) #{name}
+                h4 Procurando uma doação?

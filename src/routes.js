@@ -1,7 +1,6 @@
 const express = require("express");
 const doadorController = require("./controllers/doadorController");
 const ongController = require("./controllers/ongController");
-const dashboardController = require("./controllers/dashboardController");
 const { ensureAuthenticated, alredyLogged } = require('../config/auth');
 
 const routes = express.Router();
@@ -15,6 +14,7 @@ routes.get("/doador/login", alredyLogged, doadorController.renderDoadorLogin);
 routes.get("/doador/registro", alredyLogged, doadorController.renderDoadorRegistro);
 routes.post("/doador/login", doadorController.loginDoador);
 routes.post("/doador/registro", doadorController.registerDoador);
+routes.get("/doador/dashboard", ensureAuthenticated, doadorController.renderDashboard);
 
 
 //Login e registro parte da ong
@@ -23,9 +23,7 @@ routes.get("/ong/login", alredyLogged, ongController.renderOngLogin);
 routes.get("/ong/registro", alredyLogged, ongController.renderOngRegistro);
 routes.post("/ong/login", ongController.loginOng);
 routes.post("/ong/registro", ongController.registerOng);
-
-//Painel de controle do doador e ong
-routes.get("/dashboard", ensureAuthenticated, dashboardController.render);
+routes.get("/ong/dashboard", ensureAuthenticated, ongController.renderDashboard);
 
 routes.get('/logout',(req,res) => {
     req.logout();

@@ -17,30 +17,36 @@ html
                         input#nome(
                             type="text"
                             name="name"
+                            autocomplete="off"
                             placeholder="Digite o nome da ONG"
                             value=typeof name != 'undefined' ? name : ''
                         )
                         input#cnpj(
                             type="text"
                             name="cnpj"
+                            maxlength="14"
+                            autocomplete="off"
                             placeholder="Digite o CNPJ da ONG"
                             value=typeof cnpj != 'undefined' ? cnpj : ''
                         )
                         input#EmailRegister(
                             type="email"
                             name="email"
+                            autocomplete="off"
                             placeholder="Digite o email da ONG"
                             value=typeof email != 'undefined' ? email : ''
                         )
                         input#PasswordRegister(
                             type="password"
                             name="password"
+                            autocomplete="off"
                             placeholder="Digite uma senha"
                             value=typeof password != 'undefined' ? password : ''
                         )
                         input#RPasswordRegister(
                             type="password"
                             name="rpassword"
+                            autocomplete="off"
                             placeholder="Digite a senha novamente"
                             value=typeof rpassword != 'undefined' ? rpassword : ''
                         )

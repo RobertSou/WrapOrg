@@ -320,6 +320,36 @@ input[type="button"] {
     outline: 0;
     color: #e35b5d; }
 
+.card {
+  position: relative;
+  width: 95%;
+  min-height: 55px;
+  margin: 15px auto;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
+  .card i {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 15px; }
+  .card p {
+    color: #fff;
+    margin: 0 15px;
+    font-size: 1.3em;
+    font-weight: 600; }
+  .card .closeCard {
+    position: absolute;
+    right: 15px;
+    cursor: pointer; }
+
+.cardError {
+  background-color: #e35b5d; }
+
+.cardSucess {
+  background-color: #5BE381; }
+
 .name-lockup {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -737,5 +767,56 @@ body {
         justify-self: flex-end;
         margin-right: 250px;
         width: 370px; } }
+.menu-active i {
+  color: #e35b5d !important; }
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #FBFBFB; }
+  body header#headerDash {
+    width: 100%;
+    height: 50px;
+    background-color: #464353;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
+    body header#headerDash .dashboardName {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      body header#headerDash .dashboardName p {
+        margin: 0;
+        font-size: 20px;
+        color: #fff; }
+    body header#headerDash #leftContainer,
+    body header#headerDash #rightContainer {
+      display: flex;
+      flex-direction: row; }
+      body header#headerDash #leftContainer a,
+      body header#headerDash #rightContainer a {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        body header#headerDash #leftContainer a:hover > i,
+        body header#headerDash #rightContainer a:hover > i {
+          color: #e35b5d; }
+        body header#headerDash #leftContainer a i,
+        body header#headerDash #rightContainer a i {
+          font-size: 20px;
+          color: #fff; }
+  body main#mainDashboard {
+    width: 95%;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
+    body main#mainDashboard header.HeaderDashboard {
+      text-align: center; }
+      body main#mainDashboard header.HeaderDashboard h4 {
+        color: #f18052; }
 
 /*# sourceMappingURL=main.css.map */

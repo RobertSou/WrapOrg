@@ -1,0 +1,51 @@
+.menu-active
+    i
+        color: $defaultRed !important
+body
+    margin: 0
+    overflow-x: hidden
+    background-color: $defaultLightGrey
+    header#headerDash
+        width: 100%
+        height: 50px
+        background-color: $defaultDarkBlue
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15)
+        .dashboardName
+            height: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            p
+                margin: 0
+                font-size: 20px
+                color: $white
+        #leftContainer,
+        #rightContainer
+            display: flex
+            flex-direction: row
+            a
+                padding: 10px
+                display: flex
+                justify-content: center
+                align-items: center 
+                &:hover > i
+                    color: $defaultRed
+                i
+                    font-size: 20px
+                    color: $white
+    //Main content
+    main#mainDashboard
+        width: 95%
+        margin: 0 auto
+        padding: 15px
+        background-color: $white
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15)
+        header.HeaderDashboard
+            text-align: center
+            h4
+                color: $defaultDarkOrange
+    
+@media screen and (min-width: 768px)

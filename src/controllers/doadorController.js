@@ -3,6 +3,10 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 module.exports = {
+  renderDashboard(req, res){
+    let { name } = req.user;
+    res.render("dashboardDoador", { name });
+  },
   renderDoadorLogin(req, res) {
     res.render("doadorLogin");
   },
@@ -11,7 +15,7 @@ module.exports = {
   },
   loginDoador(req, res, next) {
     passport.authenticate('doador', {
-      successRedirect: '/dashboard',
+      successRedirect: '/doador/dashboard',
       failureRedirect: '/doador/login',
       failureFlash: true,
     })(req, res, next);
