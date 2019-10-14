@@ -13,6 +13,40 @@ module.exports = {
   renderDoadorRegistro(req, res){
     res.render("doadorRegistro");
   },
+  renderConfig(req, res){
+    let { name, email} = req.user;
+    res.render("configDoador", { name, email});
+  },
+  saveConfigs(req, res, next){
+    let {
+      firstname,
+      lastname,
+      CPF,
+      email,
+      currentPassword,
+      newPassword,
+      newPassword2
+    } = req.body;
+    //TODO:: SAVE DATA CONFIG PAGE
+    let erros = [];
+    if(!firstname || !lastname || !CPF || !email || !currentPassword || !newPassword || !newPassword2){
+      erros.push({msg: 'Por favor, preencha todos os campos.'});
+    }
+  
+    /*let {
+      endereco,
+      estado,
+      cidade,
+      cep,
+      telefone
+    } = req.body;
+    //TODO:: SAVE ADRESS CONFIG PAGE
+    let erros = [];
+    //Check required fields
+    if(!endereco || !estado || !cidade || !cep || !telefone){
+      erros.push({msg: 'Por favor, preencha todos os campos.'});
+    }*/
+  },
   loginDoador(req, res, next) {
     passport.authenticate('doador', {
       successRedirect: '/doador/dashboard',

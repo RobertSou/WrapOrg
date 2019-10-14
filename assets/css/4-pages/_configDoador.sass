@@ -1,0 +1,40 @@
+body
+    //Main content
+    main#mainConfigDoador
+        width: 95%
+        margin: 15px auto
+        padding: 15px
+        background-color: $white
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15)
+        header.HeaderDashboard
+            text-align: center
+            h4
+                color: $defaultDarkOrange
+    
+@media screen and (min-width: 768px)
+    body
+        //Main content
+        main#mainConfigDoador
+            padding: 35px
+            div#dadosPessoais
+                width: 30%
+                margin: 0 auto
+                header
+                    h3
+                        width: 70%
+                        color: $defaultDarkOrange
+                        border-bottom: 2px solid $defaultDarkOrange
+                form
+                    display: grid
+                    grid-template-rows: 1fr 0.5fr
+            div#enderecoDoacao
+                width: 30%
+                margin: 0 auto
+                header
+                    h3
+                        width: 70%
+                        color: $defaultDarkOrange
+                        border-bottom: 2px solid $defaultDarkOrange
+                form
+                    display: grid
+                    grid-template-rows: 1fr 0.5fr

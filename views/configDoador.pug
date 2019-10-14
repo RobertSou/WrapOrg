@@ -1,0 +1,98 @@
+doctype html
+html
+    include partials/header.pug
+    body
+        // Header
+        header(id="headerDash")
+            div(id="leftContainer")
+                a(href="/doador/dashboard")
+                    i(class="fas fa-hands")
+                a(href="/doador/doacoesPendentes")
+                    i(class="fas fa-bookmark")
+            div(class="dashboardName")
+                p=name
+            div(id="rightContainer")
+                a(class="menu-active" href="/doador/config")
+                    i(class="fas fa-cog")
+                a(href="/logout")
+                    i(class="fas fa-sign-out-alt")
+        // Body content
+        include partials/cards.pug
+        main(id="mainConfigDoador")
+            header.HeaderDashboard
+                h1 Configurações Doador
+            div#dadosPessoais
+                header
+                    h3 Dados pessoais
+                form#formDadosPessoais(action="/doador/config/data", method="post")
+                    div#leftDataContainer
+                        input(
+                            type="text"
+                            name="name"
+                            placeholder="Digite seu primeiro nome"
+                            value=typeof name != 'undefined' ? name : ''
+                        )
+                        input(
+                            type="email"
+                            name="email"
+                            placeholder="Digite seu email"
+                            value=typeof email != 'undefined' ? email : ''
+                        )
+                        input(
+                            type="password"
+                            name="currentPassword"
+                            placeholder="Digite sua senha atual"
+                            value=typeof currentPassword != 'undefined' ? currentPassword : ''
+                        )
+                        input(
+                            type="password"
+                            name="newPassword"
+                            placeholder="Digite sua nova senha"
+                            value=typeof newPassword != 'undefined' ? newPassword : ''
+                        )
+                        input(
+                            type="password"
+                            name="newPassword2"
+                            placeholder="Digite sua nova senha novamente"
+                            value=typeof newPassword2 != 'undefined' ? newPassword2 : ''
+                        )
+                    div#formDataButtons
+                        input(type="submit" value="SALVAR")
+            div#enderecoDoacao
+                header
+                    h3 Endereço doação
+                form#formEnderecoDoacao(action="/doador/config/adress", method="post")
+                    include partials/messages.pug
+                    div#leftAdressContainer
+                        input(
+                            type="text"
+                            name="endereco"
+                            placeholder="Digite seu endereço"
+                            value=typeof endereco != 'undefined' ? endereco : ''
+                        )
+                        input(
+                            type="text"
+                            name="estado"
+                            placeholder="Digite seu Estado"
+                            value=typeof estado != 'undefined' ? estado : ''
+                        )
+                        input(
+                            type="text"
+                            name="cidade"
+                            placeholder="Digite sua cidade"
+                            value=typeof cidade != 'undefined' ? cidade : ''
+                        )
+                        input(
+                            type="number"
+                            name="cep"
+                            placeholder="Digite seu CEP"
+                            value=typeof cep != 'undefined' ? cep : ''
+                        )
+                        input(
+                            type="tel"
+                            name="telefone"
+                            placeholder="Digite seu telefone de contato"
+                            value=typeof telefone != 'undefined' ? telefone : ''
+                        )
+                    div#formAdressButtons
+                        input(type="submit" value="SALVAR")

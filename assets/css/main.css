@@ -320,6 +320,25 @@ input[type="button"] {
     outline: 0;
     color: #e35b5d; }
 
+form input {
+  width: 100%;
+  height: 50px;
+  background: none;
+  border: 2px solid #f18052;
+  border-radius: 4px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  outline: none; }
+  form input::placeholder {
+    font-family: "UbuntuLight", sans-serif;
+    font-size: 18px;
+    color: #212121; }
+form input[type^="submit"] {
+  background: #f18052;
+  margin-bottom: 50px; }
+  form input[type^="submit"]:hover {
+    color: #FBFBFB; }
+
 .card {
   position: relative;
   width: 95%;
@@ -810,7 +829,7 @@ body {
           color: #fff; }
   body main#mainDashboard {
     width: 95%;
-    margin: 0 auto;
+    margin: 15px auto;
     padding: 15px;
     background-color: #fff;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
@@ -818,5 +837,40 @@ body {
       text-align: center; }
       body main#mainDashboard header.HeaderDashboard h4 {
         color: #f18052; }
+
+body main#mainConfigDoador {
+  width: 95%;
+  margin: 15px auto;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
+  body main#mainConfigDoador header.HeaderDashboard {
+    text-align: center; }
+    body main#mainConfigDoador header.HeaderDashboard h4 {
+      color: #f18052; }
+
+@media screen and (min-width: 768px) {
+  body main#mainConfigDoador {
+    padding: 35px; }
+    body main#mainConfigDoador div#dadosPessoais {
+      width: 30%;
+      margin: 0 auto; }
+      body main#mainConfigDoador div#dadosPessoais header h3 {
+        width: 70%;
+        color: #f18052;
+        border-bottom: 2px solid #f18052; }
+      body main#mainConfigDoador div#dadosPessoais form {
+        display: grid;
+        grid-template-rows: 1fr 0.5fr; }
+    body main#mainConfigDoador div#enderecoDoacao {
+      width: 30%;
+      margin: 0 auto; }
+      body main#mainConfigDoador div#enderecoDoacao header h3 {
+        width: 70%;
+        color: #f18052;
+        border-bottom: 2px solid #f18052; }
+      body main#mainConfigDoador div#enderecoDoacao form {
+        display: grid;
+        grid-template-rows: 1fr 0.5fr; } }
 
 /*# sourceMappingURL=main.css.map */

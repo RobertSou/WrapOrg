@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    container_name: wraporg
+    restart: always
+    build: .
+    command: npm run dev
+    ports:
+      - '80:3000'
+    tty: true
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+    volumes:
+      - .:/home/app/wraporg
+      - /home/app/wraporg/node_modules
+  mongodb:
+    container_name: mongodb
+    image: mongo:4.2.0
+    ports:
+      - '27017:27017'

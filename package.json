@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon start",
-    "production": "npm start"
+    "production": "node app.js"
   },
-  "author": "",
+  "author": "Robert Souza",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -21,6 +21,7 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.1"
+    "@fortawesome/fontawesome-free": "^5.11.1",
+    "nodemon": "^1.19.3"
   }
 }

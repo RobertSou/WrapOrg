@@ -8,13 +8,16 @@ const routes = express.Router();
 //Pagina inicial que liga aos formularios
 routes.get("/", alredyLogged, (req, res) => res.render('index'));
 
-//Login e registro parte do doador
+//DOADOR GET Methods
 routes.get("/doador/", alredyLogged, (req, res) => res.redirect('/doador/login'));
 routes.get("/doador/login", alredyLogged, doadorController.renderDoadorLogin);
 routes.get("/doador/registro", alredyLogged, doadorController.renderDoadorRegistro);
+routes.get("/doador/dashboard", ensureAuthenticated, doadorController.renderDashboard);
+routes.get("/doador/config", ensureAuthenticated, doadorController.renderConfig);
+//DOADOR POST Methods
 routes.post("/doador/login", doadorController.loginDoador);
 routes.post("/doador/registro", doadorController.registerDoador);
-routes.get("/doador/dashboard", ensureAuthenticated, doadorController.renderDashboard);
+routes.post("/doador/config", doadorController.saveConfigs);
 
 
 //Login e registro parte da ong

@@ -19,7 +19,7 @@ const routes = require("./src/routes");
 const db = require('./config/keys').MongoURI;
 
 //Connect Mongo
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db.toString(), { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(e => console.log(e));
 
 app.set("view engine", "pug");
@@ -44,6 +44,8 @@ app.use((req, res, next) => {
     res.locals.sucess_msg = req.flash('sucess_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    res.locals.cardError = req.flash('cardError');
+    res.locals.cardSucess = req.flash('cardSucess');
     next();
 });
 
