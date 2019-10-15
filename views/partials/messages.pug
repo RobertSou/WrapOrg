@@ -1,6 +1,6 @@
 if typeof erros != 'undefined'
     each e in erros
-        p=e.msg
+        p(class="errorMsg")=e.msg
 
 if sucess_msg != ''
     p(class="sucessMsg")=sucess_msg

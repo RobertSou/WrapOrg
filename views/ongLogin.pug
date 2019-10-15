@@ -1,9 +1,9 @@
 doctype html
-html
+html(lang="pt-br")
     include partials/header.pug
     body
         #backBtn
-            a(href="/")
+            a(href="/" aria-label="Volta para página anterior.")
                 img(src="/images/back.svg", alt="Back button")
         main#mOngLoginWrapper
             div(id="boxOngLogin")
@@ -28,5 +28,4 @@ html
                         )
                         input(type="submit" value="Entrar")
                     p(class="linkToOtherPage") Não tem uma conta?
-                        a(href="/ong/registro") Criar Conta.
-    script(src="/js/main.js")
+                        a(href="/ong/registro" aria-label="Redireciona para página de registro da ONG.") Criar Conta.

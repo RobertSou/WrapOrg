@@ -289,7 +289,7 @@ input[type="button"] {
   align-items: center;
   width: 250px;
   height: 50px;
-  color: #FBFBFB;
+  color: #FBFBFB !important;
   text-align: center;
   font-size: 15px;
   font-weight: 600;
@@ -298,9 +298,9 @@ input[type="button"] {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background: #212121;
+  background: #212121 !important;
   border-radius: 4px;
-  border: none;
+  border: none !important;
   cursor: pointer;
   box-sizing: border-box;
   transition: all 0.2s linear; }
@@ -318,7 +318,7 @@ input[type="button"] {
   input[type="button"]:active,
   input[type="button"]:focus {
     outline: 0;
-    color: #e35b5d; }
+    color: #e35b5d !important; }
 
 form input {
   width: 100%;
@@ -335,7 +335,7 @@ form input {
     color: #212121; }
 form input[type^="submit"] {
   background: #f18052;
-  margin-bottom: 50px; }
+  margin-bottom: 15px; }
   form input[type^="submit"]:hover {
     color: #FBFBFB; }
 
@@ -848,29 +848,55 @@ body main#mainConfigDoador {
     text-align: center; }
     body main#mainConfigDoador header.HeaderDashboard h4 {
       color: #f18052; }
+  body main#mainConfigDoador div#dadosPessoais {
+    width: 100%; }
+    body main#mainConfigDoador div#dadosPessoais header h3 {
+      width: 100%;
+      margin: 30px 0;
+      color: #f18052;
+      border-bottom: 2px solid #f18052; }
+    body main#mainConfigDoador div#dadosPessoais table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 30px; }
+      body main#mainConfigDoador div#dadosPessoais table td, body main#mainConfigDoador div#dadosPessoais table th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px; }
+    body main#mainConfigDoador div#dadosPessoais #formDataButtons {
+      display: flex;
+      flex-direction: column; }
+  body main#mainConfigDoador div#enderecoDoacao {
+    width: 100%; }
+    body main#mainConfigDoador div#enderecoDoacao header h3 {
+      width: 100%;
+      margin: 30px 0;
+      color: #f18052;
+      border-bottom: 2px solid #f18052; }
+    body main#mainConfigDoador div#enderecoDoacao table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 30px; }
+      body main#mainConfigDoador div#enderecoDoacao table td, body main#mainConfigDoador div#enderecoDoacao table th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px; }
+    body main#mainConfigDoador div#enderecoDoacao #formAdressButtons {
+      display: flex;
+      flex-direction: column; }
 
 @media screen and (min-width: 768px) {
-  body main#mainConfigDoador {
-    padding: 35px; }
-    body main#mainConfigDoador div#dadosPessoais {
-      width: 30%;
-      margin: 0 auto; }
-      body main#mainConfigDoador div#dadosPessoais header h3 {
-        width: 70%;
-        color: #f18052;
-        border-bottom: 2px solid #f18052; }
-      body main#mainConfigDoador div#dadosPessoais form {
-        display: grid;
-        grid-template-rows: 1fr 0.5fr; }
-    body main#mainConfigDoador div#enderecoDoacao {
-      width: 30%;
-      margin: 0 auto; }
-      body main#mainConfigDoador div#enderecoDoacao header h3 {
-        width: 70%;
-        color: #f18052;
-        border-bottom: 2px solid #f18052; }
-      body main#mainConfigDoador div#enderecoDoacao form {
-        display: grid;
-        grid-template-rows: 1fr 0.5fr; } }
+  body main#mainConfigDoador div#dadosPessoais {
+    width: 30%;
+    margin: 0 auto; }
+    body main#mainConfigDoador div#dadosPessoais #formDataButtons {
+      flex-direction: row;
+      justify-content: space-between; }
+  body main#mainConfigDoador div#enderecoDoacao {
+    width: 30%;
+    margin: 0 auto; }
+    body main#mainConfigDoador div#enderecoDoacao #formAdressButtons {
+      flex-direction: row;
+      justify-content: space-between; } }
 
 /*# sourceMappingURL=main.css.map */

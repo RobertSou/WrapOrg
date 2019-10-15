@@ -1,20 +1,20 @@
 doctype html
-html
+html(lang="pt-br")
     include partials/header.pug
     body
         // Header
         header(id="headerDash")
             div(id="leftContainer")
-                a(class="menu-active" href="/dashboardOng")
+                a(class="menu-active" href="/dashboardOng" aria-label="Redireciona para o painel da Ong.")
                     i(class="fas fa-hands")
-                a(href="/ong/doacoesPendentes")
+                a(href="/ong/doacoesPendentes" aria-label="Redireciona para a lista de doações da Ong.")
                     i(class="fas fa-bookmark")
             div(class="dashboardName")
                 p=name
             div(id="rightContainer")
-                a(href="/ong/config")
+                a(href="/ong/config" aria-label="Redireciona para página de configuração da Ong.")
                     i(class="fas fa-cog")
-                a(href="/logout")
+                a(href="/logout" aria-label="Sai da conta da Ong.")
                     i(class="fas fa-sign-out-alt")
         // Body content
         include partials/messages.pug

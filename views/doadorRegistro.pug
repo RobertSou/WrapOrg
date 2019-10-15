@@ -1,9 +1,9 @@
 doctype html
-html
+html(lang="pt-br")
     include partials/header.pug
     body
         #backBtn
-            a(href="/")
+            a(href="/" aria-label="Voltar para página anterior.")
                 img(src="/images/back.svg", alt="Back button")
         main#mRegistroWrapper
             div(id="boxRegistro")
@@ -14,11 +14,23 @@ html
                     h2 Registro
                     form.formDoador(action="/doador/registro", method="post")
                         include partials/messages.pug
-                        input#nome(
+                        input#firstname(
                             type="text"
-                            name="name"
-                            placeholder="Digite seu nome completo"
-                            value=typeof name != 'undefined' ? name : ''
+                            name="firstname"
+                            placeholder="Digite seu nome"
+                            value=typeof firstname != 'undefined' ? firstname : ''
+                        )
+                        input#lastname(
+                            type="text"
+                            name="lastname"
+                            placeholder="Digite seu sobrenome"
+                            value=typeof lastname != 'undefined' ? lastname : ''
+                        )
+                        input#CPF(
+                            type="number"
+                            name="cpf"
+                            placeholder="Digite um CPF"
+                            value=typeof cpf != 'undefined' ? cpf : ''
                         )
                         input#EmailRegister(
                             type="email"
@@ -40,5 +52,4 @@ html
                         )
                         input(type="submit" value="REGISTRAR")
                     p(class="linkToOtherPage") Já tem uma conta?
-                        a(href="/doador/login") Fazer login.
-    script(src="/js/main.js")
+                        a(href="/doador/login" aria-label="Redireciona para página de login.") Fazer login.

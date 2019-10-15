@@ -17,7 +17,8 @@ routes.get("/doador/config", ensureAuthenticated, doadorController.renderConfig)
 //DOADOR POST Methods
 routes.post("/doador/login", doadorController.loginDoador);
 routes.post("/doador/registro", doadorController.registerDoador);
-routes.post("/doador/config", doadorController.saveConfigs);
+routes.post("/doador/config/personalinfo", doadorController.editPersonal);
+routes.post("/doador/config/address", doadorController.editAddress);
 
 
 //Login e registro parte da ong

@@ -10,31 +10,58 @@ body
             text-align: center
             h4
                 color: $defaultDarkOrange
-    
+        div#dadosPessoais
+            width: 100%
+            header
+                h3
+                    width: 100%
+                    margin: 30px 0
+                    color: $defaultDarkOrange
+                    border-bottom: 2px solid $defaultDarkOrange
+            table
+                border-collapse: collapse
+                width: 100%
+                margin-bottom: 30px
+                td, th 
+                    border: 1px solid #dddddd
+                    text-align: left
+                    padding: 8px
+            #formDataButtons
+                display: flex
+                flex-direction: column
+        div#enderecoDoacao
+            width: 100%
+            header
+                h3
+                    width: 100%
+                    margin: 30px 0
+                    color: $defaultDarkOrange
+                    border-bottom: 2px solid $defaultDarkOrange
+            table
+                border-collapse: collapse
+                width: 100%
+                margin-bottom: 30px
+                td, th 
+                    border: 1px solid #dddddd
+                    text-align: left
+                    padding: 8px
+            #formAdressButtons
+                display: flex
+                flex-direction: column
+
 @media screen and (min-width: 768px)
     body
         //Main content
         main#mainConfigDoador
-            padding: 35px
             div#dadosPessoais
                 width: 30%
                 margin: 0 auto
-                header
-                    h3
-                        width: 70%
-                        color: $defaultDarkOrange
-                        border-bottom: 2px solid $defaultDarkOrange
-                form
-                    display: grid
-                    grid-template-rows: 1fr 0.5fr
+                #formDataButtons
+                    flex-direction: row
+                    justify-content: space-between
             div#enderecoDoacao
                 width: 30%
                 margin: 0 auto
-                header
-                    h3
-                        width: 70%
-                        color: $defaultDarkOrange
-                        border-bottom: 2px solid $defaultDarkOrange
-                form
-                    display: grid
-                    grid-template-rows: 1fr 0.5fr
+                #formAdressButtons
+                    flex-direction: row
+                    justify-content: space-between

@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang="pt-br")
     include partials/header.pug
     body
         div#wrapper
@@ -9,5 +9,5 @@ html
                     img(src="../images/Logotipo.svg", alt="WrapOrg logo Tipo")
                     p Nós ajudamos e facilitamos a conexão entre doadores e ongs.
                 #mBoxBtns
-                    a.btndefault(href="/doador/login") QUERO DOAR
-                    a.btndefault(href="/ong/login") REPRESENTO UMA ONG
+                    a.btndefault(href="/doador/login" aria-label="Redireciona para página de login do doador.") QUERO DOAR
+                    a.btndefault(href="/ong/login" aria-label="Redireciona para página de login da ONG.") REPRESENTO UMA ONG

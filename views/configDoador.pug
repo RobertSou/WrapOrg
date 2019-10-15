@@ -10,7 +10,7 @@ html
                 a(href="/doador/doacoesPendentes")
                     i(class="fas fa-bookmark")
             div(class="dashboardName")
-                p=name
+                p #{displayName}
             div(id="rightContainer")
                 a(class="menu-active" href="/doador/config")
                     i(class="fas fa-cog")
@@ -24,75 +24,46 @@ html
             div#dadosPessoais
                 header
                     h3 Dados pessoais
-                form#formDadosPessoais(action="/doador/config/data", method="post")
-                    div#leftDataContainer
-                        input(
-                            type="text"
-                            name="name"
-                            placeholder="Digite seu primeiro nome"
-                            value=typeof name != 'undefined' ? name : ''
-                        )
-                        input(
-                            type="email"
-                            name="email"
-                            placeholder="Digite seu email"
-                            value=typeof email != 'undefined' ? email : ''
-                        )
-                        input(
-                            type="password"
-                            name="currentPassword"
-                            placeholder="Digite sua senha atual"
-                            value=typeof currentPassword != 'undefined' ? currentPassword : ''
-                        )
-                        input(
-                            type="password"
-                            name="newPassword"
-                            placeholder="Digite sua nova senha"
-                            value=typeof newPassword != 'undefined' ? newPassword : ''
-                        )
-                        input(
-                            type="password"
-                            name="newPassword2"
-                            placeholder="Digite sua nova senha novamente"
-                            value=typeof newPassword2 != 'undefined' ? newPassword2 : ''
-                        )
-                    div#formDataButtons
-                        input(type="submit" value="SALVAR")
+                if query.section == "personalinfo"
+                    include partials/messages.pug
+                    include partials/formPersonal.pug
+                else
+                    table
+                        tr
+                            td Nome
+                            td #{displayName}
+                        tr
+                            td Sobrenome
+                            td #{displayLastname}
+                        tr
+                            td Email
+                            td #{email}
+                        tr
+                            td CPF
+                            td #{cpf}
+                    a(class="btndefault" href="/doador/config?section=personalinfo") EDITAR
             div#enderecoDoacao
                 header
-                    h3 Endereço doação
-                form#formEnderecoDoacao(action="/doador/config/adress", method="post")
+                    h3 Informações de contato
+                if query.section == "address"
                     include partials/messages.pug
-                    div#leftAdressContainer
-                        input(
-                            type="text"
-                            name="endereco"
-                            placeholder="Digite seu endereço"
-                            value=typeof endereco != 'undefined' ? endereco : ''
-                        )
-                        input(
-                            type="text"
-                            name="estado"
-                            placeholder="Digite seu Estado"
-                            value=typeof estado != 'undefined' ? estado : ''
-                        )
-                        input(
-                            type="text"
-                            name="cidade"
-                            placeholder="Digite sua cidade"
-                            value=typeof cidade != 'undefined' ? cidade : ''
-                        )
-                        input(
-                            type="number"
-                            name="cep"
-                            placeholder="Digite seu CEP"
-                            value=typeof cep != 'undefined' ? cep : ''
-                        )
-                        input(
-                            type="tel"
-                            name="telefone"
-                            placeholder="Digite seu telefone de contato"
-                            value=typeof telefone != 'undefined' ? telefone : ''
-                        )
-                    div#formAdressButtons
-                        input(type="submit" value="SALVAR")
+                    include partials/formAddress.pug
+                else
+                    table
+                        tr
+                            td Endereço
+                            td #{connectInfo.address.street}
+                        tr
+                            td Estado
+                            td #{connectInfo.address.state}
+                        tr
+                            td Cidade
+                            td #{connectInfo.address.city}
+                        tr
+                            td CEP
+                            td #{connectInfo.address.cep}
+                        tr
+                            td Telefone
+                            td #{connectInfo.tel}
+                    a(class="btndefault" href="/doador/config?section=address") EDITAR
+        script(src="/js/main.js")

@@ -18,3 +18,7 @@ docker-compose build
 
 ## Commands run in background
 docker-compose up -d
+
+## Development Env
+mongodbURI=mongodb://mongodb:27017/wraporg
+PORT=3000

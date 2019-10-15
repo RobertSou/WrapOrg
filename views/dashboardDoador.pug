@@ -5,22 +5,22 @@ html
         // Header
         header(id="headerDash")
             div(id="leftContainer")
-                a(class="menu-active" href="/dashboardOng")
+                a(class="menu-active" href="/doador/dashboard" aria-label="Redireciona para o painel do Doador.")
                     i(class="fas fa-hands")
-                a(href="/doador/doacoesPendentes")
+                a(href="/doador/doacoesPendentes" aria-label="Redireciona para doações pendentes do Doador.")
                     i(class="fas fa-bookmark")
             div(class="dashboardName")
-                p=name
+                p #{displayName}
             div(id="rightContainer")
-                a(href="/doador/config")
+                a(href="/doador/config" aria-label="Redireciona para página de configurações do Doador.")
                     i(class="fas fa-cog")
-                a(href="/logout")
+                a(href="/logout" aria-label="Sai da conta do Doador.")
                     i(class="fas fa-sign-out-alt")
         // Body content
         include partials/messages.pug
         main(id="mainDashboard")
             header.HeaderDashboard
-                h1 Bem vindo(a) #{name}
+                h1 Bem vindo(a) #{displayName}
                 h4 Faça sua doação aqui.
             article.form
                 form
@@ -64,4 +64,5 @@ html
                                     min="1",
                                     max="200"
                                 )
-                    input(type="submit", value="Doar")
+                    input(class="btndefault" type="submit", value="Doar")
+        script(src="/js/main.js")

@@ -1,15 +1,10 @@
-let toggleForm = true;
-let loginForm = document.getElementById("boxLogin");
-let registerForm = document.getElementById("boxRegister");
-
-function ClickdoadorSignInUp(){
-    if(toggleForm){
-        loginForm.classList.remove('showForm');
-        registerForm.classList.add('showForm');
-        toggleForm = false;
-    }else{
-        loginForm.classList.add('showForm');
-        registerForm.classList.remove('showForm');
-        toggleForm = true;
+let closeCard = document.getElementsByClassName("closeCard")[0];
+closeCard.addEventListener('click', (e) => {
+    if(closeCard.parentElement.classList.contains('cardSucess')){
+        let card = document.getElementsByClassName("cardSucess")[0];
+        card.parentNode.removeChild(card);
+    }else if(closeCard.parentElement.classList.contains('cardError')){
+        let card = document.getElementsByClassName("cardError")[0];
+        card.parentNode.removeChild(card);
     }
-}
+});

@@ -1,7 +1,15 @@
 const mongoose = require('mongoose');
 
 const doadorSchema = new mongoose.Schema({
-    name: {
+    firstname: {
+        type: String,
+        required: true,
+    },
+    lastname: {
+        type: String,
+        required: true,
+    },
+    password: {
         type: String,
         required: true,
     },
@@ -9,9 +17,18 @@ const doadorSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    password: {
-        type: String,
+    cpf: {
+        type: Number,
         required: true,
+    },
+    connectInfo: {
+        tel: Number,
+        address: {
+            city: String,
+            state: String,
+            street: String,
+            cep: Number
+        }
     },
     date: {
         type: Date,

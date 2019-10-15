@@ -1,0 +1,35 @@
+form#formEnderecoDoacao(action="/doador/config/address", method="post")
+    div#leftAdressContainer
+        input(
+            type="text"
+            name="endereco"
+            placeholder="Digite seu endereço"
+            value=typeof endereco != 'undefined' ? endereco : ''
+        )
+        input(
+            type="text"
+            name="estado"
+            placeholder="Digite seu Estado"
+            value=typeof estado != 'undefined' ? estado : ''
+        )
+        input(
+            type="text"
+            name="cidade"
+            placeholder="Digite sua cidade"
+            value=typeof cidade != 'undefined' ? cidade : ''
+        )
+        input(
+            type="number"
+            name="cep"
+            placeholder="Digite seu CEP"
+            value=typeof cep != 'undefined' ? cep : ''
+        )
+        input(
+            type="tel"
+            name="telefone"
+            placeholder="Digite seu telefone de contato"
+            value=typeof telefone != 'undefined' ? telefone : ''
+        )
+    div#formAdressButtons
+        input(type="submit" value="EDITAR")
+        a(class="btndefault" href="/doador/config") CANCELAR
