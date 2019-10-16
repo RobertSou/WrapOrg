@@ -17,6 +17,20 @@ const ongSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    publicInfo: {
+        logo: String,
+        capa: String,
+        banner1: String,
+        banner2: String,
+        banner3: String,
+        tel: Number,
+        address: {
+            state: String,
+            city: String,
+            street: String,
+            cep: Number,
+        },
+    },
     date: {
         type: Date,
         default: Date.now,

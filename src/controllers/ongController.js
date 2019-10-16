@@ -5,13 +5,17 @@ const passport = require('passport');
 module.exports = {
   renderDashboard(req, res){
     let { name } = req.user;
-    res.render("dashboardOng", { name });
+    res.render("dashboardOng", { displayName: name });
   },
   renderOngLogin(req, res) {
     res.render("ongLogin");
   },
   renderOngRegistro(req, res){
     res.render("ongRegistro");
+  },
+  renderConfig(req, res){
+    let { name } = req.user;
+    res.render("configOng.pug", { displayName: name });
   },
   async loginOng(req, res, next) {
     passport.authenticate('ong', {

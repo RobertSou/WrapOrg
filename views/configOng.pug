@@ -1,0 +1,69 @@
+doctype html
+html
+    include partials/header.pug
+    body
+        // Header
+        header(id="headerDash")
+            div(id="leftContainer")
+                a(href="/ong/dashboard")
+                    i(class="fas fa-hands")
+                a(href="/ong/doacoesPendentes")
+                    i(class="fas fa-bookmark")
+            div(class="dashboardName")
+                p #{displayName}
+            div(id="rightContainer")
+                a(class="menu-active" href="/ong/config")
+                    i(class="fas fa-cog")
+                a(href="/logout")
+                    i(class="fas fa-sign-out-alt")
+        // Body content
+        include partials/cards.pug
+        main(id="mainConfigOng")
+            header.HeaderDashboard
+                h1 #{displayName} - Configurações
+            div#dadosPessoais
+                header
+                    h3 Dados Ong
+                //- if query.section == "personalinfo"
+                //-     include partials/messages.pug
+                //-     include partials/formPersonal.pug
+                //- else
+                //-     table
+                //-         tr
+                //-             td Nome
+                //-             td #{displayName}
+                //-         tr
+                //-             td Sobrenome
+                //-             td #{displayLastname}
+                //-         tr
+                //-             td Email
+                //-             td #{email}
+                //-         tr
+                //-             td CPF
+                //-             td #{cpf}
+                    a(class="btndefault" href="/ong/config?section=personalinfo") EDITAR
+            div#enderecoDoacao
+                header
+                    h3 Informações de contato ONG
+                //- if query.section == "address"
+                //-     include partials/messages.pug
+                //-     include partials/formAddress.pug
+                //- else
+                //-     table
+                //-         tr
+                //-             td Endereço
+                //-             td #{connectInfo.address.street}
+                //-         tr
+                //-             td Estado
+                //-             td #{connectInfo.address.state}
+                //-         tr
+                //-             td Cidade
+                //-             td #{connectInfo.address.city}
+                //-         tr
+                //-             td CEP
+                //-             td #{connectInfo.address.cep}
+                //-         tr
+                //-             td Telefone
+                //-             td #{connectInfo.tel}
+                    a(class="btndefault" href="/ong/config?section=address") EDITAR
+        script(src="/js/main.js")

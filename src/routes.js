@@ -19,15 +19,19 @@ routes.post("/doador/login", doadorController.loginDoador);
 routes.post("/doador/registro", doadorController.registerDoador);
 routes.post("/doador/config/personalinfo", doadorController.editPersonal);
 routes.post("/doador/config/address", doadorController.editAddress);
+routes.post("/doador/dashboard/donate", ensureAuthenticated, doadorController.makeDonation);
 
 
-//Login e registro parte da ong
+//ONG GET Methods
 routes.get("/ong/", alredyLogged, (req, res) => res.redirect('/ong/login'));
 routes.get("/ong/login", alredyLogged, ongController.renderOngLogin);
 routes.get("/ong/registro", alredyLogged, ongController.renderOngRegistro);
+routes.get("/ong/dashboard", ensureAuthenticated, ongController.renderDashboard);
+routes.get("/ong/config", ensureAuthenticated, ongController.renderConfig);
+
+//ONG POST Methods
 routes.post("/ong/login", ongController.loginOng);
 routes.post("/ong/registro", ongController.registerOng);
-routes.get("/ong/dashboard", ensureAuthenticated, ongController.renderDashboard);
 
 routes.get('/logout',(req,res) => {
     req.logout();

@@ -9,6 +9,9 @@ module.exports = {
       //req.flash('error_msg', 'Perfil incompleto, preencha todas as informações para poder doar!');
       //res.redirect('/doador/dashboard');
   },
+  makeDonation(req, res, next){
+    console.log(req.body);
+  },
   renderDoadorLogin(req, res) {
     res.render("doadorLogin");
   },

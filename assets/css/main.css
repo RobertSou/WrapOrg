@@ -196,7 +196,7 @@ th {
   padding: 0; }
 
 body {
-  background-color: white;
+  background-color: #fff !important;
   font-size: 14px;
   line-height: 1.6;
   font-family: "Fira Sans", sans-serif;
@@ -428,6 +428,41 @@ form input[type^="submit"] {
   top: 0;
   width: 100%;
   left: 0; }
+
+header#headerDash {
+  width: 100%;
+  height: 50px;
+  background-color: #464353;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
+  header#headerDash .dashboardName {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    header#headerDash .dashboardName p {
+      margin: 0;
+      font-size: 20px;
+      color: #fff; }
+  header#headerDash #leftContainer,
+  header#headerDash #rightContainer {
+    display: flex;
+    flex-direction: row; }
+    header#headerDash #leftContainer a,
+    header#headerDash #rightContainer a {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      header#headerDash #leftContainer a:hover > i,
+      header#headerDash #rightContainer a:hover > i {
+        color: #e35b5d; }
+      header#headerDash #leftContainer a i,
+      header#headerDash #rightContainer a i {
+        font-size: 20px;
+        color: #fff; }
 
 * {
   box-sizing: border-box; }
@@ -791,47 +826,13 @@ body {
 
 body {
   margin: 0;
-  overflow-x: hidden;
-  background-color: #FBFBFB; }
-  body header#headerDash {
-    width: 100%;
-    height: 50px;
-    background-color: #464353;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
-    body header#headerDash .dashboardName {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-      body header#headerDash .dashboardName p {
-        margin: 0;
-        font-size: 20px;
-        color: #fff; }
-    body header#headerDash #leftContainer,
-    body header#headerDash #rightContainer {
-      display: flex;
-      flex-direction: row; }
-      body header#headerDash #leftContainer a,
-      body header#headerDash #rightContainer a {
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center; }
-        body header#headerDash #leftContainer a:hover > i,
-        body header#headerDash #rightContainer a:hover > i {
-          color: #e35b5d; }
-        body header#headerDash #leftContainer a i,
-        body header#headerDash #rightContainer a i {
-          font-size: 20px;
-          color: #fff; }
+  overflow-x: hidden; }
   body main#mainDashboard {
-    width: 95%;
-    margin: 15px auto;
+    width: calc(100% - 30px);
+    min-height: calc(100vh - 30px - 50px);
+    margin: 15px;
     padding: 15px;
-    background-color: #fff;
+    background-color: #FBFBFB;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
     body main#mainDashboard header.HeaderDashboard {
       text-align: center; }
@@ -839,10 +840,11 @@ body {
         color: #f18052; }
 
 body main#mainConfigDoador {
-  width: 95%;
+  width: calc(100% - 30px);
+  min-height: calc(100vh - 30px - 50px);
   margin: 15px auto;
   padding: 15px;
-  background-color: #fff;
+  background-color: #FBFBFB;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
   body main#mainConfigDoador header.HeaderDashboard {
     text-align: center; }
@@ -860,9 +862,12 @@ body main#mainConfigDoador {
       width: 100%;
       margin-bottom: 30px; }
       body main#mainConfigDoador div#dadosPessoais table td, body main#mainConfigDoador div#dadosPessoais table th {
-        border: 1px solid #dddddd;
+        color: #464353;
         text-align: left;
-        padding: 8px; }
+        padding: 15px;
+        width: 50%; }
+      body main#mainConfigDoador div#dadosPessoais table tr:nth-child(even) {
+        background-color: #DADADA; }
     body main#mainConfigDoador div#dadosPessoais #formDataButtons {
       display: flex;
       flex-direction: column; }
@@ -878,25 +883,60 @@ body main#mainConfigDoador {
       width: 100%;
       margin-bottom: 30px; }
       body main#mainConfigDoador div#enderecoDoacao table td, body main#mainConfigDoador div#enderecoDoacao table th {
-        border: 1px solid #dddddd;
+        color: #464353;
         text-align: left;
-        padding: 8px; }
+        padding: 15px;
+        width: 50%; }
+      body main#mainConfigDoador div#enderecoDoacao table tr:nth-child(even) {
+        background-color: #DADADA; }
     body main#mainConfigDoador div#enderecoDoacao #formAdressButtons {
       display: flex;
       flex-direction: column; }
 
 @media screen and (min-width: 768px) {
-  body main#mainConfigDoador div#dadosPessoais {
-    width: 30%;
-    margin: 0 auto; }
-    body main#mainConfigDoador div#dadosPessoais #formDataButtons {
-      flex-direction: row;
-      justify-content: space-between; }
-  body main#mainConfigDoador div#enderecoDoacao {
-    width: 30%;
-    margin: 0 auto; }
-    body main#mainConfigDoador div#enderecoDoacao #formAdressButtons {
-      flex-direction: row;
-      justify-content: space-between; } }
+  body main#mainConfigDoador {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr; }
+    body main#mainConfigDoador header.HeaderDashboard {
+      grid-row: 1;
+      grid-column: 1/3; }
+    body main#mainConfigDoador div#dadosPessoais {
+      grid-row: 2;
+      width: 70%;
+      margin: 0 auto; }
+      body main#mainConfigDoador div#dadosPessoais #formDataButtons {
+        flex-direction: row;
+        justify-content: space-between; }
+    body main#mainConfigDoador div#enderecoDoacao {
+      grid-row: 2;
+      width: 70%;
+      margin: 0 auto; }
+      body main#mainConfigDoador div#enderecoDoacao #formAdressButtons {
+        flex-direction: row;
+        justify-content: space-between; } }
+body main#mainConfigOng {
+  width: calc(100% - 30px);
+  min-height: calc(100vh - 30px - 50px);
+  margin: 15px auto;
+  padding: 15px;
+  background-color: #FBFBFB;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15); }
+  body main#mainConfigOng header.HeaderDashboard {
+    text-align: center; }
+    body main#mainConfigOng header.HeaderDashboard h4 {
+      color: #f18052; }
+  body main#mainConfigOng div#dadosPessoais {
+    width: 100%; }
+    body main#mainConfigOng div#dadosPessoais header h3 {
+      width: 100%;
+      margin: 30px 0;
+      color: #f18052;
+      border-bottom: 2px solid #f18052; }
+
+@media screen and (min-width: 768px) {
+  body main#mainConfigOng div#dadosPessoais {
+    width: 70%;
+    margin: 0 auto; } }
 
 /*# sourceMappingURL=main.css.map */

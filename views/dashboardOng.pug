@@ -5,12 +5,12 @@ html(lang="pt-br")
         // Header
         header(id="headerDash")
             div(id="leftContainer")
-                a(class="menu-active" href="/dashboardOng" aria-label="Redireciona para o painel da Ong.")
+                a(class="menu-active" href="/ong/dashboardOng" aria-label="Redireciona para o painel da Ong.")
                     i(class="fas fa-hands")
                 a(href="/ong/doacoesPendentes" aria-label="Redireciona para a lista de doações da Ong.")
                     i(class="fas fa-bookmark")
             div(class="dashboardName")
-                p=name
+                p #{displayName}
             div(id="rightContainer")
                 a(href="/ong/config" aria-label="Redireciona para página de configuração da Ong.")
                     i(class="fas fa-cog")
@@ -20,5 +20,5 @@ html(lang="pt-br")
         include partials/messages.pug
         main(id="mainDashboard")
             header.HeaderDashboard
-                h1 Bem vindo(a) #{name}
+                h1 Bem vindo(a) #{displayName}
                 h4 Procurando uma doação?
