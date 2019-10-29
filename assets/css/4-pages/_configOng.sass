@@ -1,28 +1,129 @@
 body
     //Main content
+    div#HeaderOngPerfil
+        position: relative
+        width: calc(100% - 30px)
+        height: 200px
+        margin: 15px auto
+        background-color: $defaultDarkGrey
+        div#bannerPerfil
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            background-color: $defaultDarkGrey
+            cursor: pointer
+            div#editarBanner
+                position: absolute
+                right: 15px
+                top: 15px
+                font-size: 1.0em
+                > i
+                    opacity: 0.3
+                    font-size: 1.5em
+                    color: $defaultLightGrey
+                    transition: opacity 0.3s ease-in-out
+                    transition: font-size 0.1s ease-in-out
+                a
+                    opacity: 0
+                    text-transform: uppercase
+                    font-family: 'UbuntuRegular'
+                    margin-right: 5px
+                    color: $defaultLightGrey
+                    transition: opacity 0.2s ease-in-out
+        div#logoPerfil
+            width: 130px
+            height: 130px
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            margin-left: 50px
+            border-radius: 50%
+            background-color: #fafafa
+            display: flex
+            justify-content: center
+            align-items: flex-end
+            cursor: pointer
+            overflow: hidden
+            div#editarPerfil
+                width: 100%
+                height: 100%
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                font-size: 1.0em
+                margin-top: 25px
+                transition: background-color 0.1s ease-in-out
+                > i
+                    opacity: 0
+                    font-size: 1.5em
+                    color: $defaultDarkGrey
+                    transition: opacity 0.3s ease-in-out
+                    transition: font-size 0.1s ease-in-out
+                a
+                    opacity: 0
+                    text-transform: uppercase
+                    font-family: 'UbuntuRegular'
+                    margin-right: 5px
+                    color: $defaultDarkGrey
+                    transition: opacity 0.2s ease-in-out
     main#mainConfigOng
         width: calc(100% - 30px)
-        min-height: calc(100vh - 30px - 50px)
+        min-height: calc(100vh - 300px)
         margin: 15px auto
         padding: 15px
         background-color: $defaultLightGrey
         box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15)
-        header.HeaderDashboard
-            text-align: center
-            h4
+        header
+            h3
+                width: 100%
+                margin: 30px 0
                 color: $defaultDarkOrange
-        div#dadosPessoais
-            width: 100%
-            header
-                h3
-                    width: 100%
-                    margin: 30px 0
-                    color: $defaultDarkOrange
-                    border-bottom: 2px solid $defaultDarkOrange
-@media screen and (min-width: 768px)
+                border-bottom: 2px solid $defaultDarkOrange
+    
+@media screen and (min-width: 1024px)
     body
+        div#HeaderOngPerfil
+            width: 90%
+            margin: 15px auto
         //Main content
         main#mainConfigOng
-            div#dadosPessoais
-                width: 70%
-                margin: 0 auto
+            width: 90%
+            display: grid
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr))
+            grid-gap: 50px
+            padding: 0 50px
+            margin: 0 auto
+            margin-bottom: 15px
+    
+@media screen and (min-width: 1368px)
+    body
+        div#HeaderOngPerfil
+            width: 75%
+            margin: 15px auto
+        //Main content
+        main#mainConfigOng
+            width: 75%
+            display: grid
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr))
+            grid-gap: 50px
+            padding: 0 50px
+            margin: 0 auto
+            margin-bottom: 15px
+    
+@media screen and (min-width: 1500px)
+    body
+        div#HeaderOngPerfil
+            width: 70%
+            margin: 15px auto
+        //Main content
+        main#mainConfigOng
+            width: 70%
+            display: grid
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr))
+            grid-gap: 50px
+            padding: 0 50px
+            margin: 0 auto
+            margin-bottom: 15px

@@ -4,66 +4,68 @@ html
     body
         // Header
         header(id="headerDash")
-            div(id="leftContainer")
-                a(href="/doador/dashboard")
-                    i(class="fas fa-hands")
-                a(href="/doador/doacoesPendentes")
-                    i(class="fas fa-bookmark")
-            div(class="dashboardName")
-                p #{displayName}
-            div(id="rightContainer")
-                a(class="menu-active" href="/doador/config")
-                    i(class="fas fa-cog")
-                a(href="/logout")
-                    i(class="fas fa-sign-out-alt")
+            div(id="headerContainer")
+                div(id="leftContainer")
+                    a(href="/doador/dashboard")
+                        i(class="fas fa-hands")
+                    a(href="/doador/doacoesPendentes")
+                        i(class="fas fa-bookmark")
+                div(class="dashboardName")
+                    p #{displayName}
+                div(id="rightContainer")
+                    a(class="menu-active" href="/doador/config")
+                        i(class="fas fa-cog")
+                    a(href="/logout")
+                        i(class="fas fa-sign-out-alt")
         // Body content
         include partials/cards.pug
         main(id="mainConfigDoador")
             header.HeaderDashboard
                 h1 #{displayName} - Configurações
-            div#dadosPessoais
-                header
-                    h3 Dados pessoais
-                if query.section == "personalinfo"
-                    include partials/messages.pug
-                    include partials/formPersonal.pug
-                else
-                    table
-                        tr
-                            td Nome
-                            td #{displayName}
-                        tr
-                            td Sobrenome
-                            td #{displayLastname}
-                        tr
-                            td Email
-                            td #{email}
-                        tr
-                            td CPF
-                            td #{cpf}
-                    a(class="btndefault" href="/doador/config?section=personalinfo") EDITAR
-            div#enderecoDoacao
-                header
-                    h3 Informações de contato
-                if query.section == "address"
-                    include partials/messages.pug
-                    include partials/formAddress.pug
-                else
-                    table
-                        tr
-                            td Endereço
-                            td #{connectInfo.address.street}
-                        tr
-                            td Estado
-                            td #{connectInfo.address.state}
-                        tr
-                            td Cidade
-                            td #{connectInfo.address.city}
-                        tr
-                            td CEP
-                            td #{connectInfo.address.cep}
-                        tr
-                            td Telefone
-                            td #{connectInfo.tel}
-                    a(class="btndefault" href="/doador/config?section=address") EDITAR
+            article#ContainerConfigDoador
+                div#dadosPessoais
+                    header
+                        h3 Dados pessoais
+                    if query.section == "personalinfo"
+                        include partials/messages.pug
+                        include partials/formPersonal.pug
+                    else
+                        table
+                            tr
+                                td Nome
+                                td #{displayName}
+                            tr
+                                td Sobrenome
+                                td #{displayLastname}
+                            tr
+                                td Email
+                                td #{email}
+                            tr
+                                td CPF
+                                td #{cpf}
+                        a(class="btndefault" href="/doador/config?section=personalinfo") EDITAR
+                div#enderecoDoacao
+                    header
+                        h3 Informações de contato
+                    if query.section == "address"
+                        include partials/messages.pug
+                        include partials/formAddress.pug
+                    else
+                        table
+                            tr
+                                td Endereço
+                                td #{connectInfo.address.street}
+                            tr
+                                td Estado
+                                td #{connectInfo.address.state}
+                            tr
+                                td Cidade
+                                td #{connectInfo.address.city}
+                            tr
+                                td CEP
+                                td #{connectInfo.address.cep}
+                            tr
+                                td Telefone
+                                td #{connectInfo.tel}
+                        a(class="btndefault" href="/doador/config?section=address") EDITAR
         script(src="/js/main.js")

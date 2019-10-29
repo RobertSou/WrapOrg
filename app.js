@@ -29,6 +29,7 @@ app.use(session({
     secret: 'XCR3rsasa%RDHHH', 
     resave: true, 
     saveUninitialized: true, 
+    rolling: true,
     cookie: { maxAge: 60000 },
 }));
 

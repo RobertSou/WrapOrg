@@ -3,6 +3,7 @@ TCC Redes de computadores
 
 ## Commands Development
 docker-compose -f docker-compose.development.yml up --build
+sass --watch main.sass:main.css
 
 ## Commands Production
 docker-compose up

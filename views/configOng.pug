@@ -4,24 +4,51 @@ html
     body
         // Header
         header(id="headerDash")
-            div(id="leftContainer")
-                a(href="/ong/dashboard")
-                    i(class="fas fa-hands")
-                a(href="/ong/doacoesPendentes")
-                    i(class="fas fa-bookmark")
-            div(class="dashboardName")
-                p #{displayName}
-            div(id="rightContainer")
-                a(class="menu-active" href="/ong/config")
-                    i(class="fas fa-cog")
-                a(href="/logout")
-                    i(class="fas fa-sign-out-alt")
+            div(id="headerContainer")
+                div(id="leftContainer")
+                    a(href="/ong/dashboard")
+                        i(class="fas fa-hands")
+                    a(href="/ong/doacoesPendentes")
+                        i(class="fas fa-bookmark")
+                div(class="dashboardName")
+                    p #{displayName}
+                div(id="rightContainer")
+                    a(class="menu-active" href="/ong/config")
+                        i(class="fas fa-cog")
+                    a(href="/logout")
+                        i(class="fas fa-sign-out-alt")
         // Body content
+        div#HeaderOngPerfil
+            div#bannerPerfil
+                div(id="editarBanner" onClick="")
+                    form(id="formBanner")
+                        input(
+                            onchange="saveBanner()"
+                            type="file"
+                            accept=".png, .jpg, .jpeg"
+                            id="bannerImage"
+                            name="bannerImage"
+                            style="display:none;"
+                        )
+                    a(href="#" onClick="getBannerImage()") Editar
+                    i(class="fas fa-camera" onClick="getBannerImage()")
+            div(id="logoPerfil" onClick="")
+                div#editarPerfil
+                    form(id="formProfile")
+                        input(
+                            onchange="savePicture()"
+                            type="file"
+                            accept=".png, .jpg, .jpeg"
+                            id="profileImage"
+                            name="profileImage"
+                            style="display:none;"
+                        )
+                    i(class="fas fa-camera" onClick="getProfileImage()")
+                    a(href="#" onClick="getProfileImage()") Editar
+
         include partials/cards.pug
         main(id="mainConfigOng")
-            header.HeaderDashboard
-                h1 #{displayName} - Configurações
-            div#dadosPessoais
+            div#dadosOng
                 header
                     h3 Dados Ong
                 //- if query.section == "personalinfo"
@@ -42,9 +69,9 @@ html
                 //-             td CPF
                 //-             td #{cpf}
                     a(class="btndefault" href="/ong/config?section=personalinfo") EDITAR
-            div#enderecoDoacao
+            div#enderecoOng
                 header
-                    h3 Informações de contato ONG
+                    h3 Endereço da ONG
                 //- if query.section == "address"
                 //-     include partials/messages.pug
                 //-     include partials/formAddress.pug
@@ -66,4 +93,10 @@ html
                 //-             td Telefone
                 //-             td #{connectInfo.tel}
                     a(class="btndefault" href="/ong/config?section=address") EDITAR
+            div#bannersOng
+                header
+                    h3 Banners de divulgação
+            div#maisInfo
+                header
+                    h3 Mais informações
         script(src="/js/main.js")
