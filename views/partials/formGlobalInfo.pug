@@ -1,0 +1,29 @@
+form#formDadosPessoais(action="/ong/config/globalInfo", method="POST")
+    div#leftDataContainer
+        input(
+            type="email"
+            name="email"
+            placeholder="Digite seu email"
+            value=typeof email != 'undefined' ? email : ''
+        )
+        input(
+            type="password"
+            name="currentPassword"
+            placeholder="Digite sua senha atual"
+            value=typeof currentPassword != 'undefined' ? currentPassword : ''
+        )
+        input(
+            type="password"
+            name="newPassword"
+            placeholder="Digite sua nova senha"
+            value=typeof newPassword != 'undefined' ? newPassword : ''
+        )
+        input(
+            type="password"
+            name="newPassword2"
+            placeholder="Digite sua nova senha novamente"
+            value=typeof newPassword2 != 'undefined' ? newPassword2 : ''
+        )
+    div#formDataButtons
+        input(type="submit" value="SALVAR")
+        a(class="btndefault" href="/ong/config") CANCELAR

@@ -17,11 +17,17 @@ html
                         i(class="fas fa-cog")
                     a(href="/logout")
                         i(class="fas fa-sign-out-alt")
+        include partials/cards.pug
         // Body content
         div#HeaderOngPerfil
             div#bannerPerfil
+                img(src="", alt="Banner principal ong")
                 div(id="editarBanner" onClick="")
-                    form(id="formBanner")
+                    form(
+                        id="formBanner"
+                        method="POST"
+                        action="/ong/config/saveBanner"
+                        enctype="multipart/form-data")
                         input(
                             onchange="saveBanner()"
                             type="file"
@@ -33,8 +39,13 @@ html
                     a(href="#" onClick="getBannerImage()") Editar
                     i(class="fas fa-camera" onClick="getBannerImage()")
             div(id="logoPerfil" onClick="")
+                img(src="", alt="Avatar/Logo perfil ong")
                 div#editarPerfil
-                    form(id="formProfile")
+                    form(
+                        id="formProfile"
+                        method="POST"
+                        action="/ong/config/saveLogo"
+                        enctype="multipart/form-data")
                         input(
                             onchange="savePicture()"
                             type="file"
@@ -45,57 +56,59 @@ html
                         )
                     i(class="fas fa-camera" onClick="getProfileImage()")
                     a(href="#" onClick="getProfileImage()") Editar
-
-        include partials/cards.pug
         main(id="mainConfigOng")
             div#dadosOng
                 header
                     h3 Dados Ong
-                //- if query.section == "personalinfo"
-                //-     include partials/messages.pug
-                //-     include partials/formPersonal.pug
-                //- else
-                //-     table
-                //-         tr
-                //-             td Nome
-                //-             td #{displayName}
-                //-         tr
-                //-             td Sobrenome
-                //-             td #{displayLastname}
-                //-         tr
-                //-             td Email
-                //-             td #{email}
-                //-         tr
-                //-             td CPF
-                //-             td #{cpf}
-                    a(class="btndefault" href="/ong/config?section=personalinfo") EDITAR
+                if query.section == "globalInfo"
+                    include partials/messages.pug
+                    include partials/formGlobalInfo.pug
+                else
+                    table
+                        tr
+                            td Nome
+                            td #{displayName}
+                        tr
+                            td Email
+                            td #{email}
+                        tr
+                            td CNPJ
+                            td #{cnpj}
+                    a(class="btndefault" href="/ong/config?section=globalInfo") EDITAR
             div#enderecoOng
                 header
                     h3 Endereço da ONG
-                //- if query.section == "address"
-                //-     include partials/messages.pug
-                //-     include partials/formAddress.pug
-                //- else
-                //-     table
-                //-         tr
-                //-             td Endereço
-                //-             td #{connectInfo.address.street}
-                //-         tr
-                //-             td Estado
-                //-             td #{connectInfo.address.state}
-                //-         tr
-                //-             td Cidade
-                //-             td #{connectInfo.address.city}
-                //-         tr
-                //-             td CEP
-                //-             td #{connectInfo.address.cep}
-                //-         tr
-                //-             td Telefone
-                //-             td #{connectInfo.tel}
-                    a(class="btndefault" href="/ong/config?section=address") EDITAR
+                if query.section == "ongAddress"
+                    include partials/messages.pug
+                    include partials/formOngAddress.pug
+                else
+                    table
+                        tr
+                            td Endereço
+                            td #{publicInfo.address.street}
+                        tr
+                            td Estado
+                            td #{publicInfo.address.state}
+                        tr
+                            td Cidade
+                            td #{publicInfo.address.city}
+                        tr
+                            td CEP
+                            td #{publicInfo.address.cep}
+                        tr
+                            td Telefone
+                            td #{publicInfo.tel}
+                    a(class="btndefault" href="/ong/config?section=ongAddress") EDITAR
             div#bannersOng
                 header
                     h3 Banners de divulgação
+                div#bannersShare
+                    div#banner1
+                        img(src="", alt="Banner Divulgação")
+                    div#banner2
+                        img(src="", alt="Banner Divulgação")
+                    div#banner3
+                        img(src="", alt="Banner Divulgação")
             div#maisInfo
                 header
                     h3 Mais informações

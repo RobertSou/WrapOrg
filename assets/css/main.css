@@ -1,23 +1,27 @@
 @font-face {
-  font-family: "UbuntuLight";
+  font-family: 'UbuntuLight';
   font-weight: 300;
   src: url("../fonts/Ubuntu-Light.ttf");
 }
+
 @font-face {
-  font-family: "UbuntuRegular";
+  font-family: 'UbuntuRegular';
   font-weight: 400;
   src: url("../fonts/Ubuntu-Regular.ttf");
 }
+
 @font-face {
-  font-family: "UbuntuMedium";
+  font-family: 'UbuntuMedium';
   font-weight: 500;
   src: url("../fonts/Ubuntu-Medium.ttf");
 }
+
 @font-face {
-  font-family: "UbuntuBold";
+  font-family: 'UbuntuBold';
   font-weight: 600;
   src: url("../fonts/Ubuntu-Bold.ttf");
 }
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -128,8 +132,8 @@ figure {
 }
 
 hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 0;
 }
 
@@ -165,9 +169,9 @@ select {
 }
 
 button,
-html input[type=button],
-input[type=reset],
-input[type=submit] {
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -187,26 +191,26 @@ input {
   line-height: normal;
 }
 
-input[type=checkbox],
-input[type=radio] {
-  box-sizing: border-box;
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
-input[type=search] {
+input[type="search"] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -243,10 +247,14 @@ body {
   background-color: #fff !important;
   font-size: 14px;
   line-height: 1.6;
-  font-family: "UbuntuLight", sans-serif;
+  font-family: 'UbuntuLight', sans-serif;
   color: #666;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
+}
+
+::-moz-selection {
+  background: #0074D9;
 }
 
 ::selection {
@@ -255,6 +263,10 @@ body {
 
 ::-moz-selection {
   background: #0074D9;
+}
+
+img::-moz-selection {
+  background: transparent;
 }
 
 img::selection {
@@ -274,6 +286,7 @@ a {
   text-decoration: none;
   outline: 0;
 }
+
 a:hover, a:focus {
   color: #40a6ff;
 }
@@ -346,12 +359,18 @@ hr {
 
 .btndefault,
 button,
-input[type=submit],
-input[type=reset],
-input[type=button] {
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 250px;
   height: 50px;
   color: #FBFBFB !important;
@@ -359,7 +378,7 @@ input[type=button] {
   font-size: 15px;
   font-weight: 600;
   line-height: 38px;
-  letter-spacing: 0.1rem;
+  letter-spacing: .1rem;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
@@ -367,22 +386,25 @@ input[type=button] {
   border-radius: 4px;
   border: none !important;
   cursor: pointer;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+
 .btndefault:hover, .btndefault:active, .btndefault:focus,
 button:hover,
 button:active,
 button:focus,
-input[type=submit]:hover,
-input[type=submit]:active,
-input[type=submit]:focus,
-input[type=reset]:hover,
-input[type=reset]:active,
-input[type=reset]:focus,
-input[type=button]:hover,
-input[type=button]:active,
-input[type=button]:focus {
+input[type="submit"]:hover,
+input[type="submit"]:active,
+input[type="submit"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="button"]:hover,
+input[type="button"]:active,
+input[type="button"]:focus {
   outline: 0;
   color: #e35b5d !important;
 }
@@ -397,17 +419,57 @@ form input {
   margin-bottom: 30px;
   outline: none;
 }
-form input::placeholder {
-  font-family: "UbuntuLight", sans-serif;
+
+form input::-webkit-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
-form input[type^=submit] {
+
+form input:-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+form input::-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+form input::placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+form input[type^="submit"] {
   background: #f18052;
   margin-bottom: 15px;
 }
-form input[type^=submit]:hover {
+
+form input[type^="submit"]:hover {
   color: #FBFBFB;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+table td, table th {
+  font-family: 'UbuntuMedium';
+  color: #464353;
+  font-weight: bolder;
+  text-align: left;
+  padding: 15px;
+  width: 50%;
+}
+
+table tr:nth-child(even) {
+  background-color: #DADADA;
 }
 
 .card {
@@ -416,22 +478,33 @@ form input[type^=submit]:hover {
   min-height: 55px;
   margin: 15px auto;
   padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
 }
+
 .card i {
   color: #fff;
   font-size: 20px;
   margin-left: 15px;
 }
+
 .card p {
   color: #fff;
   margin: 0 15px;
   font-size: 1.3em;
   font-weight: 600;
 }
+
 .card .closeCard {
   position: absolute;
   right: 15px;
@@ -446,13 +519,29 @@ form input[type^=submit]:hover {
   background-color: #5BE381;
 }
 
+@media screen and (min-width: 1024px) {
+  .card {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 1368px) {
+  .card {
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .card {
+    width: 70%;
+  }
+}
+
 .name-lockup {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
 }
@@ -462,7 +551,6 @@ form input[type^=submit]:hover {
   height: 80px;
   border-radius: 50%;
   margin-right: 10px;
-  -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
 }
@@ -474,31 +562,64 @@ form input[type^=submit]:hover {
   background: #0074D9;
   color: white;
   padding: 2px 6px;
+  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  transform-origin: top right;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
 }
+
 .fork-tag:hover {
   color: white;
-  animation: wiggle 0.4s linear 1;
+  -webkit-animation: wiggle 0.4s linear 1;
+          animation: wiggle 0.4s linear 1;
+}
+
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
+  }
+  50% {
+    -webkit-transform: rotate(-8deg);
+            transform: rotate(-8deg);
+  }
+  80% {
+    -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
 }
 
 @keyframes wiggle {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   20% {
-    transform: rotate(8deg);
+    -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
   }
   50% {
-    transform: rotate(-8deg);
+    -webkit-transform: rotate(-8deg);
+            transform: rotate(-8deg);
   }
   80% {
-    transform: rotate(8deg);
+    -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
   }
   100% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 }
+
 .flex-video {
   height: 0;
   margin-bottom: 0.88889rem;
@@ -522,43 +643,75 @@ header#headerDash {
   width: 100%;
   height: 50px;
   background-color: #464353;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
 }
+
 header#headerDash #headerContainer {
   width: 100%;
   height: 100%;
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 header#headerDash #headerContainer .dashboardName {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 header#headerDash #headerContainer .dashboardName p {
   margin: 0;
   font-size: 20px;
   color: #fff;
 }
+
 header#headerDash #headerContainer #leftContainer,
 header#headerDash #headerContainer #rightContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
+
 header#headerDash #headerContainer #leftContainer a,
 header#headerDash #headerContainer #rightContainer a {
   padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 header#headerDash #headerContainer #leftContainer a:hover > i,
 header#headerDash #headerContainer #rightContainer a:hover > i {
   color: #e35b5d;
 }
+
 header#headerDash #headerContainer #leftContainer a i,
 header#headerDash #headerContainer #rightContainer a i {
   font-size: 20px;
@@ -571,28 +724,33 @@ header#headerDash #headerContainer #rightContainer a i {
     margin: 0 auto;
   }
 }
+
 @media screen and (min-width: 1368px) {
   header#headerDash #headerContainer {
     width: 75%;
     margin: 0 auto;
   }
 }
+
 @media screen and (min-width: 1500px) {
   header#headerDash #headerContainer {
     width: 70%;
     margin: 0 auto;
   }
 }
+
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   margin: 15px;
   background-color: #fff;
   overflow-x: hidden;
-  font-family: "UbuntuLight";
+  font-family: 'UbuntuLight';
 }
+
 body #wrapper {
   width: calc(100% - 30px);
   height: calc(100vh - 30px);
@@ -601,96 +759,144 @@ body #wrapper {
   padding: 15px;
   background: linear-gradient(236.44deg, rgba(227, 91, 93, 0.8) 14.73%, rgba(241, 128, 82, 0.8) 97.66%);
 }
+
 body #wrapper img#HeaderLogo {
   position: absolute;
   top: 50px;
   left: 50px;
 }
+
 body #wrapper main#mHomePage {
   height: 100%;
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
 }
+
 body #wrapper main#mHomePage #mBoxArticle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-self: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
+
 body #wrapper main#mHomePage #mBoxArticle img {
   max-width: 85%;
   margin: 0 auto;
 }
+
 body #wrapper main#mHomePage #mBoxArticle p {
   text-align: center;
   color: #fff;
   font-size: 20px;
-  font-family: "UbuntuRegular", sans-serif;
+  font-family: 'UbuntuRegular', sans-serif;
 }
+
 body #wrapper main#mHomePage #mBoxBtns {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   justify-self: center;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
+
 body #wrapper main#mHomePage #mBoxBtns a {
-  font-family: "UbuntuMedium", sans-serif;
+  font-family: 'UbuntuMedium', sans-serif;
 }
+
 body #wrapper main#mHomePage #mBoxBtns > a:first-of-type {
   margin-bottom: 50px;
 }
 
 @media screen and (min-width: 768px) {
   #mBoxBtns {
-    flex-direction: row !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
   }
   #mBoxBtns > a:first-of-type {
     margin-bottom: 0 !important;
     margin-right: 50px;
   }
 }
+
 body {
   margin: 0;
   overflow-x: hidden;
 }
+
 body #backBtn {
   position: absolute;
   top: 30px;
   right: 30px;
 }
+
 body #mLoginWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100vh;
   background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%);
 }
+
 body #mLoginWrapper #boxLogin {
   width: calc(100% - 30px);
   height: calc(100vh - 30px);
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: 0.5fr 1fr;
+  -ms-grid-rows: 0.5fr 1fr;
+      grid-template-rows: 0.5fr 1fr;
   background-color: #FBFBFB;
   padding: 15px;
 }
+
 body #mLoginWrapper #boxLogin .HeaderDoador h1, body #mLoginWrapper #boxLogin .HeaderDoador h4 {
   margin: 0;
 }
+
 body #mLoginWrapper #boxLogin .HeaderDoador h1 {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
 }
+
 body #mLoginWrapper #boxLogin .HeaderDoador h4 {
-  font-family: "UbuntuLight", sans-serif;
+  font-family: 'UbuntuLight', sans-serif;
 }
+
 body #mLoginWrapper #boxLogin #form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 body #mLoginWrapper #boxLogin #form h2 {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
   color: #f18052;
   margin-bottom: 50px;
 }
+
 body #mLoginWrapper #boxLogin #form form.formDoador input {
   width: 100%;
   height: 50px;
@@ -701,23 +907,46 @@ body #mLoginWrapper #boxLogin #form form.formDoador input {
   margin-bottom: 30px;
   outline: none;
 }
-body #mLoginWrapper #boxLogin #form form.formDoador input::placeholder {
-  font-family: "UbuntuLight", sans-serif;
+
+body #mLoginWrapper #boxLogin #form form.formDoador input::-webkit-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
-body #mLoginWrapper #boxLogin #form form.formDoador input[type^=submit] {
+
+body #mLoginWrapper #boxLogin #form form.formDoador input:-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mLoginWrapper #boxLogin #form form.formDoador input::-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mLoginWrapper #boxLogin #form form.formDoador input::placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mLoginWrapper #boxLogin #form form.formDoador input[type^="submit"] {
   background: #f18052;
   margin-bottom: 50px;
 }
-body #mLoginWrapper #boxLogin #form form.formDoador input[type^=submit]:hover {
+
+body #mLoginWrapper #boxLogin #form form.formDoador input[type^="submit"]:hover {
   color: #FBFBFB;
 }
+
 body #mLoginWrapper #boxLogin #form p.linkToOtherPage {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
   color: #e35b5d;
 }
+
 body #mLoginWrapper #boxLogin #form p.linkToOtherPage a {
   color: #212121;
 }
@@ -725,14 +954,17 @@ body #mLoginWrapper #boxLogin #form p.linkToOtherPage a {
 @media screen and (min-width: 768px) {
   #boxLogin {
     width: 100%;
-    grid-template-rows: 0.7fr 1fr;
+    -ms-grid-rows: 0.7fr 1fr;
+        grid-template-rows: 0.7fr 1fr;
     background-image: url(../images/doacao.svg);
     background-repeat: no-repeat;
     background-size: 600px;
     background-position: 95% 95%;
   }
   #boxLogin .HeaderDoador {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
   #boxLogin .HeaderDoador h1, #boxLogin .HeaderDoador h4 {
     text-align: center;
@@ -742,49 +974,72 @@ body #mLoginWrapper #boxLogin #form p.linkToOtherPage a {
     width: 370px;
   }
 }
+
 body {
   margin: 0;
   overflow-x: hidden;
 }
+
 body #backBtn {
   position: absolute;
   top: 30px;
   right: 30px;
 }
+
 body #mRegistroWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   padding: 15px 0;
   background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%);
 }
+
 body #mRegistroWrapper #boxRegistro {
   width: calc(100% - 30px);
   height: calc(100% - 30px);
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   background-color: #FBFBFB;
   padding: 15px;
 }
+
 body #mRegistroWrapper #boxRegistro .HeaderDoador h1, body #mRegistroWrapper #boxRegistro .HeaderDoador h4 {
   margin: 0;
 }
+
 body #mRegistroWrapper #boxRegistro .HeaderDoador h1 {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
 }
+
 body #mRegistroWrapper #boxRegistro .HeaderDoador h4 {
-  font-family: "UbuntuLight", sans-serif;
+  font-family: 'UbuntuLight', sans-serif;
 }
+
 body #mRegistroWrapper #boxRegistro #form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 body #mRegistroWrapper #boxRegistro #form h2 {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
   color: #f18052;
   margin-bottom: 50px;
 }
+
 body #mRegistroWrapper #boxRegistro #form form.formDoador input {
   width: 100%;
   height: 50px;
@@ -795,23 +1050,46 @@ body #mRegistroWrapper #boxRegistro #form form.formDoador input {
   margin-bottom: 30px;
   outline: none;
 }
-body #mRegistroWrapper #boxRegistro #form form.formDoador input::placeholder {
-  font-family: "UbuntuLight", sans-serif;
+
+body #mRegistroWrapper #boxRegistro #form form.formDoador input::-webkit-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
-body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^=submit] {
+
+body #mRegistroWrapper #boxRegistro #form form.formDoador input:-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mRegistroWrapper #boxRegistro #form form.formDoador input::-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mRegistroWrapper #boxRegistro #form form.formDoador input::placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="submit"] {
   background: #f18052;
   margin-bottom: 50px;
 }
-body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^=submit]:hover {
+
+body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="submit"]:hover {
   color: #FBFBFB;
 }
+
 body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
   color: #e35b5d;
 }
+
 body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage a {
   color: #212121;
 }
@@ -823,14 +1101,17 @@ body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage a {
   }
   #mRegistroWrapper #boxRegistro {
     height: calc(100vh - 30px) !important;
-    grid-template-rows: repeat(2, 1fr) !important;
+    -ms-grid-rows: (1fr)[2] !important;
+        grid-template-rows: repeat(2, 1fr) !important;
     background-image: url(../images/doacao.svg);
     background-repeat: no-repeat;
     background-size: 600px;
     background-position: 95% 95%;
   }
   #mRegistroWrapper #boxRegistro .HeaderDoador {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
   #mRegistroWrapper #boxRegistro .HeaderDoador h1, #mRegistroWrapper #boxRegistro .HeaderDoador h4 {
     text-align: center;
@@ -840,49 +1121,72 @@ body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage a {
     width: 370px;
   }
 }
+
 body {
   margin: 0;
   overflow-x: hidden;
 }
+
 body #backBtn {
   position: absolute;
   top: 30px;
   right: 30px;
 }
+
 body #mOngLoginWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100vh;
   background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%);
 }
+
 body #mOngLoginWrapper #boxOngLogin {
   width: calc(100% - 30px);
   height: calc(100vh - 30px);
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: 0.5fr 1fr;
+  -ms-grid-rows: 0.5fr 1fr;
+      grid-template-rows: 0.5fr 1fr;
   background-color: #FBFBFB;
   padding: 15px;
 }
+
 body #mOngLoginWrapper #boxOngLogin .HeaderDoador h1, body #mOngLoginWrapper #boxOngLogin .HeaderDoador h4 {
   margin: 0;
 }
+
 body #mOngLoginWrapper #boxOngLogin .HeaderDoador h1 {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
 }
+
 body #mOngLoginWrapper #boxOngLogin .HeaderDoador h4 {
-  font-family: "UbuntuLight", sans-serif;
+  font-family: 'UbuntuLight', sans-serif;
 }
+
 body #mOngLoginWrapper #boxOngLogin #form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 body #mOngLoginWrapper #boxOngLogin #form h2 {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
   color: #f18052;
   margin-bottom: 50px;
 }
+
 body #mOngLoginWrapper #boxOngLogin #form form.formDoador input {
   width: 100%;
   height: 50px;
@@ -893,23 +1197,46 @@ body #mOngLoginWrapper #boxOngLogin #form form.formDoador input {
   margin-bottom: 30px;
   outline: none;
 }
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::placeholder {
-  font-family: "UbuntuLight", sans-serif;
+
+body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::-webkit-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^=submit] {
+
+body #mOngLoginWrapper #boxOngLogin #form form.formDoador input:-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^="submit"] {
   background: #f18052;
   margin-bottom: 50px;
 }
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^=submit]:hover {
+
+body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^="submit"]:hover {
   color: #FBFBFB;
 }
+
 body #mOngLoginWrapper #boxOngLogin #form p.linkToOtherPage {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
   color: #e35b5d;
 }
+
 body #mOngLoginWrapper #boxOngLogin #form p.linkToOtherPage a {
   color: #212121;
 }
@@ -917,68 +1244,96 @@ body #mOngLoginWrapper #boxOngLogin #form p.linkToOtherPage a {
 @media screen and (min-width: 768px) {
   #boxOngLogin {
     width: 100%;
-    grid-template-rows: 0.7fr 1fr;
+    -ms-grid-rows: 0.7fr 1fr;
+        grid-template-rows: 0.7fr 1fr;
     background-image: url(../images/comunidade.svg);
     background-repeat: no-repeat;
     background-size: 600px;
     background-position: 5% 95%;
   }
   #boxOngLogin .HeaderDoador {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
   #boxOngLogin .HeaderDoador h1, #boxOngLogin .HeaderDoador h4 {
     text-align: center;
   }
   #boxOngLogin div#form {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     justify-self: flex-end;
     margin-right: 250px;
     width: 370px;
   }
 }
+
 body {
   margin: 0;
   overflow-x: hidden;
 }
+
 body #backBtn {
   position: absolute;
   top: 30px;
   right: 30px;
 }
+
 body #mOngRegistroWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   padding: 15px 0;
   background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%);
 }
+
 body #mOngRegistroWrapper #boxOngRegistro {
   width: calc(100% - 30px);
   height: calc(100% - 30px);
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   background-color: #FBFBFB;
   padding: 15px;
 }
+
 body #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h1, body #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h4 {
   margin: 0;
 }
+
 body #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h1 {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
 }
+
 body #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h4 {
-  font-family: "UbuntuLight", sans-serif;
+  font-family: 'UbuntuLight', sans-serif;
 }
+
 body #mOngRegistroWrapper #boxOngRegistro #form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 body #mOngRegistroWrapper #boxOngRegistro #form h2 {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
   color: #f18052;
   margin-bottom: 50px;
 }
+
 body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input {
   width: 100%;
   height: 50px;
@@ -989,23 +1344,46 @@ body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input {
   margin-bottom: 30px;
   outline: none;
 }
-body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input::placeholder {
-  font-family: "UbuntuLight", sans-serif;
+
+body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input::-webkit-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
-body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input[type^=submit] {
+
+body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input:-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input::-ms-input-placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input::placeholder {
+  font-family: 'UbuntuLight', sans-serif;
+  font-size: 18px;
+  color: #212121;
+}
+
+body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input[type^="submit"] {
   background: #f18052;
   margin-bottom: 50px;
 }
-body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input[type^=submit]:hover {
+
+body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input[type^="submit"]:hover {
   color: #FBFBFB;
 }
+
 body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage {
-  font-family: "UbuntuBold", sans-serif;
+  font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
   color: #e35b5d;
 }
+
 body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage a {
   color: #212121;
 }
@@ -1017,25 +1395,31 @@ body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage a {
   }
   #mOngRegistroWrapper #boxOngRegistro {
     height: calc(100vh - 30px) !important;
-    grid-template-rows: repeat(2, 1fr) !important;
+    -ms-grid-rows: (1fr)[2] !important;
+        grid-template-rows: repeat(2, 1fr) !important;
     background-image: url(../images/comunidade.svg);
     background-repeat: no-repeat;
     background-size: 600px;
     background-position: 5% 95%;
   }
   #mOngRegistroWrapper #boxOngRegistro .HeaderDoador {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
   #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h1, #mOngRegistroWrapper #boxOngRegistro .HeaderDoador h4 {
     text-align: center;
   }
   #mOngRegistroWrapper #boxOngRegistro div#form {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     justify-self: flex-end;
     margin-right: 250px;
     width: 370px;
   }
 }
+
 .menu-active i {
   color: #e35b5d !important;
 }
@@ -1044,17 +1428,21 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+
 body main#mainDashboard {
   width: calc(100% - 30px);
   min-height: calc(100vh - 30px - 50px);
   margin: 15px;
   padding: 15px;
   background-color: #FBFBFB;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
 }
+
 body main#mainDashboard header.HeaderDashboard {
   text-align: center;
 }
+
 body main#mainDashboard header.HeaderDashboard h4 {
   color: #f18052;
 }
@@ -1065,85 +1453,79 @@ body main#mainDashboard header.HeaderDashboard h4 {
     margin: 15px auto;
   }
 }
+
 @media screen and (min-width: 1368px) {
   body main#mainDashboard {
     width: 75%;
     margin: 15px auto;
   }
 }
+
 @media screen and (min-width: 1500px) {
   body main#mainDashboard {
     width: 70%;
     margin: 15px auto;
   }
 }
+
 body main#mainConfigDoador {
   width: calc(100% - 30px);
   min-height: calc(100vh - 30px - 50px);
   margin: 15px auto;
   padding: 15px;
   background-color: #FBFBFB;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
 }
+
 body main#mainConfigDoador header.HeaderDashboard {
   text-align: center;
 }
+
 body main#mainConfigDoador header.HeaderDashboard h4 {
   color: #f18052;
 }
+
 body main#mainConfigDoador div#dadosPessoais {
   width: 100%;
 }
+
 body main#mainConfigDoador div#dadosPessoais header h3 {
   width: 100%;
   margin: 30px 0;
   color: #f18052;
   border-bottom: 2px solid #f18052;
 }
-body main#mainConfigDoador div#dadosPessoais table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 30px;
-}
-body main#mainConfigDoador div#dadosPessoais table td, body main#mainConfigDoador div#dadosPessoais table th {
-  color: #464353;
-  text-align: left;
-  padding: 15px;
-  width: 50%;
-}
-body main#mainConfigDoador div#dadosPessoais table tr:nth-child(even) {
-  background-color: #DADADA;
-}
+
 body main#mainConfigDoador div#dadosPessoais #formDataButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 body main#mainConfigDoador div#enderecoDoacao {
   width: 100%;
 }
+
 body main#mainConfigDoador div#enderecoDoacao header h3 {
   width: 100%;
   margin: 30px 0;
   color: #f18052;
   border-bottom: 2px solid #f18052;
 }
-body main#mainConfigDoador div#enderecoDoacao table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 30px;
-}
-body main#mainConfigDoador div#enderecoDoacao table td, body main#mainConfigDoador div#enderecoDoacao table th {
-  color: #464353;
-  text-align: left;
-  padding: 15px;
-  width: 50%;
-}
-body main#mainConfigDoador div#enderecoDoacao table tr:nth-child(even) {
-  background-color: #DADADA;
-}
+
 body main#mainConfigDoador div#enderecoDoacao #formAdressButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @media screen and (min-width: 1024px) {
@@ -1151,31 +1533,40 @@ body main#mainConfigDoador div#enderecoDoacao #formAdressButtons {
     width: 90%;
   }
   body main#mainConfigDoador #ContainerConfigDoador {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 50px;
   }
 }
+
 @media screen and (min-width: 1368px) {
   body main#mainConfigDoador {
     width: 75%;
   }
   body main#mainConfigDoador #ContainerConfigDoador {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 50px;
   }
 }
+
 @media screen and (min-width: 1500px) {
   body main#mainConfigDoador {
     width: 70%;
   }
   body main#mainConfigDoador #ContainerConfigDoador {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 50px;
   }
 }
+
 body div#HeaderOngPerfil {
   position: relative;
   width: calc(100% - 30px);
@@ -1183,6 +1574,7 @@ body div#HeaderOngPerfil {
   margin: 15px auto;
   background-color: #212121;
 }
+
 body div#HeaderOngPerfil div#bannerPerfil {
   position: absolute;
   top: 0;
@@ -1192,76 +1584,109 @@ body div#HeaderOngPerfil div#bannerPerfil {
   background-color: #212121;
   cursor: pointer;
 }
+
 body div#HeaderOngPerfil div#bannerPerfil div#editarBanner {
   position: absolute;
   right: 15px;
   top: 15px;
-  font-size: 1em;
+  font-size: 1.0em;
 }
+
 body div#HeaderOngPerfil div#bannerPerfil div#editarBanner > i {
   opacity: 0.3;
   font-size: 1.5em;
   color: #FBFBFB;
+  -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
+  -webkit-transition: font-size 0.1s ease-in-out;
   transition: font-size 0.1s ease-in-out;
 }
+
 body div#HeaderOngPerfil div#bannerPerfil div#editarBanner a {
   opacity: 0;
   text-transform: uppercase;
-  font-family: "UbuntuRegular";
+  font-family: 'UbuntuRegular';
   margin-right: 5px;
   color: #FBFBFB;
+  -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
+
 body div#HeaderOngPerfil div#logoPerfil {
   width: 130px;
   height: 130px;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   margin-left: 50px;
   border-radius: 50%;
   background-color: #fafafa;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   cursor: pointer;
   overflow: hidden;
 }
+
 body div#HeaderOngPerfil div#logoPerfil div#editarPerfil {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.0em;
   margin-top: 25px;
+  -webkit-transition: background-color 0.1s ease-in-out;
   transition: background-color 0.1s ease-in-out;
 }
+
 body div#HeaderOngPerfil div#logoPerfil div#editarPerfil > i {
   opacity: 0;
   font-size: 1.5em;
   color: #212121;
+  -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
+  -webkit-transition: font-size 0.1s ease-in-out;
   transition: font-size 0.1s ease-in-out;
 }
+
 body div#HeaderOngPerfil div#logoPerfil div#editarPerfil a {
   opacity: 0;
   text-transform: uppercase;
-  font-family: "UbuntuRegular";
+  font-family: 'UbuntuRegular';
   margin-right: 5px;
   color: #212121;
+  -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
+
 body main#mainConfigOng {
   width: calc(100% - 30px);
   min-height: calc(100vh - 300px);
   margin: 15px auto;
   padding: 15px;
   background-color: #FBFBFB;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
 }
+
 body main#mainConfigOng header h3 {
   width: 100%;
   margin: 30px 0;
@@ -1276,38 +1701,10 @@ body main#mainConfigOng header h3 {
   }
   body main#mainConfigOng {
     width: 90%;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-gap: 50px;
-    padding: 0 50px;
-    margin: 0 auto;
-    margin-bottom: 15px;
-  }
-}
-@media screen and (min-width: 1368px) {
-  body div#HeaderOngPerfil {
-    width: 75%;
-    margin: 15px auto;
-  }
-  body main#mainConfigOng {
-    width: 75%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-gap: 50px;
-    padding: 0 50px;
-    margin: 0 auto;
-    margin-bottom: 15px;
-  }
-}
-@media screen and (min-width: 1500px) {
-  body div#HeaderOngPerfil {
-    width: 70%;
-    margin: 15px auto;
-  }
-  body main#mainConfigOng {
-    width: 70%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    -ms-grid-columns: (minmax(500px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 50px;
     padding: 0 50px;
     margin: 0 auto;
@@ -1315,4 +1712,39 @@ body main#mainConfigOng header h3 {
   }
 }
 
+@media screen and (min-width: 1368px) {
+  body div#HeaderOngPerfil {
+    width: 75%;
+    margin: 15px auto;
+  }
+  body main#mainConfigOng {
+    width: 75%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(500px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-gap: 50px;
+    padding: 0 50px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  body div#HeaderOngPerfil {
+    width: 70%;
+    margin: 15px auto;
+  }
+  body main#mainConfigOng {
+    width: 70%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(500px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-gap: 50px;
+    padding: 0 50px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}
 /*# sourceMappingURL=main.css.map */

@@ -14,8 +14,142 @@ module.exports = {
     res.render("ongRegistro");
   },
   renderConfig(req, res){
-    let { name } = req.user;
-    res.render("configOng.pug", { displayName: name });
+    let { name, email, cnpj, publicInfo} = req.user;
+    res.render("configOng", { 
+      displayName: name,
+      email,
+      cnpj,
+      publicInfo,
+      query: req.query
+    });
+  },
+  saveBanner(req, res){
+    let erros = [];
+
+    if(req.file == undefined){
+      erros.push({msg: 'Por favor, Insira uma imagem.'});
+    }
+
+    if(erros.length > 0){
+      res.render("configOng", {
+        erros,
+      });
+    } else {
+      req.flash('cardSucess', 'Banner alterado com sucesso!');
+      res.redirect('/ong/config');
+    }
+  },
+  saveLogo(req, res){
+    let erros = [];
+  },
+  async globalInfo(req, res){
+    let { 
+      email, 
+      currentPassword, 
+      newPassword, 
+      newPassword2 } = req.body;
+
+    let erros = [];
+
+    if(!email || !currentPassword || !newPassword || !newPassword2){
+      erros.push({msg: 'Por favor, preencha todos os campos.'});
+    }
+
+    const match = await bcrypt.compare(currentPassword, req.user.password);
+
+    if(!match){
+      erros.push({msg: 'Senha atual invalida, tente novamente.'});
+    }
+
+    //Check password size
+    if(newPassword.length < 6){
+      erros.push({msg: 'A sua nova senha deve conter pelo menos 6 caracteres.'});
+    }
+
+    if(newPassword !== newPassword2){
+      erros.push({msg: 'Novas senhas não batem, tente novamente.'});
+    }
+    if(erros.length > 0){
+      let { name, cnpj, publicInfo} = req.user;
+      res.render("configOng", {
+        erros,
+        query: { section: "globalInfo" },
+        displayName: name,
+        email,
+        cnpj,
+        publicInfo,
+      });
+    } else {
+      Ong.findById(req.user.id, (err, user) => {
+        //Hash password
+        bcrypt.genSalt(10, (e, salt) => {
+          bcrypt.hash(newPassword, salt, (e, hash) => {
+            if(e) throw e;
+            user.password = hash;
+            user.save((err) => {
+              if(err){
+                req.flash('error_msg', 'Algum erro ocorreu ao salvar sua senha, tente novamente.');
+                res.redirect('/ong/config');
+              }else{
+                req.flash('sucess_msg', 'Configurações salvar com sucesso!.');
+                res.redirect('/ong/config');
+              }
+
+            });
+          });
+        });
+      });
+    }
+  },
+  ongAddress(req, res){
+    
+    let { 
+      endereco, 
+      estado, 
+      cidade, 
+      cep, 
+      telefone 
+    } = req.body;
+
+    let erros = [];
+
+    if(!endereco || !estado || !cidade || !cep || !telefone){
+      erros.push({msg: 'Por favor, preencha todos os campos.'});
+    }
+
+    if(erros.length > 0){
+      let { name, publicInfo } = req.user;
+      res.render("configOng", {
+        erros,
+        query: {section: "ongAddress"},
+        displayName: name,
+        publicInfo,
+        endereco,
+        estado,
+        cidade,
+        cep,
+        telefone
+      });
+    }else{
+      Ong.findById(req.user.id, (e, user) => {
+
+          user.publicInfo.tel = telefone;
+          user.publicInfo.address.city = cidade;
+          user.publicInfo.address.state = estado;
+          user.publicInfo.address.street = endereco;
+          user.publicInfo.address.cep = cep;
+
+          user.save((err) => {
+            if(err){
+              req.flash('cardError','Algum erro ocorreu ao salvar suas informações, tente novamente.');
+              res.redirect('/ong/config');
+            }else{
+              req.flash('cardSucess', 'Configurações salvas com sucesso!');
+              res.redirect('/ong/config');
+            }
+          });
+      });
+    }
   },
   async loginOng(req, res, next) {
     passport.authenticate('ong', {

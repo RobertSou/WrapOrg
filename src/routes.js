@@ -17,8 +17,8 @@ routes.get("/doador/config", ensureAuthenticated, doadorController.renderConfig)
 //DOADOR POST Methods
 routes.post("/doador/login", doadorController.loginDoador);
 routes.post("/doador/registro", doadorController.registerDoador);
-routes.post("/doador/config/personalinfo", doadorController.editPersonal);
-routes.post("/doador/config/address", doadorController.editAddress);
+routes.post("/doador/config/personalInfo", doadorController.editPersonal);
+routes.post("/doador/config/doadorAddress", doadorController.editAddress);
 routes.post("/doador/dashboard/donate", ensureAuthenticated, doadorController.makeDonation);
 
 
@@ -32,6 +32,10 @@ routes.get("/ong/config", ensureAuthenticated, ongController.renderConfig);
 //ONG POST Methods
 routes.post("/ong/login", ongController.loginOng);
 routes.post("/ong/registro", ongController.registerOng);
+routes.post("/ong/config/saveBanner", ensureAuthenticated, ongController.saveBanner);
+routes.post("/ong/config/saveLogo", ensureAuthenticated, ongController.saveLogo);
+routes.post("/ong/config/globalInfo", ensureAuthenticated, ongController.globalInfo);
+routes.post("/ong/config/ongAddress", ensureAuthenticated, ongController.ongAddress);
 
 routes.get('/logout',(req,res) => {
     req.logout();
