@@ -43,7 +43,7 @@ function saveBanner() {
 //\--- Imagem de perfil Configurações da ONG
 //==============================================
 let logoPerfil = document.getElementById("logoPerfil");
-let editarPerfil = logoPerfil.children.item(0);
+let editarPerfil = logoPerfil.children.item(1);
 let profileLink = document.getElementById("editarPerfil").children.item(2);
 let profileImg = document.getElementById("editarPerfil").children.item(1);
 let profileForm = document.getElementById("formProfile");

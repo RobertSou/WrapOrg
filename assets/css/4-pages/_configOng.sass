@@ -14,6 +14,14 @@ body
             bottom: 0
             background-color: $defaultDarkGrey
             cursor: pointer
+            img
+                width: 100%
+                height: 100%
+                position: absolute
+                right: 0
+                top: 0
+                bottom: 0
+                left: 0
             div#editarBanner
                 position: absolute
                 right: 15px
@@ -40,12 +48,29 @@ body
             transform: translateY(-50%)
             margin-left: 50px
             border-radius: 50%
-            background-color: #fafafa
             display: flex
             justify-content: center
             align-items: flex-end
             cursor: pointer
             overflow: hidden
+            img
+                width: 100%
+                height: 100%
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                z-index: 1
+            div#shadowLogo
+                width: 100%
+                height: 100%
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                transition: background-color 0.1s ease-in-out
             div#editarPerfil
                 width: 100%
                 height: 100%
@@ -55,7 +80,7 @@ body
                 align-items: center
                 font-size: 1.0em
                 margin-top: 25px
-                transition: background-color 0.1s ease-in-out
+                z-index: 2
                 > i
                     opacity: 0
                     font-size: 1.5em
@@ -82,7 +107,7 @@ body
                 margin: 30px 0
                 color: $defaultDarkOrange
                 border-bottom: 2px solid $defaultDarkOrange
-    
+
 @media screen and (min-width: 1024px)
     body
         div#HeaderOngPerfil
@@ -97,7 +122,7 @@ body
             padding: 0 50px
             margin: 0 auto
             margin-bottom: 15px
-    
+
 @media screen and (min-width: 1368px)
     body
         div#HeaderOngPerfil
@@ -112,7 +137,7 @@ body
             padding: 0 50px
             margin: 0 auto
             margin-bottom: 15px
-    
+
 @media screen and (min-width: 1500px)
     body
         div#HeaderOngPerfil
