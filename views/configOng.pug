@@ -20,7 +20,7 @@ html
         include partials/cards.pug
         // Body content
         section(id="HeaderOngPerfil")
-            div(id="bannerPerfil" style="background-image: url(/images/bannerModel.svg);")
+            div(id="bannerPerfil" style=`background-image: url(${capaURI});`)
                 div(id="editarBanner")
                     form(
                         id="formBanner"
@@ -37,7 +37,7 @@ html
                         )
                     a(href="#" onClick="getBannerImage()") Editar
                     i(class="fas fa-camera" onClick="getBannerImage()")
-            div(id="logoPerfil" style="background-image: url(/images/logoModel.svg);")
+            div(id="logoPerfil" style=`background-image: url(${logoURI});`)
                 div#shadowLogo
                 div#editarPerfil
                     form(
@@ -104,7 +104,7 @@ html
                         header
                             h3 Banners de divulgação
                         div#bannersShare
-                            div(id="banner1" style="background-image: url(/images/modelbanner.png);")
+                            div(id="banner1" style=`background-image: url(${banner1});`)
                                 div.shadowBanner
                                 div.editarBanner
                                     form(
@@ -122,7 +122,7 @@ html
                                         )
                                     i(class="fas fa-camera" onClick="getBanner1()")
                                     a(onClick="getBanner1()") Editar
-                            div(id="banner2" style="background-image: url(/images/modelbanner.png);")
+                            div(id="banner2" style=`background-image: url(${banner2});`)
                                 div.shadowBanner
                                 div.editarBanner
                                     form(
@@ -140,7 +140,7 @@ html
                                         )
                                     i(class="fas fa-camera" onClick="getBanner2()")
                                     a(onClick="getBanner2()") Editar
-                            div(id="banner3" style="background-image: url(/images/modelbanner.png);")
+                            div(id="banner3" style=`background-image: url(${banner3});`)
                                 div.shadowBanner
                                 div.editarBanner
                                     form(

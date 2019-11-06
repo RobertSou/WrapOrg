@@ -18,11 +18,71 @@ const ongSchema = new mongoose.Schema({
         required: true,
     },
     publicInfo: {
-        logo: String,
-        capa: String,
-        banner1: String,
-        banner2: String,
-        banner3: String,
+        logo: {
+            name: String,
+            size: Number,
+            key: String,
+            url: {
+                type: String,
+                default: `${process.env.appURI}/images/logoModel.svg`,
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+            },
+        },
+        capa: {
+            name: String,
+            size: Number,
+            key: String,
+            url: {
+                type: String,
+                default: `${process.env.appURI}/images/bannerModel.svg`,
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+            },
+        },
+        banner1: {
+            name: String,
+            size: Number,
+            key: String,
+            url: {
+                type: String,
+                default: `${process.env.appURI}/images/modelbanner.png`,
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+            },
+        },
+        banner2: {
+            name: String,
+            size: Number,
+            key: String,
+            url: {
+                type: String,
+                default: `${process.env.appURI}/images/modelbanner.png`,
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+            },
+        },
+        banner3: {
+            name: String,
+            size: Number,
+            key: String,
+            url: {
+                type: String,
+                default: `${process.env.appURI}/images/modelbanner.png`,
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+            },
+        },
         tel: Number,
         address: {
             state: String,

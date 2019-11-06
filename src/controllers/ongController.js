@@ -20,10 +20,17 @@ module.exports = {
       email,
       cnpj,
       publicInfo,
+      capaURI: publicInfo.capa.url,
+      logoURI: publicInfo.logo.url,
+      banner1: publicInfo.banner1.url,
+      banner2: publicInfo.banner2.url,
+      banner3: publicInfo.banner3.url,
       query: req.query
     });
   },
   saveBanner(req, res){
+    let { originalname: name, size, filename: key } = req.file;
+    
     let erros = [];
 
     if(req.file == undefined){
@@ -35,12 +42,57 @@ module.exports = {
         erros,
       });
     } else {
-      req.flash('cardSucess', 'Banner alterado com sucesso!');
-      res.redirect('/ong/config');
+      Ong.findById(req.user.id, (e, user) => {
+
+        user.publicInfo.capa.name = name;
+        user.publicInfo.capa.size = size;
+        user.publicInfo.capa.key = key;
+        user.publicInfo.capa.url = process.env.appURI + '/files/' + key;
+
+        user.save((err) => {
+          if(err){
+            req.flash('cardError','Algum erro ocorreu ao salvar suas informações, tente novamente.');
+            res.redirect('/ong/config');
+          }else{
+            req.flash('cardSucess', 'Banner alterado com sucesso!');
+            res.redirect('/ong/config');
+          }
+        });
+      });
     }
   },
   saveLogo(req, res){
+    let { originalname: name, size, filename: key } = req.file;
+
     let erros = [];
+
+    if(req.file == undefined){
+      erros.push({msg: 'Por favor, Insira uma imagem.'});
+    }
+
+    if(erros.length > 0){
+      res.render("configOng", {
+        erros,
+      });
+    } else {
+      Ong.findById(req.user.id, (e, user) => {
+
+        user.publicInfo.logo.name = name;
+        user.publicInfo.logo.size = size;
+        user.publicInfo.logo.key = key;
+        user.publicInfo.logo.url = process.env.appURI + '/files/' + key;
+
+        user.save((err) => {
+          if(err){
+            req.flash('cardError','Algum erro ocorreu ao salvar suas informações, tente novamente.');
+            res.redirect('/ong/config');
+          }else{
+            req.flash('cardSucess', 'Logo alterado com sucesso!');
+            res.redirect('/ong/config');
+          }
+        });
+      });
+    }
   },
   async globalInfo(req, res){
     let { 
