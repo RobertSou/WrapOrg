@@ -854,13 +854,13 @@ body #mLoginWrapper {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%);
 }
 
 body #mLoginWrapper #boxLogin {
   width: calc(100% - 30px);
-  height: calc(100vh - 30px);
+  min-height: calc(100vh - 30px);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 0.5fr 1fr;
@@ -952,7 +952,11 @@ body #mLoginWrapper #boxLogin #form p.linkToOtherPage a {
 }
 
 @media screen and (min-width: 768px) {
-  #boxLogin {
+  #mLoginWrapper {
+    padding: 15px 0;
+    min-height: 100vh;
+  }
+  #mLoginWrapper #boxLogin {
     width: 100%;
     -ms-grid-rows: 0.7fr 1fr;
         grid-template-rows: 0.7fr 1fr;
@@ -961,15 +965,15 @@ body #mLoginWrapper #boxLogin #form p.linkToOtherPage a {
     background-size: 600px;
     background-position: 95% 95%;
   }
-  #boxLogin .HeaderDoador {
+  #mLoginWrapper #boxLogin .HeaderDoador {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
   }
-  #boxLogin .HeaderDoador h1, #boxLogin .HeaderDoador h4 {
+  #mLoginWrapper #boxLogin .HeaderDoador h1, #mLoginWrapper #boxLogin .HeaderDoador h4 {
     text-align: center;
   }
-  #boxLogin div#form {
+  #mLoginWrapper #boxLogin div#form {
     margin-left: 250px;
     width: 370px;
   }
@@ -1003,7 +1007,7 @@ body #mRegistroWrapper {
 
 body #mRegistroWrapper #boxRegistro {
   width: calc(100% - 30px);
-  height: calc(100% - 30px);
+  min-height: calc(100% - 30px);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
@@ -1097,12 +1101,12 @@ body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage a {
 @media screen and (min-width: 768px) {
   #mRegistroWrapper {
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
   }
   #mRegistroWrapper #boxRegistro {
-    height: calc(100vh - 30px) !important;
-    -ms-grid-rows: (1fr)[2] !important;
-        grid-template-rows: repeat(2, 1fr) !important;
+    min-height: calc(100vh - 30px) !important;
+    -ms-grid-rows: 0.5fr 2fr !important;
+        grid-template-rows: 0.5fr 2fr !important;
     background-image: url(../images/doacao.svg);
     background-repeat: no-repeat;
     background-size: 600px;
@@ -1133,7 +1137,7 @@ body #backBtn {
   right: 30px;
 }
 
-body #mOngLoginWrapper {
+body main#mOngLoginWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1144,13 +1148,13 @@ body #mOngLoginWrapper {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%);
 }
 
-body #mOngLoginWrapper #boxOngLogin {
+body main#mOngLoginWrapper div#boxOngLogin {
   width: calc(100% - 30px);
-  height: calc(100vh - 30px);
+  min-height: calc(100vh - 30px);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 0.5fr 1fr;
@@ -1159,19 +1163,19 @@ body #mOngLoginWrapper #boxOngLogin {
   padding: 15px;
 }
 
-body #mOngLoginWrapper #boxOngLogin .HeaderDoador h1, body #mOngLoginWrapper #boxOngLogin .HeaderDoador h4 {
+body main#mOngLoginWrapper div#boxOngLogin .HeaderDoador h1, body main#mOngLoginWrapper div#boxOngLogin .HeaderDoador h4 {
   margin: 0;
 }
 
-body #mOngLoginWrapper #boxOngLogin .HeaderDoador h1 {
+body main#mOngLoginWrapper div#boxOngLogin .HeaderDoador h1 {
   font-family: 'UbuntuBold', sans-serif;
 }
 
-body #mOngLoginWrapper #boxOngLogin .HeaderDoador h4 {
+body main#mOngLoginWrapper div#boxOngLogin .HeaderDoador h4 {
   font-family: 'UbuntuLight', sans-serif;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form {
+body main#mOngLoginWrapper div#boxOngLogin #form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1181,13 +1185,13 @@ body #mOngLoginWrapper #boxOngLogin #form {
           flex-direction: column;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form h2 {
+body main#mOngLoginWrapper div#boxOngLogin #form h2 {
   font-family: 'UbuntuBold', sans-serif;
   color: #f18052;
   margin-bottom: 50px;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input {
+body main#mOngLoginWrapper div#boxOngLogin #form form.formDoador input {
   width: 100%;
   height: 50px;
   background: none;
@@ -1198,52 +1202,57 @@ body #mOngLoginWrapper #boxOngLogin #form form.formDoador input {
   outline: none;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::-webkit-input-placeholder {
+body main#mOngLoginWrapper div#boxOngLogin #form form.formDoador input::-webkit-input-placeholder {
   font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input:-ms-input-placeholder {
+body main#mOngLoginWrapper div#boxOngLogin #form form.formDoador input:-ms-input-placeholder {
   font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::-ms-input-placeholder {
+body main#mOngLoginWrapper div#boxOngLogin #form form.formDoador input::-ms-input-placeholder {
   font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input::placeholder {
+body main#mOngLoginWrapper div#boxOngLogin #form form.formDoador input::placeholder {
   font-family: 'UbuntuLight', sans-serif;
   font-size: 18px;
   color: #212121;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^="submit"] {
+body main#mOngLoginWrapper div#boxOngLogin #form form.formDoador input[type^="submit"] {
   background: #f18052;
   margin-bottom: 50px;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form form.formDoador input[type^="submit"]:hover {
+body main#mOngLoginWrapper div#boxOngLogin #form form.formDoador input[type^="submit"]:hover {
   color: #FBFBFB;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form p.linkToOtherPage {
+body main#mOngLoginWrapper div#boxOngLogin #form p.linkToOtherPage {
   font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
   color: #e35b5d;
 }
 
-body #mOngLoginWrapper #boxOngLogin #form p.linkToOtherPage a {
+body main#mOngLoginWrapper div#boxOngLogin #form p.linkToOtherPage a {
   color: #212121;
 }
 
 @media screen and (min-width: 768px) {
-  #boxOngLogin {
+  #mOngLoginWrapper {
+    padding: 15px 0;
+    min-height: 100vh;
+  }
+  #mOngLoginWrapper #boxOngLogin {
     width: 100%;
+    min-height: calc(100vh - 30px) !important;
     -ms-grid-rows: 0.7fr 1fr;
         grid-template-rows: 0.7fr 1fr;
     background-image: url(../images/comunidade.svg);
@@ -1251,15 +1260,15 @@ body #mOngLoginWrapper #boxOngLogin #form p.linkToOtherPage a {
     background-size: 600px;
     background-position: 5% 95%;
   }
-  #boxOngLogin .HeaderDoador {
+  #mOngLoginWrapper #boxOngLogin .HeaderDoador {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
   }
-  #boxOngLogin .HeaderDoador h1, #boxOngLogin .HeaderDoador h4 {
+  #mOngLoginWrapper #boxOngLogin .HeaderDoador h1, #mOngLoginWrapper #boxOngLogin .HeaderDoador h4 {
     text-align: center;
   }
-  #boxOngLogin div#form {
+  #mOngLoginWrapper #boxOngLogin div#form {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
@@ -1297,7 +1306,7 @@ body #mOngRegistroWrapper {
 
 body #mOngRegistroWrapper #boxOngRegistro {
   width: calc(100% - 30px);
-  height: calc(100% - 30px);
+  min-height: calc(100% - 30px);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
@@ -1391,12 +1400,12 @@ body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage a {
 @media screen and (min-width: 768px) {
   #mOngRegistroWrapper {
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
   }
   #mOngRegistroWrapper #boxOngRegistro {
-    height: calc(100vh - 30px) !important;
-    -ms-grid-rows: (1fr)[2] !important;
-        grid-template-rows: repeat(2, 1fr) !important;
+    min-height: calc(100vh - 30px) !important;
+    -ms-grid-rows: 0.5fr 2fr !important;
+        grid-template-rows: 0.5fr 2fr !important;
     background-image: url(../images/comunidade.svg);
     background-repeat: no-repeat;
     background-size: 600px;
@@ -1567,42 +1576,30 @@ body main#mainConfigDoador div#enderecoDoacao #formAdressButtons {
   }
 }
 
-body div#HeaderOngPerfil {
+body section#HeaderOngPerfil {
   position: relative;
-  width: calc(100% - 30px);
+  max-width: calc(100% - 30px);
   height: 200px;
   margin: 15px auto;
   background-color: #212121;
 }
 
-body div#HeaderOngPerfil div#bannerPerfil {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #212121;
+body section#HeaderOngPerfil div#bannerPerfil {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
   cursor: pointer;
 }
 
-body div#HeaderOngPerfil div#bannerPerfil img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-}
-
-body div#HeaderOngPerfil div#bannerPerfil div#editarBanner {
+body section#HeaderOngPerfil div#bannerPerfil div#editarBanner {
   position: absolute;
   right: 15px;
   top: 15px;
   font-size: 1.0em;
 }
 
-body div#HeaderOngPerfil div#bannerPerfil div#editarBanner > i {
+body section#HeaderOngPerfil div#bannerPerfil div#editarBanner i {
   opacity: 0.3;
   font-size: 1.5em;
   color: #FBFBFB;
@@ -1612,7 +1609,7 @@ body div#HeaderOngPerfil div#bannerPerfil div#editarBanner > i {
   transition: font-size 0.1s ease-in-out;
 }
 
-body div#HeaderOngPerfil div#bannerPerfil div#editarBanner a {
+body section#HeaderOngPerfil div#bannerPerfil div#editarBanner a {
   opacity: 0;
   text-transform: uppercase;
   font-family: 'UbuntuRegular';
@@ -1622,7 +1619,7 @@ body div#HeaderOngPerfil div#bannerPerfil div#editarBanner a {
   transition: opacity 0.2s ease-in-out;
 }
 
-body div#HeaderOngPerfil div#logoPerfil {
+body div#logoPerfil {
   width: 130px;
   height: 130px;
   position: absolute;
@@ -1631,6 +1628,7 @@ body div#HeaderOngPerfil div#logoPerfil {
           transform: translateY(-50%);
   margin-left: 50px;
   border-radius: 50%;
+  border: 3px solid #FBFBFB;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1644,18 +1642,7 @@ body div#HeaderOngPerfil div#logoPerfil {
   overflow: hidden;
 }
 
-body div#HeaderOngPerfil div#logoPerfil img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-body div#HeaderOngPerfil div#logoPerfil div#shadowLogo {
+body div#logoPerfil div#shadowLogo {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1667,7 +1654,7 @@ body div#HeaderOngPerfil div#logoPerfil div#shadowLogo {
   transition: background-color 0.1s ease-in-out;
 }
 
-body div#HeaderOngPerfil div#logoPerfil div#editarPerfil {
+body div#logoPerfil div#editarPerfil {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -1688,22 +1675,22 @@ body div#HeaderOngPerfil div#logoPerfil div#editarPerfil {
   z-index: 2;
 }
 
-body div#HeaderOngPerfil div#logoPerfil div#editarPerfil > i {
+body div#logoPerfil div#editarPerfil i {
   opacity: 0;
   font-size: 1.5em;
-  color: #212121;
+  color: #FBFBFB;
   -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
   -webkit-transition: font-size 0.1s ease-in-out;
   transition: font-size 0.1s ease-in-out;
 }
 
-body div#HeaderOngPerfil div#logoPerfil div#editarPerfil a {
+body div#logoPerfil div#editarPerfil a {
   opacity: 0;
   text-transform: uppercase;
   font-family: 'UbuntuRegular';
   margin-right: 5px;
-  color: #212121;
+  color: #FBFBFB;
   -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
@@ -1718,64 +1705,122 @@ body main#mainConfigOng {
           box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
 }
 
-body main#mainConfigOng header h3 {
+body main#mainConfigOng section#config article#configArticle div#dadosOng header h3,
+body main#mainConfigOng section#config article#configArticle div#enderecoOng header h3,
+body main#mainConfigOng section#config article#configArticle div#bannersOng header h3,
+body main#mainConfigOng section#config article#configArticle div#maisInfo header h3 {
   width: 100%;
   margin: 30px 0;
   color: #f18052;
   border-bottom: 2px solid #f18052;
 }
 
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner1,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner2,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner3 {
+  position: relative;
+  max-width: 500px;
+  height: 150px;
+  margin-bottom: 15px;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid #212121;
+}
+
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner1 div.shadowBanner,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner2 div.shadowBanner,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner3 div.shadowBanner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner1 div.editarBanner,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner2 div.editarBanner,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner3 div.editarBanner {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  z-index: 3;
+}
+
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner1 div.editarBanner i,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner2 div.editarBanner i,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner3 div.editarBanner i {
+  opacity: 0.3;
+  font-size: 1.5em;
+  color: #FBFBFB;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: font-size 0.1s ease-in-out;
+  transition: font-size 0.1s ease-in-out;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner1 div.editarBanner a,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner2 div.editarBanner a,
+body main#mainConfigOng section#config article#configArticle div#bannersOng div#banner3 div.editarBanner a {
+  opacity: 0;
+  text-transform: uppercase;
+  font-family: 'UbuntuRegular';
+  margin-right: 5px;
+  color: #FBFBFB;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 1024px) {
-  body div#HeaderOngPerfil {
+  body section#HeaderOngPerfil {
     width: 90%;
-    margin: 15px auto;
   }
   body main#mainConfigOng {
     width: 90%;
+  }
+  body main#mainConfigOng section#config article#configArticle {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(500px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 50px;
-    padding: 0 50px;
-    margin: 0 auto;
-    margin-bottom: 15px;
   }
 }
 
 @media screen and (min-width: 1368px) {
-  body div#HeaderOngPerfil {
+  body section#HeaderOngPerfil {
     width: 75%;
-    margin: 15px auto;
   }
   body main#mainConfigOng {
     width: 75%;
+  }
+  body main#mainConfigOng section#config article#configArticle {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(500px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 50px;
-    padding: 0 50px;
-    margin: 0 auto;
-    margin-bottom: 15px;
   }
 }
 
 @media screen and (min-width: 1500px) {
-  body div#HeaderOngPerfil {
+  body section#HeaderOngPerfil {
     width: 70%;
-    margin: 15px auto;
   }
   body main#mainConfigOng {
     width: 70%;
+  }
+  body main#mainConfigOng section#config article#configArticle {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(500px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 50px;
-    padding: 0 50px;
-    margin: 0 auto;
-    margin-bottom: 15px;
   }
 }
 /*# sourceMappingURL=main.css.map */

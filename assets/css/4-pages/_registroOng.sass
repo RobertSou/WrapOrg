@@ -14,7 +14,7 @@ body
         background: linear-gradient(236.72deg, rgba(169, 90, 82, 0.85) 14.73%, rgba(241, 128, 82, 0.85) 97.66%)
         #boxOngRegistro
             width: calc(100% - 30px)
-            height: calc(100% - 30px)
+            min-height: calc(100% - 30px)
             display: grid
             grid-template-rows: auto
             background-color: $defaultLightGrey
@@ -62,10 +62,10 @@ body
 @media screen and (min-width: 768px)
     #mOngRegistroWrapper
         padding: 0
-        height: 100vh
+        min-height: 100vh
         #boxOngRegistro
-            height: calc(100vh - 30px) !important
-            grid-template-rows: repeat(2, 1fr) !important
+            min-height: calc(100vh - 30px) !important
+            grid-template-rows: 0.5fr 2fr !important
             background-image: url(../images/comunidade.svg)
             background-repeat: no-repeat
             background-size: 600px

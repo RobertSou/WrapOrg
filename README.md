@@ -29,5 +29,5 @@ docker-compose up -d
 ## Development Env
 
 mongodbURI=mongodb://mongodb:27017/wraporg
-mongodbURI=mongodb://locahost:27017/wraporg
+mongodbURI=mongodb://localhost:27017/wraporg
 PORT=3000

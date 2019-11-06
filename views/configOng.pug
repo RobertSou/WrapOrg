@@ -19,10 +19,9 @@ html
                         i(class="fas fa-sign-out-alt")
         include partials/cards.pug
         // Body content
-        div#HeaderOngPerfil
-            div#bannerPerfil
-                img(src="", alt="Banner principal ong")
-                div(id="editarBanner" onClick="")
+        section(id="HeaderOngPerfil")
+            div(id="bannerPerfil" style="background-image: url(/images/bannerModel.svg);")
+                div(id="editarBanner")
                     form(
                         id="formBanner"
                         method="POST"
@@ -38,8 +37,7 @@ html
                         )
                     a(href="#" onClick="getBannerImage()") Editar
                     i(class="fas fa-camera" onClick="getBannerImage()")
-            div(id="logoPerfil" onClick="")
-                img(src="/images/LogoOng.svg", alt="Avatar/Logo perfil ong")
+            div(id="logoPerfil" style="background-image: url(/images/logoModel.svg);")
                 div#shadowLogo
                 div#editarPerfil
                     form(
@@ -58,104 +56,109 @@ html
                     i(class="fas fa-camera" onClick="getProfileImage()")
                     a(href="#" onClick="getProfileImage()") Editar
         main(id="mainConfigOng")
-            div#dadosOng
-                header
-                    h3 Dados Ong
-                if query.section == "globalInfo"
-                    include partials/messages.pug
-                    include partials/formGlobalInfo.pug
-                else
-                    table
-                        tr
-                            td Nome
-                            td #{displayName}
-                        tr
-                            td Email
-                            td #{email}
-                        tr
-                            td CNPJ
-                            td #{cnpj}
-                    a(class="btndefault" href="/ong/config?section=globalInfo") EDITAR
-            div#enderecoOng
-                header
-                    h3 Endereço da ONG
-                if query.section == "ongAddress"
-                    include partials/messages.pug
-                    include partials/formOngAddress.pug
-                else
-                    table
-                        tr
-                            td Endereço
-                            td #{publicInfo.address.street}
-                        tr
-                            td Estado
-                            td #{publicInfo.address.state}
-                        tr
-                            td Cidade
-                            td #{publicInfo.address.city}
-                        tr
-                            td CEP
-                            td #{publicInfo.address.cep}
-                        tr
-                            td Telefone
-                            td #{publicInfo.tel}
-                    a(class="btndefault" href="/ong/config?section=ongAddress") EDITAR
-            div#bannersOng
-                header
-                    h3 Banners de divulgação
-                div#bannersShare
-                    div#banner1
-                        img(src="/images/modelbanner.png", alt="Banner Divulgação")
-                        div.editarBanner
-                            form(
-                                method="POST"
-                                action="/ong/config/changeBanner1"
-                                enctype="multipart/form-data")
-                                input(
-                                    onchange="saveBanner()"
-                                    type="file"
-                                    accept=".png, .jpg, .jpeg"
-                                    id="profileImage"
-                                    name="profileImage"
-                                    style="display:none;"
-                                )
-                            i(class="fas fa-camera" onClick="getBanner1()")
-                            a(href="#" onClick="getBanner1()") Editar
-                    div#banner2
-                        img(src="/images/modelbanner.png", alt="Banner Divulgação")
-                        div.editarBanner
-                            form(
-                                method="POST"
-                                action="/ong/config/changeBanner2"
-                                enctype="multipart/form-data")
-                                input(
-                                    onchange="saveBanner()"
-                                    type="file"
-                                    accept=".png, .jpg, .jpeg"
-                                    id="profileImage"
-                                    name="profileImage"
-                                    style="display:none;"
-                                )
-                            i(class="fas fa-camera" onClick="getBanner2()")
-                            a(href="#" onClick="getBanner2()") Editar
-                    div#banner3
-                        img(src="/images/modelbanner.png", alt="Banner Divulgação")
-                        div.editarBanner
-                            form(
-                                method="POST"
-                                action="/ong/config/changeBanner3"
-                                enctype="multipart/form-data")
-                                input(
-                                    onchange="saveBanner()"
-                                    type="file"
-                                    accept=".png, .jpg, .jpeg"
-                                    id="profileImage"
-                                    name="profileImage"
-                                    style="display:none;"
-                                )
-                            i(class="fas fa-camera" onClick="getBanner3()")
-                            a(href="#" onClick="getBanner3()") Editar
-            div#maisInfo
-                header
-                    h3 Mais informações
+            section(id="config")
+                article(id="configArticle")
+                    div#dadosOng
+                        header
+                            h3 Dados Ong
+                        if query.section == "globalInfo"
+                            include partials/messages.pug
+                            include partials/formGlobalInfo.pug
+                        else
+                            table
+                                tr
+                                    td Nome
+                                    td #{displayName}
+                                tr
+                                    td Email
+                                    td #{email}
+                                tr
+                                    td CNPJ
+                                    td #{cnpj}
+                            a(class="btndefault" href="/ong/config?section=globalInfo") EDITAR
+                    div#enderecoOng
+                        header
+                            h3 Endereço da ONG
+                        if query.section == "ongAddress"
+                            include partials/messages.pug
+                            include partials/formOngAddress.pug
+                        else
+                            table
+                                tr
+                                    td Endereço
+                                    td #{publicInfo.address.street}
+                                tr
+                                    td Estado
+                                    td #{publicInfo.address.state}
+                                tr
+                                    td Cidade
+                                    td #{publicInfo.address.city}
+                                tr
+                                    td CEP
+                                    td #{publicInfo.address.cep}
+                                tr
+                                    td Telefone
+                                    td #{publicInfo.tel}
+                            a(class="btndefault" href="/ong/config?section=ongAddress") EDITAR
+                    div#bannersOng
+                        header
+                            h3 Banners de divulgação
+                        div#bannersShare
+                            div(id="banner1" style="background-image: url(/images/modelbanner.png);")
+                                div.shadowBanner
+                                div.editarBanner
+                                    form(
+                                        id="banner1Form"
+                                        method="POST"
+                                        action="/ong/config/changeBanner1"
+                                        enctype="multipart/form-data")
+                                        input(
+                                            onchange="saveBanner1()"
+                                            type="file"
+                                            accept=".png, .jpg, .jpeg"
+                                            id="bannerInput1"
+                                            name="bannerInput1"
+                                            style="display:none;"
+                                        )
+                                    i(class="fas fa-camera" onClick="getBanner1()")
+                                    a(onClick="getBanner1()") Editar
+                            div(id="banner2" style="background-image: url(/images/modelbanner.png);")
+                                div.shadowBanner
+                                div.editarBanner
+                                    form(
+                                        id="banner2Form"
+                                        method="POST"
+                                        action="/ong/config/changeBanner2"
+                                        enctype="multipart/form-data")
+                                        input(
+                                            onchange="saveBanner2()"
+                                            type="file"
+                                            accept=".png, .jpg, .jpeg"
+                                            id="bannerInput2"
+                                            name="bannerInput2"
+                                            style="display:none;"
+                                        )
+                                    i(class="fas fa-camera" onClick="getBanner2()")
+                                    a(onClick="getBanner2()") Editar
+                            div(id="banner3" style="background-image: url(/images/modelbanner.png);")
+                                div.shadowBanner
+                                div.editarBanner
+                                    form(
+                                        id="banner3Form"
+                                        method="POST"
+                                        action="/ong/config/changeBanner3"
+                                        enctype="multipart/form-data")
+                                        input(
+                                            onchange="saveBanner()"
+                                            type="file"
+                                            accept=".png, .jpg, .jpeg"
+                                            id="bannerInput3"
+                                            name="bannerInput3"
+                                            style="display:none;"
+                                        )
+                                    i(class="fas fa-camera" onClick="getBanner3()")
+                                    a(onClick="getBanner3()") Editar
+                    div#maisInfo
+                        header
+                            h3 Mais informações
         script(src="/js/main.js")
