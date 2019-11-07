@@ -62,6 +62,6 @@ app.use("/webfonts", express.static(__dirname + "/node_modules/@fortawesome/font
 
 app.use(routes);
 
-app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
-    console.log(`App Started on PORT ${process.env.PORT || 3000}`);
+app.listen(process.env.PORT || 80, '0.0.0.0', () => {
+    console.log(`App Started on PORT ${process.env.PORT || 80}`);
 });

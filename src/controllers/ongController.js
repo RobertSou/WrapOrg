@@ -94,6 +94,105 @@ module.exports = {
       });
     }
   },
+  saveBanner1(req, res){
+    let { originalname: name, size, filename: key } = req.file;
+    
+    let erros = [];
+
+    if(req.file == undefined){
+      erros.push({msg: 'Por favor, Insira uma imagem.'});
+    }
+
+    if(erros.length > 0){
+      res.render("configOng", {
+        erros,
+      });
+    } else {
+      Ong.findById(req.user.id, (e, user) => {
+
+        user.publicInfo.banner1.name = name;
+        user.publicInfo.banner1.size = size;
+        user.publicInfo.banner1.key = key;
+        user.publicInfo.banner1.url = process.env.appURI + '/files/' + key;
+
+        user.save((err) => {
+          if(err){
+            req.flash('cardError','Algum erro ocorreu ao salvar suas informações, tente novamente.');
+            res.redirect('/ong/config');
+          }else{
+            req.flash('cardSucess', 'Banner alterado com sucesso!');
+            res.redirect('/ong/config');
+          }
+        });
+      });
+    }
+  },
+  saveBanner2(req, res){
+    let { originalname: name, size, filename: key } = req.file;
+    
+    let erros = [];
+
+    if(req.file == undefined){
+      erros.push({msg: 'Por favor, Insira uma imagem.'});
+    }
+
+    if(erros.length > 0){
+      res.render("configOng", {
+        erros,
+      });
+    } else {
+      Ong.findById(req.user.id, (e, user) => {
+
+        user.publicInfo.banner2.name = name;
+        user.publicInfo.banner2.size = size;
+        user.publicInfo.banner2.key = key;
+        user.publicInfo.banner2.url = process.env.appURI + '/files/' + key;
+
+        user.save((err) => {
+          if(err){
+            req.flash('cardError','Algum erro ocorreu ao salvar suas informações, tente novamente.');
+            res.redirect('/ong/config');
+          }else{
+            req.flash('cardSucess', 'Banner alterado com sucesso!');
+            res.redirect('/ong/config');
+          }
+        });
+      });
+    }
+  },
+  saveBanner3(req, res){
+    let { originalname: name, size, filename: key } = req.file;
+
+    let erros = [];
+
+    if(req.file == undefined){
+      erros.push({msg: 'Por favor, Insira uma imagem.'});
+    }
+
+    if(erros.length > 0){
+      res.render("configOng", {
+        erros,
+      });
+    } else {
+      Ong.findById(req.user.id, (e, user) => {
+
+        user.publicInfo.banner3.name = name;
+        user.publicInfo.banner3.size = size;
+        user.publicInfo.banner3.key = key;
+        user.publicInfo.banner3.url = process.env.appURI + '/files/' + key;
+
+        user.save((err) => {
+          if(err){
+            req.flash('cardError','Algum erro ocorreu ao salvar suas informações, tente novamente.');
+            res.redirect('/ong/config');
+          }else{
+            req.flash('cardSucess', 'Banner alterado com sucesso!');
+            res.redirect('/ong/config');
+          }
+        });
+      });
+    }
+  },
   async globalInfo(req, res){
     let { 
       email, 

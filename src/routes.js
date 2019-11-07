@@ -37,6 +37,9 @@ routes.post("/ong/config/saveBanner", ensureAuthenticated, multer(multerConfig).
 routes.post("/ong/config/saveLogo", ensureAuthenticated, multer(multerConfig).single('profileImage'), ongController.saveLogo);
 routes.post("/ong/config/globalInfo", ensureAuthenticated, ongController.globalInfo);
 routes.post("/ong/config/ongAddress", ensureAuthenticated, ongController.ongAddress);
+routes.post("/ong/config/changeBanner1", ensureAuthenticated, multer(multerConfig).single('bannerInput1'), ongController.saveBanner1);
+routes.post("/ong/config/changeBanner2", ensureAuthenticated, multer(multerConfig).single('bannerInput2'), ongController.saveBanner2);
+routes.post("/ong/config/changeBanner3", ensureAuthenticated, multer(multerConfig).single('bannerInput3'), ongController.saveBanner3);
 
 routes.get('/logout',(req,res) => {
     req.logout();
