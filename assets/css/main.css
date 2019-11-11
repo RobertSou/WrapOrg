@@ -693,6 +693,11 @@ header#headerDash #headerContainer #rightContainer {
           flex-direction: row;
 }
 
+header#headerDash #headerContainer #leftContainer .menu-active i,
+header#headerDash #headerContainer #rightContainer .menu-active i {
+  color: #e35b5d !important;
+}
+
 header#headerDash #headerContainer #leftContainer a,
 header#headerDash #headerContainer #rightContainer a {
   padding: 10px;
@@ -1429,10 +1434,6 @@ body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage a {
   }
 }
 
-.menu-active i {
-  color: #e35b5d !important;
-}
-
 body {
   margin: 0;
   overflow-x: hidden;
@@ -1474,6 +1475,116 @@ body main#mainDashboard header.HeaderDashboard h4 {
   body main#mainDashboard {
     width: 70%;
     margin: 15px auto;
+  }
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body main#mainDashboardDonors {
+  width: calc(100% - 30px);
+  min-height: calc(100vh - 30px - 50px);
+  margin: 15px;
+  padding: 15px;
+  background-color: #FBFBFB;
+  -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+body main#mainDashboardDonors header.HeaderDashboard {
+  text-align: center;
+}
+
+body main#mainDashboardDonors header.HeaderDashboard h4 {
+  color: #f18052;
+}
+
+body main#mainDashboardDonors article#formDonationArticle form#formDonation fieldset {
+  border-color: #464353;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+body main#mainDashboardDonors article#formDonationArticle form#formDonation fieldset legend {
+  padding: 0 15px;
+  font-size: 1.6em;
+  font-family: 'UbuntuBold';
+  color: #464353;
+}
+
+body main#mainDashboardDonors article#formDonationArticle form#formDonation fieldset div.containerLabels {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (150px)[2];
+      grid-template-columns: repeat(2, 150px);
+  grid-gap: 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main#mainDashboardDonors article#formDonationArticle form#formDonation fieldset div.containerLabels label.labelContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+body main#mainDashboardDonors article#formDonationArticle form#formDonation fieldset div.containerLabels label.labelContainer input {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #464353;
+  margin: 0;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+body main#mainDashboardDonors article#formDonationArticle form#formDonation fieldset div.containerLabels label.labelContainer span {
+  font-family: 'UbuntuMedium';
+  font-size: 1.2em;
+  color: #464353;
+  cursor: pointer;
+}
+
+body main#mainDashboardDonors article#formDonationArticle form#formDonation input[type^="submit"] {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+  body main#mainDashboardDonors {
+    width: 90%;
+    margin: 15px auto;
+  }
+  body main#mainDashboardDonors article#formDonationArticle form#formDonation {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1368px) {
+  body main#mainDashboardDonors {
+    width: 75%;
+    margin: 15px auto;
+  }
+  body main#mainDashboardDonors article#formDonationArticle form#formDonation {
+    width: 45%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  body main#mainDashboardDonors {
+    width: 70%;
+    margin: 15px auto;
+  }
+  body main#mainDashboardDonors article#formDonationArticle form#formDonation {
+    width: 40%;
+    margin: 0 auto;
   }
 }
 

@@ -4,6 +4,7 @@ const multer = require("multer");
 const multerConfig = require("../config/multer");
 const doadorController = require("./controllers/doadorController");
 const ongController = require("./controllers/ongController");
+const donationController = require('./controllers/donationController');
 const { ensureAuthenticated, alredyLogged } = require('../config/auth');
 
 const routes = express.Router();
@@ -16,13 +17,14 @@ routes.get("/doador/", alredyLogged, (req, res) => res.redirect('/doador/login')
 routes.get("/doador/login", alredyLogged, doadorController.renderDoadorLogin);
 routes.get("/doador/registro", alredyLogged, doadorController.renderDoadorRegistro);
 routes.get("/doador/dashboard", ensureAuthenticated, doadorController.renderDashboard);
+routes.get("/doador/minhasDoacoes", ensureAuthenticated, donationController.renderMyDonations);
 routes.get("/doador/config", ensureAuthenticated, doadorController.renderConfig);
 //DOADOR POST Methods
 routes.post("/doador/login", doadorController.loginDoador);
 routes.post("/doador/registro", doadorController.registerDoador);
 routes.post("/doador/config/personalInfo", doadorController.editPersonal);
 routes.post("/doador/config/doadorAddress", doadorController.editAddress);
-routes.post("/doador/dashboard/donate", ensureAuthenticated, doadorController.makeDonation);
+routes.post("/doador/dashboard/donate", ensureAuthenticated, donationController.makeDonation);
 
 //ONG GET Methods
 routes.get("/ong/", alredyLogged, (req, res) => res.redirect('/ong/login'));
@@ -33,10 +35,10 @@ routes.get("/ong/config", ensureAuthenticated, ongController.renderConfig);
 //ONG POST Methods
 routes.post("/ong/login", ongController.loginOng);
 routes.post("/ong/registro", ongController.registerOng);
-routes.post("/ong/config/saveBanner", ensureAuthenticated, multer(multerConfig).single('bannerImage'), ongController.saveBanner);
-routes.post("/ong/config/saveLogo", ensureAuthenticated, multer(multerConfig).single('profileImage'), ongController.saveLogo);
 routes.post("/ong/config/globalInfo", ensureAuthenticated, ongController.globalInfo);
 routes.post("/ong/config/ongAddress", ensureAuthenticated, ongController.ongAddress);
+routes.post("/ong/config/saveBanner", ensureAuthenticated, multer(multerConfig).single('bannerImage'), ongController.saveBanner);
+routes.post("/ong/config/saveLogo", ensureAuthenticated, multer(multerConfig).single('profileImage'), ongController.saveLogo);
 routes.post("/ong/config/changeBanner1", ensureAuthenticated, multer(multerConfig).single('bannerInput1'), ongController.saveBanner1);
 routes.post("/ong/config/changeBanner2", ensureAuthenticated, multer(multerConfig).single('bannerInput2'), ongController.saveBanner2);
 routes.post("/ong/config/changeBanner3", ensureAuthenticated, multer(multerConfig).single('bannerInput3'), ongController.saveBanner3);

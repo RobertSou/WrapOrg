@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const doadorSchema = new mongoose.Schema({
+const doadorSchema = new Schema({
     firstname: {
         type: String,
         required: true,
@@ -21,6 +21,10 @@ const doadorSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    donations: [{
+        type: Schema.Types.ObjectId,
+        ref: 'doador'
+    }],
     connectInfo: {
         tel: Number,
         address: {
@@ -36,6 +40,4 @@ const doadorSchema = new mongoose.Schema({
     },
 });
 
-const doador = mongoose.model('doador', doadorSchema);
-
-module.exports = doador;
+module.exports = model('doador', doadorSchema);

@@ -8,7 +8,7 @@ html
                 div(id="leftContainer")
                     a(class="menu-active" href="/doador/dashboard" aria-label="Redireciona para o painel do Doador.")
                         i(class="fas fa-hands")
-                    a(href="/doador/doacoesPendentes" aria-label="Redireciona para doações pendentes do Doador.")
+                    a(href="/doador/minhasDoacoes" aria-label="Redireciona para doações pendentes do Doador.")
                         i(class="fas fa-bookmark")
                 div(class="dashboardName")
                     p #{displayName}
@@ -18,12 +18,49 @@ html
                     a(href="/logout" aria-label="Sai da conta do Doador.")
                         i(class="fas fa-sign-out-alt")
         // Body content
-        include partials/messages.pug
-        main(id="mainDashboard")
+        include partials/cards.pug
+        main(id="mainDashboardDonors")
             header.HeaderDashboard
                 h1 Bem vindo(a) #{displayName}
                 h4 Faça sua doação aqui.
             article#formDonationArticle
                 form#formDonation(action="/doador/dashboard/donate", method="POST")
-                    input(class="btndefault" type="submit", value="Doar")
+                    include partials/messages.pug
+                    fieldset(name="type")
+                        legend TIPO
+                        div.containerLabels
+                            label.labelContainer
+                                input#camisetas(type="checkbox", name="type" value="camisetas")
+                                span CAMISETAS
+                            label.labelContainer
+                                input#moletons(type="checkbox", name="type" value="moletons")
+                                span MOLETONS
+                            label.labelContainer
+                                input#calcas(type="checkbox", name="type" value="calças")
+                                span CALÇAS
+                            label.labelContainer
+                                input#meias(type="checkbox", name="type" value="meias") 
+                                span MEIAS
+                    fieldset(name="quality")
+                        legend QUALIDADE
+                        div.containerLabels
+                            label.labelContainer
+                                input#novo(type="radio", name="quality" value="novo" checked="checked")
+                                span NOVO
+                            label.labelContainer
+                                input#usado(type="radio", name="quality" value="usado")
+                                span USADO
+                    fieldset(name="qtd")
+                        legend QUANTIDADE
+                        div.containerLabels
+                            label.labelContainer
+                                input(type="radio", name="qtd" value="0-10" checked="checked")
+                                span 0-10
+                            label.labelContainer
+                                input(type="radio", name="qtd" value="10-20")
+                                span 10-20
+                            label.labelContainer
+                                input(type="radio", name="qtd" value="20-30")
+                                span 20-30
+                    input(class="btndefault" type="submit", value="DOAR")
         script(src="/js/main.js")

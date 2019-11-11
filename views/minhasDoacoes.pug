@@ -1,0 +1,30 @@
+doctype html
+html
+    include partials/header.pug
+    body
+        // Header
+        header(id="headerDash")
+            div(id="headerContainer")
+                div(id="leftContainer")
+                    a(href="/doador/dashboard" aria-label="Redireciona para o painel do Doador.")
+                        i(class="fas fa-hands")
+                    a(class="menu-active" href="/doador/minhasDoacoes" aria-label="Redireciona para doações pendentes do Doador.")
+                        i(class="fas fa-bookmark")
+                div(class="dashboardName")
+                    p #{displayName}
+                div(id="rightContainer")
+                    a(href="/doador/config" aria-label="Redireciona para página de configurações do Doador.")
+                        i(class="fas fa-cog")
+                    a(href="/logout" aria-label="Sai da conta do Doador.")
+                        i(class="fas fa-sign-out-alt")
+        // Body content
+        include partials/cards.pug
+        main(id="mainDashboardDonors")
+            header.HeaderDashboard
+                h1 Bem vindo(a) #{displayName}
+                h4 Vejas suas doações e remova-as.
+            article#myDonations
+                ul
+                    each val in myDonations
+                        li= val
+        script(src="/js/main.js")

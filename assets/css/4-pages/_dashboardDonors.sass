@@ -1,0 +1,82 @@
+body
+    margin: 0
+    overflow-x: hidden
+    //Main content
+    main#mainDashboardDonors
+        width: calc(100% - 30px)
+        min-height: calc(100vh - 30px - 50px)
+        margin: 15px
+        padding: 15px
+        background-color: $defaultLightGrey
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15)
+        header.HeaderDashboard
+            text-align: center
+            h4
+                color: $defaultDarkOrange
+        article#formDonationArticle
+            form#formDonation
+                fieldset
+                    border-color: $defaultDarkBlue
+                    border-radius: 5px
+                    margin-bottom: 20px
+                    legend
+                        padding: 0 15px
+                        font-size: 1.6em
+                        font-family: 'UbuntuBold'
+                        color: $defaultDarkBlue
+                    div.containerLabels
+                        display: grid
+                        grid-template-columns: repeat(2, 150px)
+                        grid-gap: 15px
+                        justify-content: center
+                        label.labelContainer
+                            display: flex
+                            align-items: center
+                            justify-items: center
+                            input
+                                width: 20px
+                                height: 20px
+                                border: 1px solid $defaultDarkBlue
+                                margin: 0
+                                margin-right: 5px
+                                cursor: pointer
+                            span
+                                font-family: 'UbuntuMedium'
+                                font-size: 1.2em
+                                color: $defaultDarkBlue
+                                cursor: pointer
+                input[type^="submit"]
+                    margin: 0 auto 
+    
+@media screen and (min-width: 1024px)
+    body
+        //Main content
+        main#mainDashboardDonors
+            width: 90%
+            margin: 15px auto
+            article#formDonationArticle
+                form#formDonation
+                    width: 50%
+                    margin: 0 auto
+    
+@media screen and (min-width: 1368px)
+    body
+        //Main content
+        main#mainDashboardDonors
+            width: 75%
+            margin: 15px auto
+            article#formDonationArticle
+                form#formDonation
+                    width: 45%
+                    margin: 0 auto
+    
+@media screen and (min-width: 1500px)
+    body
+        //Main content
+        main#mainDashboardDonors
+            width: 70%
+            margin: 15px auto
+            article#formDonationArticle
+                form#formDonation
+                    width: 40%
+                    margin: 0 auto

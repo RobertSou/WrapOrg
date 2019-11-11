@@ -1,23 +1,15 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const doacaoSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    email: {
-        type: String,
+const doacaoSchema = new Schema({
+    types: {
+        type: Array,
         required: true,
     },
     quantidade: {
-        type: Number,
-        required: true,
-    },
-    endereco: {
         type: String,
         required: true,
     },
-    telefone: {
+    qualidade: {
         type: String,
         required: true,
     },
@@ -27,6 +19,4 @@ const doacaoSchema = new mongoose.Schema({
     },
 });
 
-const doacoes = mongoose.model('doacoes', doacaoSchema);
-
-module.exports = doacoes;
+module.exports = model('doacoes', doacaoSchema);
