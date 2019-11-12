@@ -18,6 +18,7 @@ routes.get("/doador/login", alredyLogged, doadorController.renderDoadorLogin);
 routes.get("/doador/registro", alredyLogged, doadorController.renderDoadorRegistro);
 routes.get("/doador/dashboard", ensureAuthenticated, doadorController.renderDashboard);
 routes.get("/doador/minhasDoacoes", ensureAuthenticated, donationController.renderMyDonations);
+routes.post("/doador/minhasDoacoes/:donationId", ensureAuthenticated, donationController.deleteDonation);
 routes.get("/doador/config", ensureAuthenticated, doadorController.renderConfig);
 //DOADOR POST Methods
 routes.post("/doador/login", doadorController.loginDoador);

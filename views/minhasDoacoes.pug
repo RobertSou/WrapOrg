@@ -19,12 +19,31 @@ html
                         i(class="fas fa-sign-out-alt")
         // Body content
         include partials/cards.pug
-        main(id="mainDashboardDonors")
+        main(id="mainMyDonations")
             header.HeaderDashboard
                 h1 Bem vindo(a) #{displayName}
-                h4 Vejas suas doações e remova-as.
+                h4 Gerencie suas doações.
             article#myDonations
                 ul
                     each val in myDonations
-                        li= val
+                        li.donationList
+                            div.DonationContainer
+                                div#infoDonation
+                                    p Peças:
+                                        span #{val.types}
+                                    p Qualidade das peças:
+                                        span #{val.quality}
+                                    p Quantidade de peças:
+                                        span #{val.qtd}
+                                div#AddressDonation
+                                    p Cidade:
+                                        span #{connectInfo.address.city}
+                                    p Rua:
+                                        span #{connectInfo.address.street}
+                                    p CEP:
+                                        span #{connectInfo.address.cep}
+                                    p Telefone para contato:
+                                        span #{connectInfo.tel}
+                                form(method="POST" action=`/doador/minhasDoacoes/${val._id}`)
+                                    button(type="submit" id="DeleteBtn") DELETAR
         script(src="/js/main.js")

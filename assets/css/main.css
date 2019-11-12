@@ -1588,6 +1588,92 @@ body main#mainDashboardDonors article#formDonationArticle form#formDonation inpu
   }
 }
 
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body main#mainMyDonations {
+  width: calc(100% - 30px);
+  min-height: calc(100vh - 30px - 50px);
+  margin: 15px;
+  padding: 15px;
+  background-color: #FBFBFB;
+  -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+body main#mainMyDonations header.HeaderDashboard {
+  text-align: center;
+}
+
+body main#mainMyDonations header.HeaderDashboard h4 {
+  color: #f18052;
+}
+
+body main#mainMyDonations article#myDonations ul {
+  margin: 0;
+  padding: 0;
+}
+
+body main#mainMyDonations article#myDonations ul li.donationList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #464353;
+  padding: 15px;
+  margin-bottom: 2px;
+}
+
+body main#mainMyDonations article#myDonations ul li.donationList div.DonationContainer p {
+  color: #5BE381;
+  font-family: 'UbuntuMedium';
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+body main#mainMyDonations article#myDonations ul li.donationList div.DonationContainer p span {
+  color: #FBFBFB;
+  margin-left: 5px;
+  font-size: 1.0em;
+  font-family: 'UbuntuLight';
+}
+
+@media screen and (min-width: 1024px) {
+  body main#mainMyDonations {
+    width: 90%;
+    margin: 15px auto;
+  }
+  body main#mainMyDonations article#myDonations {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1368px) {
+  body main#mainMyDonations {
+    width: 75%;
+    margin: 15px auto;
+  }
+  body main#mainMyDonations article#myDonations {
+    width: 55%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  body main#mainMyDonations {
+    width: 70%;
+    margin: 15px auto;
+  }
+  body main#mainMyDonations article#myDonations {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
 body main#mainConfigDoador {
   width: calc(100% - 30px);
   min-height: calc(100vh - 30px - 50px);

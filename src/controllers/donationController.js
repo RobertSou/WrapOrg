@@ -1,35 +1,33 @@
 const Donation = require('../models/doacoesModel');
-const Doador = require('../models/doadorModel');
 
 module.exports = {
     async renderMyDonations(req, res){
-        const { firstname, donations } = req.user;
+        const { firstname, connectInfo } = req.user;
         
-        const allDonations = await Donation.find({
-            _id: { 
-                $in: donations
-            }
-        });
+        const myDonations = await Donation.find(
+            {user: req.user._id}
+        );
 
         let erros = [];
 
-        if(allDonations){;
+        if(myDonations){
             res.render("minhasDoacoes", {
-                displayName: firstname, 
-                myDonations: allDonations,
+                displayName: firstname,
+                connectInfo,
+                myDonations,
             });
         } else {
             erros.push({msg: 'Você não fez nenhuma doação ainda!'});
             res.render("minhasDoacoes", {
                 erros,
                 displayName: firstname,
+                connectInfo,
             });
         }
     },
-    async makeDonation(req, res, next){
+    async makeDonation(req, res){
         const { connectInfo } = req.user;
         const { type, quality, qtd } = req.body;
-        const loggedDonor = await Doador.findById(req.user);
 
         let erros = [];
 
@@ -50,19 +48,31 @@ module.exports = {
             res.render("dashboardDoador", {
               erros,
               displayName: firstname,
+              connectInfo,
             });
           }else{
 
             const newDonation = new Donation({
+                user: req.user._id,
                 types: type,
-                qualidade: quality,
-                quantidade: qtd,
+                quality,
+                qtd,
             });
+
             await newDonation.save();
-            loggedDonor.donations.push(newDonation._id);
-            await loggedDonor.save();
+            
             req.flash('cardSucess', 'Doação salva com sucesso, para ve-la vá a pagina de doações.');
             res.redirect('/doador/dashboard');    
+        }
+    },
+    async deleteDonation(req, res){
+        try{
+            await Donation.findByIdAndRemove(req.params.donationId);
+            req.flash('cardSucess', 'Doação removida com sucesso.');
+            res.redirect('/doador/minhasDoacoes');
+        }catch(e){
+            req.flash('cardError', 'Falha ao remover doação, tente novamente.');
+            res.redirect('/doador/minhasDoacoes');
         }
     },
 }

@@ -21,10 +21,6 @@ const doadorSchema = new Schema({
         type: Number,
         required: true,
     },
-    donations: [{
-        type: Schema.Types.ObjectId,
-        ref: 'doador'
-    }],
     connectInfo: {
         tel: Number,
         address: {
@@ -40,4 +36,4 @@ const doadorSchema = new Schema({
     },
 });
 
-module.exports = model('doador', doadorSchema);
+module.exports = model('donor', doadorSchema);

@@ -1,0 +1,71 @@
+body
+    margin: 0
+    overflow-x: hidden
+    //Main content
+    main#mainMyDonations
+        width: calc(100% - 30px)
+        min-height: calc(100vh - 30px - 50px)
+        margin: 15px
+        padding: 15px
+        background-color: $defaultLightGrey
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15)
+        header.HeaderDashboard
+            text-align: center
+            h4
+                color: $defaultDarkOrange
+        article#myDonations
+            ul
+                margin: 0
+                padding: 0
+                li.donationList
+                    display: flex
+                    width: 100%
+                    border-radius: 4px
+                    background-color: $defaultDarkBlue
+                    padding: 15px
+                    margin-bottom: 2px
+                    div.DonationContainer
+                        p
+                            color: $defaultGreen
+                            font-family: 'UbuntuMedium'
+                            font-size: 1.5em
+                            margin-bottom: 5px
+                            span
+                                color: $defaultLightGrey
+                                margin-left: 5px
+                                font-size: 1.0em
+                                font-family: 'UbuntuLight'
+                        form
+                            button#DeleteBtn
+                                
+
+        
+@media screen and (min-width: 1024px)
+    body
+        //Main content
+        main#mainMyDonations
+            width: 90%
+            margin: 15px auto
+            article#myDonations
+                width: 60%
+                margin: 0 auto
+    
+@media screen and (min-width: 1368px)
+    body
+        //Main content
+        main#mainMyDonations
+            width: 75%
+            margin: 15px auto
+            article#myDonations
+                width: 55%
+                margin: 0 auto
+    
+@media screen and (min-width: 1500px)
+    body
+        //Main content
+        main#mainMyDonations
+            width: 70%
+            margin: 15px auto
+            article#myDonations
+                width: 50%
+                margin: 0 auto

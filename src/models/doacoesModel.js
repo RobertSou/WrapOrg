@@ -1,15 +1,20 @@
 const { Schema, model } = require('mongoose');
 
 const doacaoSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'doador',
+        required: true,
+    },
     types: {
         type: Array,
         required: true,
     },
-    quantidade: {
+    quality: {
         type: String,
         required: true,
     },
-    qualidade: {
+    qtd: {
         type: String,
         required: true,
     },
@@ -19,4 +24,4 @@ const doacaoSchema = new Schema({
     },
 });
 
-module.exports = model('doacoes', doacaoSchema);
+module.exports = model('donations', doacaoSchema);
