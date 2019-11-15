@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const ongSchema = new mongoose.Schema({
+const ongSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -12,11 +12,18 @@ const ongSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
+        lowercase: true,
     },
     password: {
         type: String,
         required: true,
     },
+    pendingDonations: [{
+        type: Schema.Types.ObjectId,
+        ref: 'donations',
+        required: false,
+    }],
     publicInfo: {
         logo: {
             name: String,
@@ -97,6 +104,6 @@ const ongSchema = new mongoose.Schema({
     },
 });
 
-const ong = mongoose.model('ong', ongSchema);
+const ong = model('ong', ongSchema);
 
 module.exports = ong;

@@ -28,6 +28,9 @@ docker-compose up -d
 
 ## Development Env
 
+//TODO: Add location references points to be used in the API
+//TODO: Add QR code
+
 mongodbURI=mongodb://mongodb:27017/wraporg
 mongodbURI=mongodb://localhost:27017/wraporg
 PORT=3000

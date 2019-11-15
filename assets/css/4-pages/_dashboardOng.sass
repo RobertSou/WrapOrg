@@ -13,24 +13,62 @@ body
             text-align: center
             h4
                 color: $defaultDarkOrange
+        section#allDonations
+            article#donations
+                ul
+                    margin: 0
+                    padding: 0
+                    li.donationList
+                        display: flex
+                        margin-bottom: 15px
+                        div.DonationContainer
+                            display: flex
+                            justify-content: space-between
+                            width: 100%
+                            padding: 15px
+                            border-radius: 5px
+                            //height: 100px
+                            background-color: $defaultDarkBlue
+                            h4
+                                margin: 0
+                                &:nth-child(1)
+                                    color: $defaultGreen
+                                &:nth-child(2)
+                                    color: $defaultLightGrey
+                            h5
+                                margin: 0
+                                color: $defaultLightGrey
+                            form
+                                button#getDonationBtn
+                                    width: auto !important
+                                    background: none !important
+                                    color: $defaultGreen !important
+                                    i
+                                        font-size: 1.6em
     
 @media screen and (min-width: 1024px)
     body
-        //Main content
         main#mainDashboard
             width: 90%
             margin: 15px auto
+            section#allDonations
+                width: 70%
+                margin: 0 auto
     
 @media screen and (min-width: 1368px)
     body
-        //Main content
         main#mainDashboard
             width: 75%
             margin: 15px auto
+            section#allDonations
+                width: 65%
+                margin: 0 auto
     
 @media screen and (min-width: 1500px)
     body
-        //Main content
         main#mainDashboard
             width: 70%
             margin: 15px auto
+            section#allDonations
+                width: 60%
+                margin: 0 auto

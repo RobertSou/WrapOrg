@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const doacaoSchema = new Schema({
-    user: {
+    donor: {
         type: Schema.Types.ObjectId,
-        ref: 'doador',
+        ref: 'donor',
         required: true,
     },
     types: {
@@ -17,6 +17,11 @@ const doacaoSchema = new Schema({
     qtd: {
         type: String,
         required: true,
+    },
+    pendingToOng: {
+        type: Boolean,
+        required: true,
+        default: false,
     },
     date: {
         type: Date,

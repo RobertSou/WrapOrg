@@ -1,0 +1,57 @@
+doctype html
+html(lang="pt-br")
+    include partials/header.pug
+    body
+        // Header
+        header(id="headerDash")
+            div(id="headerContainer")
+                div(id="leftContainer")
+                    a(href="/ong/dashboard" aria-label="Redireciona para o painel da Ong.")
+                        i(class="fas fa-hands")
+                    a(class="menu-active" href="/ong/doacoesPendentes" aria-label="Redireciona para a lista de doações da Ong.")
+                        i(class="fas fa-bookmark")
+                div(class="dashboardName")
+                    p #{displayName}
+                div(id="rightContainer")
+                    a(href="/ong/config" aria-label="Redireciona para página de configuração da Ong.")
+                        i(class="fas fa-cog")
+                    a(href="/logout" aria-label="Sai da conta da Ong.")
+                        i(class="fas fa-sign-out-alt")
+        // Body content
+        include partials/cards.pug
+        main(id="mainDashboard")
+            header.HeaderDashboard
+                h1 Doações pendentes
+                h4 Doações esperando sua coleta!
+            section#pendingDonations
+                article#donations
+                    if pendingDonations.length == 0
+                        h3.dashboardEmptyMsg Sem doações pendentes
+                    else
+                        ul
+                            each val in pendingDonations
+                                li.donationList
+                                    div.DonationContainer
+                                        div#infoDonation
+                                            div#donationInfo
+                                                h4 #{val.qtd} #{val.types}
+                                                h4 #{val.donor.connectInfo.address.street}, #{val.donor.connectInfo.address.city} - #{val.donor.connectInfo.address.cep}
+                                            div#donationBtn
+                                                button(type="submit" id="arrowDownBtn")
+                                                    i(class="fas fa-arrow-down")
+                                                form(method="POST" action=`/ong/pendingDonations/removeDonation/${val._id}`)
+                                                    button(type="submit" id="deleteBtn")
+                                                        i(class="fas fa-trash-alt")
+                                        div#moreInfo
+                                            p Doador: 
+                                                span #{val.donor.firstname} #{val.donor.lastname}
+                                            p tel:
+                                                span #{val.donor.connectInfo.tel}
+                                            p Cidade:
+                                                span #{val.donor.connectInfo.address.city}
+                                            p Rua: 
+                                                span #{val.donor.connectInfo.address.street}
+                                            p cep: 
+                                                span #{val.donor.connectInfo.address.cep}
+                                            button(type="submit" id="deleteBtn") Confirmar com qrcode
+        script(src="/js/main.js")

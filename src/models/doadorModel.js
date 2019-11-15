@@ -16,6 +16,8 @@ const doadorSchema = new Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
+        lowercase: true,
     },
     cpf: {
         type: Number,

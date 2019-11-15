@@ -1,11 +1,12 @@
 const Donation = require('../models/doacoesModel');
+const Ong = require('../models/ongModel');
 
 module.exports = {
     async renderMyDonations(req, res){
         const { firstname, connectInfo } = req.user;
         
         const myDonations = await Donation.find(
-            {user: req.user._id}
+            {donor: req.user._id}
         );
 
         let erros = [];
@@ -53,7 +54,7 @@ module.exports = {
           }else{
 
             const newDonation = new Donation({
-                user: req.user._id,
+                donor: req.user._id,
                 types: type,
                 quality,
                 qtd,
@@ -71,8 +72,45 @@ module.exports = {
             req.flash('cardSucess', 'Doação removida com sucesso.');
             res.redirect('/doador/minhasDoacoes');
         }catch(e){
+            console.log(e);
             req.flash('cardError', 'Falha ao remover doação, tente novamente.');
             res.redirect('/doador/minhasDoacoes');
+        }
+    },
+    //===============
+    // ONG DONATION
+    //==============
+    async getDonation(req, res){
+        try{
+            const ongUser = await Ong.findById(req.user.id);
+
+            await Donation.updateOne({_id: req.params.donationId}, {"$set": {"pendingToOng": true,}});
+            await ongUser.pendingDonations.push(req.params.donationId);
+    
+            await ongUser.save();
+
+            req.flash('cardSucess', 'Doação pendente, entre em contato com o doador para buscar.');
+            res.redirect('/ong/dashboard');
+        }catch(e){
+            console.log(e);
+            req.flash('cardError', 'Falha ao pegar doação, talvez um ong a escolheu primeiro.');
+            res.redirect('/ong/dashboard');
+        }
+    },
+    async removeDonationOng(req, res){
+        try{
+            const ongUser = await Ong.findById(req.user.id);
+
+            await Donation.updateOne({_id: req.params.donationId}, {"$set": {"pendingToOng": false,}});
+           
+            await ongUser.updateOne({$pull: {pendingDonations: req.params.donationId}});
+    
+            req.flash('cardSucess', 'Doação removida com sucesso, você podera ve-lâ novamente na página inicial.');
+            res.redirect('/ong/pendingDonations');
+        }catch(e){
+            console.log(e);
+            req.flash('cardError', 'Falha ao remover doação, tente novamente ou contate o suporte.');
+            res.redirect('/ong/pendingDonations');
         }
     },
 }

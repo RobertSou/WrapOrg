@@ -1,11 +1,28 @@
 const Ong = require('../models/ongModel');
+const Donation = require('../models/doacoesModel');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 module.exports = {
-  renderDashboard(req, res){
+  async renderDashboard(req, res){
     let { name } = req.user;
-    res.render("dashboardOng", { displayName: name });
+
+    const allDonations = await Donation.find({pendingToOng: {$ne: true}}).populate('donor', 'firstname lastname email connectInfo');
+
+    res.render("dashboardOng", { 
+      displayName: name,
+      allDonations,
+     });
+  },
+  async renderPendingDonations(req, res){
+    let { name } = req.user;
+
+    const pendingDonations = await Donation.find({pendingToOng: {$ne: false}}).populate('donor', 'firstname lastname email connectInfo');
+
+    res.render("pendingDonations", {
+      displayName: name,
+      pendingDonations,
+     });
   },
   renderOngLogin(req, res) {
     res.render("ongLogin");

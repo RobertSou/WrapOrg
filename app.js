@@ -19,9 +19,13 @@ const routes = require("./src/routes");
 const db = require('./config/keys').MongoURI;
 
 //Connect Mongo
-mongoose.connect(db.toString(), { useNewUrlParser: true, useUnifiedTopology: true })
-    .catch(e => console.log(e));
-
+mongoose.connect(db.toString(), { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useCreateIndex: true, 
+    useFindAndModify: false 
+    }).catch(e => console.log(e));
+    
 app.set("view engine", "pug");
 
 //Session

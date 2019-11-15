@@ -8,7 +8,7 @@ html(lang="pt-br")
                 div(id="leftContainer")
                     a(class="menu-active" href="/ong/dashboard" aria-label="Redireciona para o painel da Ong.")
                         i(class="fas fa-hands")
-                    a(href="/ong/doacoesPendentes" aria-label="Redireciona para a lista de doações da Ong.")
+                    a(href="/ong/pendingDonations" aria-label="Redireciona para a lista de doações da Ong.")
                         i(class="fas fa-bookmark")
                 div(class="dashboardName")
                     p #{displayName}
@@ -18,9 +18,23 @@ html(lang="pt-br")
                     a(href="/logout" aria-label="Sai da conta da Ong.")
                         i(class="fas fa-sign-out-alt")
         // Body content
-        include partials/messages.pug
+        include partials/cards.pug
         main(id="mainDashboard")
             header.HeaderDashboard
                 h1 Bem vindo(a) #{displayName}
                 h4 Procurando uma doação?
+            section#allDonations
+                article#donations
+                    ul
+                        each val in allDonations
+                            li.donationList
+                                div.DonationContainer
+                                    div#donationInfo
+                                        h4 #{val.qtd} #{val.types}
+                                        h4 #{val.donor.connectInfo.address.street}, #{val.donor.connectInfo.address.city} - #{val.donor.connectInfo.address.cep}
+                                        h5 Doador: #{val.donor.firstname} #{val.donor.lastname}
+                                    div#donationBtn
+                                        form(method="POST" action=`/ong/dashboard/getDonation/${val._id}`)
+                                            button(type="submit" id="getDonationBtn")
+                                                i(class="fas fa-check")
         script(src="/js/main.js")
