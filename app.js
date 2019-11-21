@@ -6,25 +6,28 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const passport = require('passport');
 
-//Initialize express
 const app = express();
+const server = require('http').createServer(app);
 
 // Passport config
 require('./config/passport')(passport);
-
-//Routes
-const routes = require("./src/routes");
 
 //DB CONFIG
 const db = require('./config/keys').MongoURI;
 
 //Connect Mongo
-mongoose.connect(db.toString(), { 
+mongoose.connect(
+    db.toString(), { 
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
     useCreateIndex: true, 
     useFindAndModify: false 
-    }).catch(e => console.log(e));
+    }, err => {
+        if(err) console.log(err);
+    });
+
+//Routes
+const routes = require("./src/routes");
     
 app.set("view engine", "pug");
 
@@ -66,6 +69,6 @@ app.use("/webfonts", express.static(__dirname + "/node_modules/@fortawesome/font
 
 app.use(routes);
 
-app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
-    console.log(`App Started on PORT ${process.env.PORT || 3000}`);
+server.listen(process.env.PORT || 80, '0.0.0.0', () => {
+    console.log(`App Started on PORT ${process.env.PORT || 80}`);
 });

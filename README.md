@@ -2,6 +2,12 @@
 
 TCC Redes de computadores
 
+# Description
+    Wraporg is a project that helps ongs and donors to connect easily.
+
+### TODO: Add location references points to be used in the API
+### TODO: Add QR code
+
 ## Commands Development
 
 docker-compose -f docker-compose.development.yml up --build
@@ -27,10 +33,5 @@ docker-compose build
 docker-compose up -d
 
 ## Development Env
-
-//TODO: Add location references points to be used in the API
-//TODO: Add QR code
-
-mongodbURI=mongodb://mongodb:27017/wraporg
 mongodbURI=mongodb://localhost:27017/wraporg
-PORT=3000
+PORT=80

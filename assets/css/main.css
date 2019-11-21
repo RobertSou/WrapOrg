@@ -1787,7 +1787,7 @@ body main#mainDashboard section#pendingDonations article#donations ul li.donatio
   background-color: #464353;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.infoDonation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1796,19 +1796,19 @@ body main#mainDashboard section#pendingDonations article#donations ul li.donatio
           justify-content: space-between;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation div#donationInfo h4 {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.infoDonation div.donationInfo h4 {
   margin: 0;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation div#donationInfo h4:nth-child(1) {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.infoDonation div.donationInfo h4:nth-child(1) {
   color: #5BE381;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation div#donationInfo h4:nth-child(2) {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.infoDonation div.donationInfo h4:nth-child(2) {
   color: #FBFBFB;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation div#donationBtn {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.infoDonation div.donationBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1818,36 +1818,32 @@ body main#mainDashboard section#pendingDonations article#donations ul li.donatio
           flex-direction: row;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation div#donationBtn button {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.infoDonation div.donationBtn button {
   width: auto !important;
   background: none !important;
   margin: 0 5px;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation div#donationBtn button i {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.infoDonation div.donationBtn button i {
   font-size: 1.6em;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation div#donationBtn button#arrowDownBtn {
-  color: #FBFBFB !important;
-}
-
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div#infoDonation div#donationBtn button#deleteBtn {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.infoDonation div.donationBtn button.deleteBtn {
   color: #e35b5d !important;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div#moreInfo {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.moreInfo {
   margin-top: 5px;
   border-top: 1px solid #FBFBFB;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div#moreInfo p {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.moreInfo p {
   color: #5BE381;
   font-size: 1.6em;
   margin: 5px 0;
 }
 
-body main#mainDashboard section#pendingDonations article#donations ul li.donationList div#moreInfo p span {
+body main#mainDashboard section#pendingDonations article#donations ul li.donationList div.DonationContainer div.moreInfo p span {
   color: #FBFBFB;
 }
 

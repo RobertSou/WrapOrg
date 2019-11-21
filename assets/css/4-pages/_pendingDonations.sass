@@ -26,17 +26,17 @@ body
                             padding: 15px
                             border-radius: 5px
                             background-color: $defaultDarkBlue
-                            div#infoDonation
+                            div.infoDonation
                                 display: flex
                                 justify-content: space-between
-                                div#donationInfo
+                                div.donationInfo
                                     h4
                                         margin: 0
                                         &:nth-child(1)
                                             color: $defaultGreen
                                         &:nth-child(2)
                                             color: $defaultLightGrey
-                                div#donationBtn
+                                div.donationBtn
                                     display: flex
                                     flex-direction: row
                                     button
@@ -45,20 +45,17 @@ body
                                         margin: 0 5px
                                         i
                                             font-size: 1.6em
-                                    button#arrowDownBtn
-                                        color: $defaultLightGrey !important
-                                    button#deleteBtn
+                                    button.deleteBtn
                                         color: $defaultRed !important
-                        div#moreInfo
-                            margin-top: 5px
-                            border-top: 1px solid $defaultLightGrey
-                            p
-                                color: $defaultGreen
-                                font-size: 1.6em
-                                margin: 5px 0
-                                span
-                                    color: $defaultLightGrey
-                                        
+                            div.moreInfo
+                                margin-top: 5px
+                                border-top: 1px solid $defaultLightGrey
+                                p
+                                    color: $defaultGreen
+                                    font-size: 1.6em
+                                    margin: 5px 0
+                                    span
+                                        color: $defaultLightGrey
     
 @media screen and (min-width: 1024px)
     body

@@ -6,7 +6,7 @@ const passport = require('passport');
 module.exports = {
   async renderDashboard(req, res){
     let { name } = req.user;
-
+    
     const allDonations = await Donation.find({pendingToOng: {$ne: true}}).populate('donor', 'firstname lastname email connectInfo');
 
     res.render("dashboardOng", { 

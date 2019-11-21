@@ -32,17 +32,15 @@ html(lang="pt-br")
                             each val in pendingDonations
                                 li.donationList
                                     div.DonationContainer
-                                        div#infoDonation
-                                            div#donationInfo
+                                        div.infoDonation
+                                            div.donationInfo
                                                 h4 #{val.qtd} #{val.types}
                                                 h4 #{val.donor.connectInfo.address.street}, #{val.donor.connectInfo.address.city} - #{val.donor.connectInfo.address.cep}
-                                            div#donationBtn
-                                                button(type="submit" id="arrowDownBtn")
-                                                    i(class="fas fa-arrow-down")
+                                            div.donationBtn
                                                 form(method="POST" action=`/ong/pendingDonations/removeDonation/${val._id}`)
                                                     button(type="submit" id="deleteBtn")
                                                         i(class="fas fa-trash-alt")
-                                        div#moreInfo
+                                        div(class=`moreInfo`)
                                             p Doador: 
                                                 span #{val.donor.firstname} #{val.donor.lastname}
                                             p tel:
@@ -53,5 +51,6 @@ html(lang="pt-br")
                                                 span #{val.donor.connectInfo.address.street}
                                             p cep: 
                                                 span #{val.donor.connectInfo.address.cep}
-                                            button(type="submit" id="deleteBtn") Confirmar com qrcode
+                                            button(type="submit") Confirmar com qrcode
         script(src="/js/main.js")
+        script(src="/js/ong-pendingDonations.js")
