@@ -4,6 +4,7 @@ const multer = require("multer");
 const multerConfig = require("../config/multer");
 const doadorController = require("./controllers/doadorController");
 const ongController = require("./controllers/ongController");
+const apiController = require("./controllers/apiController");
 const donationController = require('./controllers/donationController');
 const { ensureAuthenticated, alredyLogged } = require('../config/auth');
 
@@ -29,6 +30,7 @@ routes.post("/doador/config/doadorAddress", doadorController.editAddress);
 
 //ONG GET Methods
 routes.get("/ong/", alredyLogged, (req, res) => res.redirect('/ong/login'));
+routes.get("/api/", alredyLogged, apiController.showAllOngs);
 routes.get("/ong/login", alredyLogged, ongController.renderOngLogin);
 routes.get("/ong/registro", alredyLogged, ongController.renderOngRegistro);
 routes.get("/ong/dashboard", ensureAuthenticated, ongController.renderDashboard);
