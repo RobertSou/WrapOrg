@@ -29,7 +29,7 @@
 
 ## Development Env
     appURI=192.168.xxx.xxx
-    mongodbURI=mongodb://localhost:27017/wraporg
+    mongodbURI=mongodb://127.0.0.1:27017/wraporg
     PORT=80
 
 ## Create Upload folders
