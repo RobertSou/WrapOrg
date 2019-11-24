@@ -28,8 +28,7 @@
     docker-compose up -d
 
 ## Development Env
-    appURI=http://localhost
-    servidorURI=192.168.xxx.xxx
+    appURI=192.168.xxx.xxx
     mongodbURI=mongodb://localhost:27017/wraporg
     PORT=80
 
