@@ -31,7 +31,7 @@ const ongSchema = new Schema({
             key: String,
             url: {
                 type: String,
-                default: `${process.env.appURI}/images/logoModel.svg`,
+                default: `${process.env.servidorURI}/images/logoModel.svg`,
             },
             createdAt: {
                 type: Date,
@@ -44,7 +44,7 @@ const ongSchema = new Schema({
             key: String,
             url: {
                 type: String,
-                default: `${process.env.appURI}/images/bannerModel.svg`,
+                default: `${process.env.servidorURI}/images/bannerModel.svg`,
             },
             createdAt: {
                 type: Date,
@@ -57,7 +57,7 @@ const ongSchema = new Schema({
             key: String,
             url: {
                 type: String,
-                default: `${process.env.appURI}/images/modelbanner.png`,
+                default: `${process.env.servidorURI}/images/modelbanner.png`,
             },
             createdAt: {
                 type: Date,

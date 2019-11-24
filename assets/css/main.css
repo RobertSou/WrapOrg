@@ -956,11 +956,11 @@ body #mLoginWrapper #boxLogin #form form.formDoador input[type^="submit"]:hover 
 body #mLoginWrapper #boxLogin #form p.linkToOtherPage {
   font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
-  color: #e35b5d;
+  color: #212121;
 }
 
 body #mLoginWrapper #boxLogin #form p.linkToOtherPage a {
-  color: #212121;
+  color: #e35b5d;
 }
 
 @media screen and (min-width: 768px) {
@@ -1103,11 +1103,11 @@ body #mRegistroWrapper #boxRegistro #form form.formDoador input[type^="submit"]:
 body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage {
   font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
-  color: #e35b5d;
+  color: #212121;
 }
 
 body #mRegistroWrapper #boxRegistro #form p.linkToOtherPage a {
-  color: #212121;
+  color: #e35b5d;
 }
 
 @media screen and (min-width: 768px) {
@@ -1250,11 +1250,11 @@ body main#mOngLoginWrapper div#boxOngLogin #form form.formDoador input[type^="su
 body main#mOngLoginWrapper div#boxOngLogin #form p.linkToOtherPage {
   font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
-  color: #e35b5d;
+  color: #212121;
 }
 
 body main#mOngLoginWrapper div#boxOngLogin #form p.linkToOtherPage a {
-  color: #212121;
+  color: #e35b5d;
 }
 
 @media screen and (min-width: 768px) {
@@ -1402,11 +1402,11 @@ body #mOngRegistroWrapper #boxOngRegistro #form form.formDoador input[type^="sub
 body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage {
   font-family: 'UbuntuBold', sans-serif;
   font-size: 16px;
-  color: #e35b5d;
+  color: #212121;
 }
 
 body #mOngRegistroWrapper #boxOngRegistro #form p.linkToOtherPage a {
-  color: #212121;
+  color: #e35b5d;
 }
 
 @media screen and (min-width: 768px) {
@@ -2029,6 +2029,8 @@ body div#logoPerfil {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  background-position: center;
+  background-size: cover;
   margin-left: 50px;
   border-radius: 50%;
   border: 3px solid #FBFBFB;

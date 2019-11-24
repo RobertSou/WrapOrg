@@ -9,9 +9,9 @@ html(lang="pt-br")
             div(id="boxOngLogin")
                 header.HeaderDoador
                     h1 Bem vindo ONG
-                    h4 Sua ONG precisa de uma ajuda para arrecadar doações e achar doadores? nós podemos ajudar.
+                    h4 Sua ONG precisa de uma ajuda para arrecadar doações e achar doadores? Nós podemos ajudar.
                 div#form
-                    h2 Login
+                    h2 Entrar
                     form.formDoador(action="/ong/login", method="post")
                         include partials/messages.pug
                         input#EmailLogin(
@@ -27,5 +27,5 @@ html(lang="pt-br")
                             value=typeof password != 'undefined' ? password : ''
                         )
                         input(type="submit" value="Entrar")
-                    p(class="linkToOtherPage") Não tem uma conta?
+                    p(class="linkToOtherPage") Não tem uma conta? 
                         a(href="/ong/registro" aria-label="Redireciona para página de registro da ONG.") Criar Conta.

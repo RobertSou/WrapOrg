@@ -9,9 +9,9 @@ html(lang="pt-br")
             div(id="boxRegistro")
                 header.HeaderDoador
                     h1 Bem vindo Doador(a)
-                    h4 Se você quer doar e não sabe como, aqui é a maneira mais fácil de fazer isso.
+                    h4 Se você quer doar e não sabe como, aqui é a melhor maneira para se fazer isso.
                 div#form
-                    h2 Registro
+                    h2 Cadastro
                     form.formDoador(action="/doador/registro", method="post")
                         include partials/messages.pug
                         input#firstname(
@@ -51,5 +51,5 @@ html(lang="pt-br")
                             value=typeof rpassword != 'undefined' ? rpassword : ''
                         )
                         input(type="submit" value="REGISTRAR")
-                    p(class="linkToOtherPage") Já tem uma conta?
+                    p(class="linkToOtherPage") Já tem uma conta? 
                         a(href="/doador/login" aria-label="Redireciona para página de login.") Fazer login.

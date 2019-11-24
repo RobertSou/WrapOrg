@@ -9,9 +9,9 @@ html(lang="pt-br")
             div(id="boxOngRegistro")
                 header.HeaderDoador
                     h1 Bem vindo ONG
-                    h4 Sua ONG precisa de uma ajuda para arrecadar doações e achar doadores? nós podemos ajudar.
+                    h4 Sua ONG precisa de uma ajuda para arrecadar doações e achar doadores? Nós podemos ajudar.
                 div#form
-                    h2 Registro
+                    h2 Cadastro
                     form.formDoador(action="/ong/registro", method="post")
                         include partials/messages.pug
                         input#nome(
@@ -51,5 +51,5 @@ html(lang="pt-br")
                             value=typeof rpassword != 'undefined' ? rpassword : ''
                         )
                         input(type="submit" value="REGISTRAR")
-                    p(class="linkToOtherPage") Já tem uma conta?
+                    p(class="linkToOtherPage") Já tem uma conta? 
                         a(href="/ong/login" aria-label="Redireciona para página de login da ONG.") Fazer login.
