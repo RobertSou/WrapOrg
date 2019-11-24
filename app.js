@@ -5,9 +5,16 @@ const session = require("express-session");
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const passport = require('passport');
+const fs = require('fs');
+
+const privateKey = fs.readFileSync("localhost.key", "utf8");
+
+const certificate = fs.readFileSync("localhost.cert", "utf8");
+
+const credentials = { key: privateKey, cert: certificate };
 
 const app = express();
-const server = require('http').createServer(app);
+const server = require('http').createServer(credentials, app);
 
 // Passport config
 require('./config/passport')(passport);
