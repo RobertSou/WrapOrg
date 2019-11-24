@@ -14,7 +14,7 @@ const certificate = fs.readFileSync("localhost.cert", "utf8");
 const credentials = { key: privateKey, cert: certificate };
 
 const app = express();
-const server = require('http').createServer(credentials, app);
+const server = require('http').createServer(app);
 
 // Passport config
 require('./config/passport')(passport);
